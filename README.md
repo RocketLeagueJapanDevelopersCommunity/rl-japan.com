@@ -117,6 +117,9 @@ type: オブジェクト形式
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 GA_ID=UA-xxxxxxxxx-x
+
+CALENDAR_KEY=ks2o548nji9f28b3th
+CALENDAR_API_KEY=abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234
 ```
 
 ## 開発方法
