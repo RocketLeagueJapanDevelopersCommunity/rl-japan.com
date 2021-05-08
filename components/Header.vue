@@ -18,7 +18,7 @@
             <a href="/events">イベント</a>
           </li>
           <li class="list">
-            <a href="/calender">カレンダー</a>
+            <nuxt-link :to="`/calendar`" class="link">カレンダー</nuxt-link>
           </li>
           <li class="list">
             <a href="/blog">ブログ</a>
