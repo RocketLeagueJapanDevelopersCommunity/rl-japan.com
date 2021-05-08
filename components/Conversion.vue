@@ -28,9 +28,7 @@
         target="site"
         :href="`/redirect?to=https%3A%2F%2Fdiscord.gg%2F5YwQNN9&utm_source=CTA&utm_medium=content-text&utm_campaign=blog-${id}-02`"
       >
-        <button class="button">
-          Discordで参加する
-        </button>
+        <button class="button">Discordで参加する</button>
       </a>
     </div>
   </div>
