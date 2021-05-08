@@ -48,8 +48,8 @@ export default {
   .category {
     display: inline-block;
     padding: 2px 8px;
-    border: 1px solid #331cbf;
-    color: #331cbf;
+    border: 1px solid #e9433b;
+    color: #e9433b;
     white-space: nowrap;
     border-radius: 3px;
     font-size: 14px;
@@ -91,8 +91,8 @@ export default {
   .category {
     display: inline-block;
     padding: 2px 8px;
-    border: 1px solid #331cbf;
-    color: #331cbf;
+    border: 1px solid #e9433b;
+    color: #e9433b;
     white-space: nowrap;
     border-radius: 3px;
     font-size: 14px;

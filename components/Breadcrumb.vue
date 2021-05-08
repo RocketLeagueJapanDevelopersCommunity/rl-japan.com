@@ -39,7 +39,7 @@ export default {
   color: #616269;
 
   a {
-    color: #331cbf;
+    color: #e9433b;
   }
 
   &::after {

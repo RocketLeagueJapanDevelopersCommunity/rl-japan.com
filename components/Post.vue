@@ -208,7 +208,7 @@ export default {
     }
 
     & >>> a {
-      color: #331cbf;
+      color: #e9433b;
       text-decoration: underline;
       word-wrap: break-word;
       word-break: break-all;

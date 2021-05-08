@@ -2,7 +2,8 @@
   <div>
     <header class="header">
       <h1 class="logo">
-        <a href="https://microcms.io">
+        <a href="/">
+          <img class="iconImg" src="/images/icon.svg" alt="microCMS" />
           <img class="logoImg" src="/images/logo.svg" alt="microCMS" />
         </a>
       </h1>
@@ -14,26 +15,16 @@
       <div class="menu" :class="{ isOpen: open }">
         <ul class="lists">
           <li class="list">
-            <a href="https://microcms.io/pricing">料金</a>
+            <a href="/events">イベント</a>
           </li>
           <li class="list">
-            <a href="https://document.microcms.io">ドキュメント</a>
+            <a href="/calender">カレンダー</a>
           </li>
           <li class="list">
-            <a href="https://blog.microcms.io">ブログ</a>
+            <a href="/blog">ブログ</a>
           </li>
           <li class="list">
-            <a href="https://microcms.io/contact">お問い合わせ</a>
-          </li>
-        </ul>
-        <ul class="lists">
-          <li class="list">
-            <a class="signin" href="https://app.microcms.io/signin">ログイン</a>
-          </li>
-          <li class="list">
-            <a class="signup" :href="`https://app.microcms.io${params}`"
-              >新規登録</a
-            >
+            <a href="/contact">お問い合わせ</a>
           </li>
         </ul>
       </div>
@@ -76,6 +67,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding: 12px 40px;
+    padding-left: 8rem;
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
     background-color: #fff;
@@ -99,7 +91,16 @@ export default {
   .logoImg {
     height: 28px;
   }
-
+  .iconImg {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    height: 5rem;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+  }
   .menuBtn {
     display: none;
   }
@@ -113,13 +114,13 @@ export default {
     display: flex;
     align-items: center;
 
-    &:first-child::after {
+    /* &:first-child::after {
       content: '';
       width: 1px;
       height: 30px;
       background-color: var(--color-text-off);
       margin-right: 40px;
-    }
+    } */
   }
 
   .list {
@@ -136,7 +137,7 @@ export default {
 
       &.signup {
         border-radius: 5px;
-        background: linear-gradient(to right bottom, #5630af, #3067af);
+        background: linear-gradient(to right bottom, #ecafac, #e9433b);
         color: #fff;
         text-align: center;
         padding: 8px 24px;
@@ -178,6 +179,9 @@ export default {
 
   .logoImg {
     height: 28px;
+  }
+  .iconImg {
+    display: none;
   }
 
   .menuBtn {
@@ -225,7 +229,7 @@ export default {
 
       &.signup {
         border-radius: 5px;
-        background: linear-gradient(to right bottom, #5630af, #3067af);
+        background: linear-gradient(to right bottom, #ecafac, #e9433b);
         color: #fff;
         text-align: center;
         font-weight: bold;

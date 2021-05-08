@@ -1,32 +1,36 @@
 <template>
   <div class="wrapper">
-    <h2 class="pageTitle">microCMSとは</h2>
+    <h2 class="pageTitle">ロケットリーグ Japan Communityのご紹介</h2>
     <ol class="lists">
       <li class="list">
-        <p><strong>開発者、編集者どちらも分かりやすい管理画面</strong></p>
+        <p><strong>初心者に優しい！</strong></p>
       </li>
       <li class="list">
-        <p><strong>細かな権限管理や豊富な外部サービス・データ連携</strong></p>
+        <p>
+          <strong>情報がたくさん得られる！</strong>
+        </p>
       </li>
       <li class="list">
-        <p><strong>安心の日本製・日本語でのチャットサポート</strong></p>
+        <p><strong>友達が見つかる！</strong></p>
       </li>
     </ol>
     <div class="actions">
       <a
         class="link"
         target="site"
-        :href="`https://microcms.io/?utm_source=CTA&utm_medium=content-text&utm_campaign=blog-${id}-01`"
-        >⇒日本製のヘッドレスCMS【microCMS】の詳細を見る<img
+        :href="`/redirect?to=https%3A%2F%2Fdiscord.gg%2F5YwQNN9&utm_source=CTA&utm_medium=content-text&utm_campaign=blog-${id}-01`"
+        >⇒ロケットリーグ Japan Communityでロケットリーグにもっとハマる。<img
           src="/images/icon_link.svg"
           alt=""
       /></a>
 
       <a
         target="site"
-        :href="`https://microcms.io/?utm_source=CTA&utm_medium=content-text&utm_campaign=blog-${id}-02`"
+        :href="`/redirect?to=https%3A%2F%2Fdiscord.gg%2F5YwQNN9&utm_source=CTA&utm_medium=content-text&utm_campaign=blog-${id}-02`"
       >
-        <button class="button">microCMSを無料で始める</button>
+        <button class="button">
+          Discordで参加する
+        </button>
       </a>
     </div>
   </div>
@@ -73,8 +77,8 @@ export default {
       width: 32px;
       height: 32px;
       border-radius: 16px;
-      background-color: #e5eff9;
-      color: var(--color-blue);
+      background-color: #fbd9d8;
+      color: #e9433b;
       font-weight: bold;
       margin-right: 10px;
     }
@@ -85,7 +89,7 @@ export default {
 
     strong {
       font-weight: bold;
-      background: linear-gradient(transparent 75%, #ffe0c1 75%);
+      background: linear-gradient(transparent 75%, #fbd9d8 75%);
     }
   }
 
@@ -110,7 +114,7 @@ export default {
   .button {
     border: none;
     border-radius: 5px;
-    background: linear-gradient(to right bottom, #5630af, #3067af);
+    background: linear-gradient(to right bottom, #ecafac, #e9433b);
     color: #fff;
     text-align: center;
     font-size: 24px;
@@ -119,7 +123,7 @@ export default {
     cursor: pointer;
 
     &:hover {
-      background: linear-gradient(to right bottom, #46209f, #20579f);
+      background: linear-gradient(to right bottom, #8e6967, #541815);
     }
   }
 }
@@ -151,8 +155,8 @@ export default {
       width: 32px;
       height: 32px;
       border-radius: 16px;
-      background-color: #e5eff9;
-      color: var(--color-blue);
+      background-color: #fbd9d8;
+      color: #e9433b;
       font-weight: bold;
       margin-right: 10px;
     }
@@ -163,7 +167,7 @@ export default {
 
     strong {
       font-weight: bold;
-      background: linear-gradient(transparent 75%, #ffe0c1 75%);
+      background: linear-gradient(transparent 75%, #fbd9d8 75%);
     }
   }
 
@@ -189,7 +193,7 @@ export default {
   .button {
     border: none;
     border-radius: 5px;
-    background: linear-gradient(to right bottom, #5630af, #3067af);
+    background: var(--color-gradient-red);
     color: #fff;
     text-align: center;
     font-size: 20px;
@@ -200,7 +204,7 @@ export default {
     cursor: pointer;
 
     &:hover {
-      background: linear-gradient(to right bottom, #46209f, #20579f);
+      background: linear-gradient(to right bottom, #8e6967, #541815);
     }
   }
 }

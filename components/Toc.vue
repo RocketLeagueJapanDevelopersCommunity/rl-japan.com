@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 .wrapper {
-  background-color: #f7f7fc;
+  background-color: #fdeceb;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 40px;
@@ -45,16 +45,16 @@ export default {
 .list {
   padding: 5px 0;
   font-size: 14px;
-  border-bottom: 1px solid #e7e7f3;
+  border-bottom: 1px solid #fbd9d8;
 
   a:hover {
-    color: #331cbf;
+    color: #e9433b;
   }
 
   &::before {
     content: '-';
     margin-right: 5px;
-    color: #cacae7;
+    color: #fbd9d8;
   }
 
   &.h2 {

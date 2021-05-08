@@ -99,7 +99,7 @@ export default {
   display: inline-block;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(to right bottom, #5630af, #3067af);
+  background: linear-gradient(to right bottom, #ecafac, #e9433b);
   color: #fff;
   text-align: center;
   font-size: 16px;
@@ -109,7 +109,7 @@ export default {
   margin-top: 10px;
 
   &:hover {
-    background: linear-gradient(to right bottom, #46209f, #20579f);
+    background: linear-gradient(to right bottom, #8e6967, #541815);
   }
 }
 
