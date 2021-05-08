@@ -133,7 +133,7 @@ export default {
   head() {
     return {
       titleTemplete: null,
-      title: 'microCMSブログ',
+      title: '日本ロケットリーグ Japan Community 公式サイト',
     };
   },
 };

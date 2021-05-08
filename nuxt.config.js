@@ -20,7 +20,7 @@ export default {
       prefix: 'og: http://ogp.me/ns#',
       lang: 'ja',
     },
-    titleTemplete: '%s | 日本ロケットリーグ Japan Comminuty 公式サイト',
+    titleTemplete: '%s | 日本ロケットリーグ Japan Community 公式サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
