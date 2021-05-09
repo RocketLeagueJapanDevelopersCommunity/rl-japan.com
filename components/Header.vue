@@ -15,7 +15,7 @@
       <div class="menu" :class="{ isOpen: open }">
         <ul class="lists">
           <li class="list">
-            <a href="/events">イベント</a>
+            <nuxt-link :to="`/events`" class="link">イベント</nuxt-link>
           </li>
           <li class="list">
             <nuxt-link :to="`/calendar`" class="link">カレンダー</nuxt-link>
