@@ -3,6 +3,7 @@
     <Header />
     <div class="divider">
       <div class="container">
+        <Slider />
         <Breadcrumb :category="selectedCategory" />
         <div v-show="contents.length === 0" class="loader">
           記事がありません
