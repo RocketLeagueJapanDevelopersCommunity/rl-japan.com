@@ -2,6 +2,9 @@
   <div class="wrapper">
     <Header />
     <div class="container">
+      <div class="grid">
+        <Calendar :events="events" />
+      </div>
       <ul>
         <li v-for="event in events" :key="event.id" class="list">
           <div class="title">【{{ event.title || '(No title)' }}】</div>
@@ -60,6 +63,7 @@ export default {
 .container {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -77,5 +81,11 @@ export default {
   border-radius: 20px;
   padding: 20px;
   margin: 20px 0;
+}
+.grid {
+  width: 100%;
+}
+.fc {
+  padding: 0 4rem;
 }
 </style>
