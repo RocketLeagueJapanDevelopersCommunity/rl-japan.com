@@ -60,6 +60,10 @@ export default {
   .link {
     display: block;
     padding: 10px;
+    &:hover {
+      border-radius: 5px;
+      background: #eee;
+    }
   }
 
   .image {

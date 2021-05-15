@@ -55,10 +55,11 @@
         </ul>
       </div>
       <aside class="aside">
-        <Banner id="list" :banner="banner" />
-        <Search />
+        <!-- <Banner id="list" :banner="banner" /> -->
+        <!-- <Search /> -->
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
+        <Latest :contents="contents" />
       </aside>
     </div>
     <Footer />

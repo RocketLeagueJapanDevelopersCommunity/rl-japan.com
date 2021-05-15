@@ -46,8 +46,8 @@
             <Toc :id="id" :toc="toc" :visible="toc_visible" />
             <Post :body="body" />
             <Writer v-if="writer" :writer="writer" />
-            <Partner v-if="partner" :partner="partner" />
-            <Conversion :id="id" />
+            <!-- <Partner v-if="partner" :partner="partner" /> -->
+            <!-- <Conversion :id="id" /> -->
             <RelatedBlogs
               v-if="related_blogs.length > 0"
               :blogs="related_blogs"
@@ -56,8 +56,8 @@
         </div>
       </article>
       <aside class="aside">
-        <Banner :id="`blog-${id}`" :banner="banner" />
-        <Search />
+        <!-- <Banner :id="`blog-${id}`" :banner="banner" /> -->
+        <!-- <Search /> -->
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
         <Latest :contents="contents" />
@@ -171,7 +171,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://blog.microcms.io/${this.id}/`,
+          content: `https://rl-japan.com/${this.id}/`,
         },
         {
           hid: 'og:image',

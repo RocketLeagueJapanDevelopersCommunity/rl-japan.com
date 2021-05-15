@@ -45,7 +45,7 @@ export default {
   height: 40px;
   font-size: 16px;
   background: url('/images/icon_search.svg') no-repeat 10px center,
-    var(--color-bg-purple-light);
+    var(--color-main-bg-red);
   padding-left: 40px;
   box-shadow: none;
   -webkit-appearance: none;

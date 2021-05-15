@@ -2,10 +2,7 @@
   <footer class="footer">
     <ul class="lists">
       <li class="list">
-        <a href="https://rljp.dev">メンテナー</a>
-      </li>
-      <li class="list">
-        <a href="/contact">お問い合わせ</a>
+        <a href="https://rljp.dev">Developed by RLJDC</a>
       </li>
     </ul>
     <p class="cr">© ロケットリーグ Japan Community.</p>

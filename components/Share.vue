@@ -11,20 +11,20 @@
           <img src="/images/icon_facebook.svg" alt="Facebook" />
         </a>
       </li>
-      <!-- <li class="shareList">
+      <li class="shareList">
         <a :href="hatenaLink" target="_blank" rel="noopener noreferrer">
           <img src="/images/icon_hatena.svg" alt="はてなブックマーク" />
         </a>
       </li>
       <li class="shareList">
         <a
-          href="https://blog.microcms.io/feed.xml"
+          href="https://rl-japan.com/feed.xml"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img src="/images/icon_feed.svg" alt="フィード" />
         </a>
-      </li> -->
+      </li>
     </ul>
   </div>
 </template>
@@ -43,13 +43,13 @@ export default {
   },
   computed: {
     twitterLink() {
-      return `https://twitter.com/intent/tweet?text=${this.title}&url=https://blog.microcms.io/${this.id}/&hashtags=microcms`;
+      return `https://twitter.com/intent/tweet?text=${this.title}&url=https://rl-japan.com/${this.id}/&hashtags=#RocketLeague_Jp`;
     },
     facebookLink() {
-      return `https://www.facebook.com/sharer.php?u=https://blog.microcms.io/${this.id}/`;
+      return `https://www.facebook.com/sharer.php?u=https://rl-japan.com/${this.id}/`;
     },
     hatenaLink() {
-      return `https://b.hatena.ne.jp/entry/https://blog.microcms.io/${this.id}/`;
+      return `https://b.hatena.ne.jp/entry/https://rl-japan.com/${this.id}/`;
     },
   },
 };
