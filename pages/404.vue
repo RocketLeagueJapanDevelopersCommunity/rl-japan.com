@@ -16,8 +16,7 @@ export default {
   head() {
     return {
       titleTemplate: null,
-      title:
-        'ページが見つかりません | 日本ロケットリーグ Japan Community 公式サイト',
+      title: 'ページが見つかりません | ロケットリーグ 日本コミュニティ',
     };
   },
 };

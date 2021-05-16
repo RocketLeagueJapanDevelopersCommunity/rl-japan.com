@@ -165,7 +165,7 @@ export default {
   head() {
     return {
       titleTemplate: null,
-      title: '日本ロケットリーグ Japan Community 公式サイト',
+      title: 'ロケットリーグ 日本コミュニティ',
     };
   },
 };

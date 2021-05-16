@@ -11,7 +11,7 @@
         <a href="https://rljp.dev">Developed by RLJDC</a>
       </li>
     </ul>
-    <p class="cr">© ロケットリーグ Japan Community.</p>
+    <p class="cr">© ロケットリーグ 日本コミュニティ</p>
   </footer>
 </template>
 
