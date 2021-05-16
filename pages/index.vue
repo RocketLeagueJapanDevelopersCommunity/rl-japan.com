@@ -3,7 +3,7 @@
     <Header />
     <div class="divider">
       <div class="container">
-        <Slider />
+        <!-- <Slider /> -->
         <Breadcrumb :category="selectedCategory" />
         <div v-show="contents.length === 0" class="loader">
           記事がありません
@@ -55,7 +55,7 @@
         </ul>
       </div>
       <aside class="aside">
-        <!-- <Banner id="list" :banner="banner" /> -->
+        <Banner id="list" :banner="banner" />
         <!-- <Search /> -->
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />

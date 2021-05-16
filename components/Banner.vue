@@ -36,7 +36,6 @@ export default {
 <style scoped>
 .image {
   width: 300px;
-  border-radius: 5px;
 }
 
 .link {

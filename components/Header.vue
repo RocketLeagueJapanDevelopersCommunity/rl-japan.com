@@ -17,9 +17,9 @@
           <li class="list">
             <nuxt-link :to="`/calendar`" class="link">大会カレンダー</nuxt-link>
           </li>
-          <li class="list">
+          <!-- <li class="list">
             <nuxt-link :to="`/events`" class="link">イベント一覧</nuxt-link>
-          </li>
+          </li> -->
           <!-- <li class="list">
             <nuxt-link :to="`/contact`" class="link">お問い合わせ</nuxt-link>
           </li> -->

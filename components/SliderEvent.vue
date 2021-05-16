@@ -26,7 +26,7 @@
 
 .box {
   backdrop-filter: blur(40px);
-  background-color: rgba(200, 200, 200, 0.1);
+  background-color: rgba(200, 200, 200, 0.8);
 }
 
 .button {

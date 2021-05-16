@@ -32,7 +32,7 @@ export default {
       prefix: 'og: http://ogp.me/ns#',
       lang: 'ja',
     },
-    titleTemplate: '%s | 日本ロケットリーグ Japan Community 公式サイト',
+    titleTemplate: '%s | ロケットリーグ日本コミュニティ Webサイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -40,12 +40,12 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+          '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'microCMSブログ',
+        content: '日本ロケットリーグ Japan Community 公式サイト',
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -62,7 +62,7 @@ export default {
         hid: 'og:description',
         property: 'og:description',
         content:
-          'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+          '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
       },
       {
         hid: 'og:image',
@@ -326,7 +326,7 @@ export default {
           title: '日本ロケットリーグ Japan Community 公式サイト',
           link: 'https://rl-japan.com/feed.xml',
           description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
         };
 
         const posts = await axios
@@ -357,7 +357,7 @@ export default {
           title: '更新情報｜日本ロケットリーグ Japan Community 公式サイト',
           link: 'https://rl-japan.com/feed.xml',
           description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
         };
 
         const posts = await axios
@@ -391,7 +391,7 @@ export default {
           title: '導入事例｜日本ロケットリーグ Japan Community 公式サイト',
           link: 'https://rl-japan.com/feed.xml',
           description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
         };
 
         const posts = await axios
