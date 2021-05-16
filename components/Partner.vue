@@ -28,7 +28,7 @@
         <dd>
           <a
             class="button"
-            :href="`https://microcms.io/partners/${partner.id}`"
+            :href="`https://rl-japan.com/partners/${partner.id}`"
             target="partner"
             >制作を依頼する</a
           >

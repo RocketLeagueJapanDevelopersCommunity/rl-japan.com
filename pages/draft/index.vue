@@ -142,7 +142,6 @@ export default {
     }
     this.data = data;
 
-    // 目次作成
     const $ = cheerio.load(data.body);
     const headings = $('h1, h2, h3').toArray();
     const toc = headings.map((d) => {
@@ -182,7 +181,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://blog.microcms.io/${this.data && this.data.id}`,
+          content: `https://rl-japan.com/${this.data && this.data.id}`,
         },
         {
           hid: 'og:image',

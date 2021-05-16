@@ -1,4 +1,7 @@
 :root {
+  --color-main-red: #e9433b;
+  --color-main-bg-red: #fdeceb;
+
   --color-text-main: #2b2c30;
   --color-text-sub: #616269;
   --color-text-off: #999;

@@ -1,12 +1,7 @@
 <template>
   <div class="wrapper">
     <Header />
-    <div class="container">
-      <dl>
-        <dt class="status">404</dt>
-        <dd class="message">ページが見つかりません</dd>
-      </dl>
-    </div>
+    <div class="container"></div>
     <Footer />
   </div>
 </template>
@@ -15,8 +10,7 @@
 export default {
   head() {
     return {
-      titleTemplate: null,
-      title: 'ページが見つかりません | ロケットリーグ 日本コミュニティ',
+      title: 'イベント',
     };
   },
 };
@@ -42,8 +36,11 @@ export default {
   font-weight: bold;
   color: #999;
 }
-.message {
-  color: #999;
-  font-size: 20px;
+.list {
+  background: #eee;
+  color: #f44;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
 }
 </style>

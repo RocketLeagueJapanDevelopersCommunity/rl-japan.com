@@ -165,7 +165,7 @@ export default {
   head() {
     return {
       titleTemplate: null,
-      title: 'microCMSブログ',
+      title: 'ロケットリーグ 日本コミュニティ',
     };
   },
 };

@@ -19,7 +19,7 @@
         class="link"
         target="site"
         :href="`/redirect?to=https%3A%2F%2Fdiscord.gg%2F5YwQNN9&utm_source=CTA&utm_medium=content-text&utm_campaign=blog-${id}-01`"
-        >⇒ロケットリーグ Japan Communityでロケットリーグにもっとハマる。<img
+        >⇒ロケットリーグ 日本コミュニティでロケットリーグにもっとハマる。<img
           src="/images/icon_link.svg"
           alt=""
       /></a>

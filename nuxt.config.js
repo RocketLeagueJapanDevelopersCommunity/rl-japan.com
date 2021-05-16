@@ -32,7 +32,7 @@ export default {
       prefix: 'og: http://ogp.me/ns#',
       lang: 'ja',
     },
-    titleTemplate: '%s | 日本ロケットリーグ Japan Community 公式サイト',
+    titleTemplate: '%s | ロケットリーグ 日本コミュニティ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -40,45 +40,49 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+          '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'microCMSブログ',
+        content: 'ロケットリーグ 日本コミュニティ',
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://blog.microcms.io',
+        content: 'https://rl-japan.com',
       },
-      { hid: 'og:title', property: 'og:title', content: 'microCMSブログ' },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'ロケットリーグ 日本コミュニティ',
+      },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+          '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://blog.microcms.io/images/ogp.png',
+        content: 'https://rl-japan.com/images/ogp.png',
       },
 
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:site', content: '@micro_cms' },
+      { name: 'twitter:site', content: '@RocketLeague_Jp' },
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'https://blog.microcms.io/favicon.png',
+        href: 'https://rl-japan.com/favicon.png',
       },
       {
         rel: 'alternate',
         type: 'application/atom+xml',
-        href: 'https://blog.microcms.io/feed.xml',
+        href: 'https://rl-japan.com/feed.xml',
         title: 'Atom',
       },
     ],
@@ -134,7 +138,6 @@ export default {
   pwa: {
     workbox: {
       offlineAssets: [
-        '/images/banner_logo.svg',
         '/images/icon_author.svg',
         '/images/icon_clock.svg',
         '/images/icon_facebook.svg',
@@ -159,6 +162,9 @@ export default {
    ** Build configuration
    */
   build: {
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+    },
     postcss: {
       plugins: {
         'postcss-custom-properties': {
@@ -307,7 +313,7 @@ export default {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://blog.microcms.io',
+    hostname: 'https://rl-japan.com',
     exclude: ['/draft', '/404'],
     gzip: true,
     trailingSlash: true,
@@ -317,10 +323,10 @@ export default {
       path: '/feed.xml',
       async create(feed) {
         feed.options = {
-          title: 'microCMSブログ',
-          link: 'https://blog.microcms.io/feed.xml',
+          title: 'ロケットリーグ 日本コミュニティ',
+          link: 'https://rl-japan.com/feed.xml',
           description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
         };
 
         const posts = await axios
@@ -333,7 +339,7 @@ export default {
           feed.addItem({
             title: post.title,
             id: post.id,
-            link: `https://blog.microcms.io/${post.id}/`,
+            link: `https://rl-japan.com/${post.id}/`,
             description: post.description,
             content: post.description,
             date: new Date(post.publishedAt || post.createdAt),
@@ -344,73 +350,73 @@ export default {
       cacheTime: 1000 * 60 * 15,
       type: 'rss2',
     },
-    {
-      path: '/feed_update.xml',
-      async create(feed) {
-        feed.options = {
-          title: '更新情報｜microCMSブログ',
-          link: 'https://blog.microcms.io/feed.xml',
-          description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
-        };
+    // {
+    //   path: '/feed_update.xml',
+    //   async create(feed) {
+    //     feed.options = {
+    //       title: '更新情報｜ロケットリーグ 日本コミュニティ',
+    //       link: 'https://rl-japan.com/feed.xml',
+    //       description:
+    //         '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+    //     };
 
-        const posts = await axios
-          .get(
-            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]update`,
-            {
-              headers: { 'X-API-KEY': API_KEY },
-            }
-          )
-          .then((res) => res.data.contents);
+    //     const posts = await axios
+    //       .get(
+    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]update`,
+    //         {
+    //           headers: { 'X-API-KEY': API_KEY },
+    //         }
+    //       )
+    //       .then((res) => res.data.contents);
 
-        posts.forEach((post) => {
-          feed.addItem({
-            title: post.title,
-            id: post.id,
-            link: `https://blog.microcms.io/${post.id}/`,
-            description: post.description,
-            content: post.description,
-            date: new Date(post.publishedAt || post.createdAt),
-            image: post.ogimage && post.ogimage.url,
-          });
-        });
-      },
-      cacheTime: 1000 * 60 * 15,
-      type: 'rss2',
-    },
-    {
-      path: '/feed_usecase.xml',
-      async create(feed) {
-        feed.options = {
-          title: '導入事例｜microCMSブログ',
-          link: 'https://blog.microcms.io/feed.xml',
-          description:
-            'microCMSはAPIベースの日本製ヘッドレスCMSです。本ブログはmicroCMSの開発メンバーがmicroCMSの使い方や技術的な内容を発信するブログです。',
-        };
+    //     posts.forEach((post) => {
+    //       feed.addItem({
+    //         title: post.title,
+    //         id: post.id,
+    //         link: `https://rl-japan.com/${post.id}/`,
+    //         description: post.description,
+    //         content: post.description,
+    //         date: new Date(post.publishedAt || post.createdAt),
+    //         image: post.ogimage && post.ogimage.url,
+    //       });
+    //     });
+    //   },
+    //   cacheTime: 1000 * 60 * 15,
+    //   type: 'rss2',
+    // },
+    // {
+    //   path: '/feed_usecase.xml',
+    //   async create(feed) {
+    //     feed.options = {
+    //       title: '導入事例｜ロケットリーグ 日本コミュニティ',
+    //       link: 'https://rl-japan.com/feed.xml',
+    //       description:
+    //         '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+    //     };
 
-        const posts = await axios
-          .get(
-            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]usecase`,
-            {
-              headers: { 'X-API-KEY': API_KEY },
-            }
-          )
-          .then((res) => res.data.contents);
+    //     const posts = await axios
+    //       .get(
+    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]usecase`,
+    //         {
+    //           headers: { 'X-API-KEY': API_KEY },
+    //         }
+    //       )
+    //       .then((res) => res.data.contents);
 
-        posts.forEach((post) => {
-          feed.addItem({
-            title: post.title,
-            id: post.id,
-            link: `https://blog.microcms.io/${post.id}/`,
-            description: post.description,
-            content: post.description,
-            date: new Date(post.publishedAt || post.createdAt),
-            image: post.ogimage && post.ogimage.url,
-          });
-        });
-      },
-      cacheTime: 1000 * 60 * 15,
-      type: 'rss2',
-    },
+    //     posts.forEach((post) => {
+    //       feed.addItem({
+    //         title: post.title,
+    //         id: post.id,
+    //         link: `https://rl-japan.com/${post.id}/`,
+    //         description: post.description,
+    //         content: post.description,
+    //         date: new Date(post.publishedAt || post.createdAt),
+    //         image: post.ogimage && post.ogimage.url,
+    //       });
+    //     });
+    //   },
+    //   cacheTime: 1000 * 60 * 15,
+    //   type: 'rss2',
+    // },
   ],
 };

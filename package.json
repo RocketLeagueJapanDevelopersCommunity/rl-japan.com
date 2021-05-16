@@ -1,5 +1,5 @@
 {
-  "name": "microcms-blog",
+  "name": "rl-japan",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -12,10 +12,14 @@
     "functions:serve": "netlify-lambda serve functions"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.6.0",
+    "@fullcalendar/interaction": "^5.6.0",
+    "@fullcalendar/vue": "^5.6.0",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.3",
     "dayjs": "^1.10.4",
     "highlight.js": "^10.0.0",
+    "hooper": "^0.3.4",
     "nuxt": "^2.15.4"
   },
   "devDependencies": {

@@ -55,6 +55,9 @@ export default {
     font-size: 14px;
     margin: 10px 0 2px;
   }
+  .category:hover {
+    background: var(--color-main-bg-red);
+  }
 
   .timestamp {
     display: inline-flex;

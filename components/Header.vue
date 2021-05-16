@@ -3,8 +3,8 @@
     <header class="header">
       <h1 class="logo">
         <a href="/">
-          <img class="iconImg" src="/images/icon.svg" alt="microCMS" />
-          <img class="logoImg" src="/images/logo.svg" alt="microCMS" />
+          <img class="iconImg" src="/images/icon.svg" alt="rl-japan" />
+          <img class="logoImg" src="/images/logo.svg" alt="rl-japan" />
         </a>
       </h1>
       <button class="menuBtn" @click="toggleOpen()">
@@ -15,17 +15,14 @@
       <div class="menu" :class="{ isOpen: open }">
         <ul class="lists">
           <li class="list">
-            <a href="/events">イベント</a>
+            <nuxt-link :to="`/calendar`" class="link">大会カレンダー</nuxt-link>
           </li>
-          <li class="list">
-            <nuxt-link :to="`/calendar`" class="link">カレンダー</nuxt-link>
-          </li>
-          <li class="list">
-            <a href="/blog">ブログ</a>
-          </li>
-          <li class="list">
-            <a href="/contact">お問い合わせ</a>
-          </li>
+          <!-- <li class="list">
+            <nuxt-link :to="`/events`" class="link">イベント一覧</nuxt-link>
+          </li> -->
+          <!-- <li class="list">
+            <nuxt-link :to="`/contact`" class="link">お問い合わせ</nuxt-link>
+          </li> -->
         </ul>
       </div>
     </header>
@@ -126,7 +123,12 @@ export default {
   .list {
     margin-right: 30px;
     white-space: nowrap;
-
+    padding: 8px 24px;
+    &:hover {
+      border-radius: 5px;
+      background-color: var(--color-main-bg-red);
+      text-align: center;
+    }
     &.noMargin {
       margin: 0;
     }
@@ -134,21 +136,6 @@ export default {
     a,
     a:visited {
       color: var(--color-text-main);
-
-      &.signup {
-        border-radius: 5px;
-        background: linear-gradient(to right bottom, #ecafac, #e9433b);
-        color: #fff;
-        text-align: center;
-        padding: 8px 24px;
-      }
-
-      &.signin {
-        border-radius: 5px;
-        background-color: var(--color-bg-purple);
-        text-align: center;
-        padding: 8px 24px;
-      }
     }
   }
 }

@@ -2,13 +2,16 @@
   <footer class="footer">
     <ul class="lists">
       <li class="list">
-        <a href="https://rljp.dev">メンテナー</a>
+        <a href="https://discord.gg/5YwQNN9">Discord</a>
       </li>
       <li class="list">
-        <a href="/contact">お問い合わせ</a>
+        <a href="https://twitter.com/RocketLeague_Jp">Twitter</a>
+      </li>
+      <li class="list">
+        <a href="https://rljp.dev">Developed by RLJDC</a>
       </li>
     </ul>
-    <p class="cr">© ロケットリーグ Japan Community.</p>
+    <p class="cr">© ロケットリーグ 日本コミュニティ</p>
   </footer>
 </template>
 

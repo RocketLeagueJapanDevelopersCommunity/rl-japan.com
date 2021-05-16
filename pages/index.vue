@@ -3,6 +3,7 @@
     <Header />
     <div class="divider">
       <div class="container">
+        <!-- <Slider /> -->
         <Breadcrumb :category="selectedCategory" />
         <div v-show="contents.length === 0" class="loader">
           記事がありません
@@ -55,9 +56,10 @@
       </div>
       <aside class="aside">
         <Banner id="list" :banner="banner" />
-        <Search />
+        <!-- <Search /> -->
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
+        <Latest :contents="contents" />
       </aside>
     </div>
     <Footer />
@@ -133,7 +135,7 @@ export default {
   head() {
     return {
       titleTemplate: null,
-      title: '日本ロケットリーグ Japan Community 公式サイト',
+      title: 'ロケットリーグ 日本コミュニティ',
     };
   },
 };

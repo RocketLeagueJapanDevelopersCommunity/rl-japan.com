@@ -2,6 +2,10 @@
   <div class="wrapper">
     <Header />
     <div class="container">
+      <h1>大会カレンダー</h1>
+      <div class="grid">
+        <Calendar :events="events" />
+      </div>
       <ul>
         <li v-for="event in events" :key="event.id" class="list">
           <div class="title">【{{ event.title || '(No title)' }}】</div>
@@ -52,6 +56,13 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 40px 0 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -60,10 +71,12 @@ export default {
 .container {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin-bottom: -120px;
+  margin: 16px;
 }
 .status {
   font-family: 'Times New Roman', Times, serif;
@@ -72,10 +85,30 @@ export default {
   color: #999;
 }
 .list {
-  background: #eee;
-  color: #f44;
+  background-color: #eee;
   border-radius: 20px;
   padding: 20px;
   margin: 20px 0;
+}
+.grid {
+  width: 100%;
+}
+@media screen and (min-width: 480px) {
+  /* for iPhone Landscape (iPhone 横) */
+  .fc {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* for iPad  */
+  .fc {
+    padding: 0 6rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* for PC */
+  .fc {
+    padding: 0 12rem;
+  }
 }
 </style>

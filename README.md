@@ -1,6 +1,6 @@
-# microcms-blog
+# rl-japan
 
-サイト: https://blog.microcms.io
+サイト: https://rl-japan.com
 
 ## 機能
 
