@@ -56,7 +56,7 @@
         </div>
       </article>
       <aside class="aside">
-        <!-- <Banner :id="`blog-${id}`" :banner="banner" /> -->
+        <Banner :id="`blog-${id}`" :banner="banner" />
         <!-- <Search /> -->
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
