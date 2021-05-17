@@ -92,12 +92,14 @@ export default {
     position: absolute;
     top: 8px;
     left: 8px;
-    height: 5rem;
     padding: 8px;
     border-radius: 8px;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
     background-color: #fff;
+    width: 88px;
+    height: 88px;
   }
+
   .menuBtn {
     display: none;
   }
