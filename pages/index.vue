@@ -253,6 +253,7 @@ export default {
     width: 335px;
     height: 176px;
     border-radius: 5px;
+    object-fit: cover;
   }
 
   .content {
@@ -373,6 +374,7 @@ export default {
     width: 335px;
     height: 176px;
     border-radius: 5px;
+    object-fit: cover;
   }
 
   .content {
@@ -492,6 +494,7 @@ export default {
   .ogimage {
     width: 100%;
     border-radius: 5px;
+    object-fit: cover;
   }
 
   .title {

@@ -2,9 +2,10 @@
   <div class="wrapper">
     <a
       v-if="banner && banner.image"
-      :href="`${banner.url}?utm_source=CTA&utm_medium=content-text&utm_campaign=${id}-03`"
+      :href="banner.url"
       class="link"
       target="banner"
+      @click="bannerClick"
     >
       <picture v-if="banner.image">
         <source
@@ -28,6 +29,16 @@ export default {
     id: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    bannerClick() {
+      this.$ga.event({
+        eventCategory: 'banner',
+        eventAction: 'click',
+        eventLabel: this.banner.url,
+        eventValue: 1,
+      });
     },
   },
 };
