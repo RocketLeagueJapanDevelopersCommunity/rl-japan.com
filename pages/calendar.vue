@@ -4,17 +4,8 @@
     <div class="container">
       <h1>大会カレンダー</h1>
       <div class="grid">
-        <Calendar :events="events" />
+        <Calendar :events="events" :subcalendars="subcalendars" />
       </div>
-      <ul>
-        <li v-for="event in events" :key="event.id" class="list">
-          <div class="title">【{{ event.title || '(No title)' }}】</div>
-          <div class="who">主催: {{ event.who || '(No name)' }}</div>
-          <div class="who">
-            日時: {{ formatDate(event.start_dt) || '(未定)' }}
-          </div>
-        </li>
-      </ul>
     </div>
     <Footer />
   </div>
@@ -27,17 +18,28 @@ import dayjs from 'dayjs';
 export default {
   async asyncData({ params, payload, $config }) {
     const url = `https://api.teamup.com/${$config.calendarKey}`;
-    const resEvent = await axios.get(`${url}/events`, {
+
+    // Events
+    const resEvents = await axios.get(`${url}/events`, {
       headers: {
         'Teamup-Token': $config.calendarApiKey,
       },
       params: {
-        startDate: '2021-05-01',
-        endDate: '2021-05-31',
+        startDate: '2015-01-01',
+        endDate: '2100-01-01',
       },
     });
+
+    // Sub-Calendars
+    const resSubs = await axios.get(`${url}/subcalendars`, {
+      headers: {
+        'Teamup-Token': $config.calendarApiKey,
+      },
+    });
+
     return {
-      events: resEvent.data.events,
+      events: resEvents.data.events,
+      subcalendars: resSubs.data.subcalendars,
     };
   },
   computed: {
