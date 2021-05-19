@@ -43,6 +43,7 @@ export default {
     padding: 10px 0 40px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .category {
