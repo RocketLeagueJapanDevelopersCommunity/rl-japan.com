@@ -1,15 +1,21 @@
 <template>
   <div>
     <FullCalendar :options="calendarOptions" />
-    <modal name="modal-content" class="modal" :height="600" :scrollable="true">
+    <modal
+      name="modal-content"
+      class="modal"
+      width="90%"
+      height="80%"
+      @opened="opened"
+    >
       <div class="modal-header">
         <div class="modal-header-title">{{ modal.title }}</div>
         <div class="modal-header-info">
-          <span>【日時】{{ modal.start_dt }}</span>
           <span>【主催】{{ modal.who }}</span>
+          <span>【日時】{{ modal.start_dt }}</span>
         </div>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" :style="modalBodyStyle">
         <div class="notes" v-html="modal.notes"></div>
       </div>
     </modal>
@@ -76,6 +82,7 @@ export default {
         start_dt: null,
         notes: null,
       },
+      modalBodyStyle: {},
     };
   },
   methods: {
@@ -86,8 +93,18 @@ export default {
         this.modal.who = event.who;
         this.modal.start_dt = dayjs(event.start_dt).format('YYYY/MM/DD HH:mm');
         this.modal.notes = event.notes;
+
         this.$modal.show('modal-content');
       }
+    },
+    opened(event) {
+      const modalHeight = event.ref.getBoundingClientRect().height;
+      const header = event.ref.children[0];
+      const headerHeight = header.getBoundingClientRect().height;
+
+      this.modalBodyStyle = {
+        maxHeight: `${modalHeight - headerHeight - 10}px`,
+      };
     },
     hide() {
       this.$modal.hide('modal-content');
@@ -126,13 +143,13 @@ export default {
 }
 .modal-header-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 5px;
   font-size: 12px;
 }
 .modal-body {
   padding: 5px 0 5px 10px;
-  max-height: calc(600px - 85px);
+  max-height: calc(100% - 85px);
   overflow-y: auto;
 }
 .modal-body .notes {
