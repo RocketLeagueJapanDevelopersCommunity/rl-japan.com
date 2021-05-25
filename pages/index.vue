@@ -56,7 +56,7 @@
       </div>
       <aside class="aside">
         <Banner id="list" :banner="banner" />
-        <!-- <Search /> -->
+        <Search />
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
         <Latest :contents="contents" />
