@@ -119,9 +119,24 @@ export default {
   backdrop-filter: brightness(60%);
 }
 
+.modal-body .notes {
+  font-size: 15px;
+  overflow-wrap: break-word;
+}
+.modal-body .notes p {
+  margin-bottom: 10px;
+}
 .modal-body .notes a {
-  color: -webkit-link;
-  text-decoration: underline;
+  color: #1070ad;
+  text-decoration: none;
+  transition: color 0.1s linear;
+  cursor: pointer;
+}
+.modal-body .notes img {
+  margin: 0;
+  margin-bottom: 5px;
+  max-width: 99%;
+  height: auto;
 }
 </style>
 
@@ -151,8 +166,5 @@ export default {
   padding: 5px 0 5px 10px;
   max-height: calc(100% - 85px);
   overflow-y: auto;
-}
-.modal-body .notes {
-  font-size: 14px;
 }
 </style>
