@@ -55,7 +55,11 @@
         </ul>
       </div>
       <aside class="aside">
-        <Banner id="list" :banner="banner" />
+        <hooper :autoPlay="true" :playSpeed="3000">
+          <slide>
+            <Banner id="list" :banner="banner" />
+          </slide>
+        </hooper>
         <Search />
         <Categories :categories="categories" />
         <PopularArticles :contents="popularArticles" />
@@ -68,6 +72,8 @@
 
 <script>
 import axios from 'axios';
+import { Hooper, Slide } from 'hooper';
+import 'hooper/dist/hooper.css';
 
 export default {
   async asyncData({ params, payload, $config }) {
@@ -138,10 +144,18 @@ export default {
       title: 'ロケットリーグ 日本コミュニティ',
     };
   },
+  components: {
+    Hooper,
+    Slide,
+  },
 };
 </script>
 
 <style scoped>
+.hooper {
+  height: inherit;
+}
+
 @media (min-width: 1160px) {
   .loader {
     color: #ccc;
