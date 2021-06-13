@@ -43,7 +43,9 @@ export default {
   },
   computed: {
     twitterLink() {
-      return `https://twitter.com/intent/tweet?text=${this.title}&url=https://rl-japan.com/${this.id}/&hashtags=RL_Japan`;
+      return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        this.title
+      )}&url=https://rl-japan.com/${this.id}/&hashtags=RL_Japan`;
     },
     facebookLink() {
       return `https://www.facebook.com/sharer.php?u=https://rl-japan.com/${this.id}/`;
