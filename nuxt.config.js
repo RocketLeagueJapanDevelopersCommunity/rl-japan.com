@@ -71,7 +71,7 @@ export default {
       },
 
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:site', content: '@RocketLeague_Jp' },
+      { name: 'twitter:site', content: '@RL_Japan' },
     ],
     link: [
       {
