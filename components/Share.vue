@@ -45,7 +45,7 @@ export default {
     twitterLink() {
       return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         this.title
-      )}&url=https://rl-japan.com/${this.id}/&hashtags=RL_Japan`;
+      )}&url=https://rl-japan.com/${this.id}/&hashtags=ロケットリーグ,RL_Japan`;
     },
     facebookLink() {
       return `https://www.facebook.com/sharer.php?u=https://rl-japan.com/${this.id}/`;
