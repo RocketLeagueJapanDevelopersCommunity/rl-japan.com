@@ -1,10 +1,16 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-cat="categories" />
     <div class="divider">
       <div class="container">
-        <!-- <Slider /> -->
-        <Breadcrumb :category="selectedCategory" />
+        <div v-if="selectedCategory">
+          <h1>{{ selectedCategory.name }}</h1>
+        </div>
+        <div v-if="!selectedCategory">
+          <h1>ピックアップ記事</h1>
+          <Slider :slider-contents="popularArticles" />
+          <h1>新着記事</h1>
+        </div>
         <div v-show="contents.length === 0" class="loader">
           記事がありません
         </div>
@@ -55,11 +61,11 @@
         </ul>
       </div>
       <aside class="aside">
-        <Banner id="list" :banner="banner" />
+        <Banner id="aside-banner" :banner="banner" />
         <Search />
-        <Categories :categories="categories" />
-        <PopularArticles :contents="popularArticles" />
-        <Latest :contents="contents" />
+        <Category :categories="categories" />
+        <!-- <PopularArticles :contents="popularArticles" /> -->
+        <!-- <Latest :contents="contents" /> -->
       </aside>
     </div>
     <Footer />
@@ -68,8 +74,12 @@
 
 <script>
 import axios from 'axios';
+import Slider from '@/components/Slider';
 
 export default {
+  components: {
+    Slider,
+  },
   async asyncData({ params, payload, $config }) {
     const page = params.id || '1';
     const categoryId = params.categoryId;
@@ -186,12 +196,12 @@ h1::before {
   .page {
     width: 40px;
     height: 40px;
-    background-color: #e5eff9;
+    background-color: var(--color-main-bg-red);
     border-radius: 5px;
     margin: 10px;
 
     &.active {
-      background-color: #3067af;
+      background-color: #e9433b;
 
       a {
         color: #fff;
@@ -203,7 +213,7 @@ h1::before {
       justify-content: center;
       align-items: center;
       height: 100%;
-      color: #3067af;
+      color: #e9433b;
     }
   }
 
@@ -266,7 +276,15 @@ h1::before {
   }
 
   .list {
-    padding: 20px 0;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
+  }
+
+  .list:hover {
+    transition: 1s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .link {
@@ -309,12 +327,12 @@ h1::before {
   .page {
     width: 40px;
     height: 40px;
-    background-color: #e5eff9;
+    background-color: var(--color-main-bg-red);
     border-radius: 5px;
     margin: 10px;
 
     &.active {
-      background-color: #3067af;
+      background-color: #e9433b;
 
       a {
         color: #fff;
@@ -326,7 +344,7 @@ h1::before {
       justify-content: center;
       align-items: center;
       height: 100%;
-      color: #3067af;
+      color: #e9433b;
     }
   }
 
@@ -387,7 +405,10 @@ h1::before {
   }
 
   .list {
-    padding: 20px 0;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
   }
 
   .link {
@@ -430,12 +451,12 @@ h1::before {
   .page {
     width: 32px;
     height: 32px;
-    background-color: #e5eff9;
+    background-color: var(--color-main-bg-red);
     border-radius: 5px;
     margin: 6px;
 
     &.active {
-      background-color: #3067af;
+      background-color: #e9433b;
 
       a {
         color: #fff;
@@ -447,7 +468,7 @@ h1::before {
       justify-content: center;
       align-items: center;
       height: 100%;
-      color: #3067af;
+      color: #e9433b;
     }
   }
 
@@ -508,8 +529,10 @@ h1::before {
   }
 
   .list {
-    padding: 32px 0 0;
-    border-bottom: 1px solid #eee;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
 
     &:first-child {
       padding-top: 16px;
