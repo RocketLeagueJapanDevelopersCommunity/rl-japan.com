@@ -2,10 +2,18 @@
   <footer class="footer">
     <ul class="lists">
       <li class="list">
+        <a href="https://twitter.com/RL_Japan">Twitter</a>
+      </li>
+      <li class="list">
         <a href="https://discord.gg/5YwQNN9">Discord</a>
       </li>
       <li class="list">
-        <a href="https://twitter.com/RL_Japan">Twitter</a>
+        <a href="https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw">
+          YouTube</a
+        >
+      </li>
+      <li class="list">
+        <a href="https://www.twitch.tv/rljapan">Twitch</a>
       </li>
       <li class="list">
         <a href="https://rljp.dev">Developed by RLJDC</a>

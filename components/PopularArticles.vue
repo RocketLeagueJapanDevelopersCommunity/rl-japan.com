@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h1 class="pageTitle">人気の記事</h1>
+    <h1 class="pageTitle">ピックアップ記事</h1>
     <ul>
       <li v-for="content in contents" :key="content.id" class="list">
         <nuxt-link :to="`/${content.id}`" class="link">
@@ -41,14 +41,23 @@ export default {
   }
 
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
   }
-
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
+  }
   .list {
     margin-bottom: 10px;
 
@@ -81,14 +90,23 @@ export default {
   }
 
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
   }
-
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
+  }
   .list {
     margin-bottom: 10px;
 
@@ -117,14 +135,23 @@ export default {
   }
 
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
   }
-
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
+  }
   .list {
     margin-bottom: 10px;
 

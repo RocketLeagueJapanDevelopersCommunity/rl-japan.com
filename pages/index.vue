@@ -142,6 +142,31 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  position: relative;
+  display: block;
+  font-weight: bold;
+  padding-left: 24px;
+  font-size: 24px;
+  color: #2b2c30;
+  border: 1px;
+  margin: 24px;
+  margin-left: 0;
+}
+
+h1::before {
+  background-color: #e9433b;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  content: '';
+}
+
 @media (min-width: 1160px) {
   .loader {
     color: #ccc;

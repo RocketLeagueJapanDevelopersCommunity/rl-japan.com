@@ -7,6 +7,7 @@
           v-model="q"
           class="search"
           type="text"
+          placeholder="キーワードを入力"
           @keyup.enter="(e) => search(e.target.value)"
           @keypress="setSearchable"
         />
@@ -179,8 +180,8 @@ export default {
   border-radius: 5px;
   height: 40px;
   font-size: 16px;
-  background: url('/images/icon_search.svg') no-repeat 10px center,
-    var(--color-bg-purple-light);
+  background: url('/images/icon_search.svg') no-repeat 10px center, #eee;
+  color: var(--color-text-sub);
   padding-left: 40px;
   margin-bottom: 20px;
   box-shadow: none;

@@ -1,9 +1,9 @@
 <template>
   <label class="label">
-    サイト内検索
     <input
       class="input"
       type="text"
+      placeholder="キーワードを入力"
       @keypress="setSearchable"
       @keypress.enter="search"
     />
@@ -46,8 +46,8 @@ export default {
   border-radius: 5px;
   height: 40px;
   font-size: 16px;
-  background: url('/images/icon_search.svg') no-repeat 10px center,
-    var(--color-main-bg-red);
+  background: url('/images/icon_search.svg') no-repeat 10px center, #eee;
+  color: var(--color-text-sub);
   padding-left: 40px;
   box-shadow: none;
   -webkit-appearance: none;
@@ -60,6 +60,9 @@ export default {
   &:focus {
     outline: none;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) inset;
+  }
+  &::placeholder {
+    color: var(--color-text-sub);
   }
 }
 </style>
