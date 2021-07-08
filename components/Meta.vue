@@ -42,7 +42,7 @@ export default {
 <style scoped>
 @media (min-width: 600px) {
   .meta {
-    padding: 10px 0 40px;
+    padding: 10px 0 0;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -121,7 +121,7 @@ export default {
 }
 @media (max-width: 600px) {
   .meta {
-    padding: 4px 0 30px;
+    padding: 4px 0 0;
     font-size: 14px;
   }
 

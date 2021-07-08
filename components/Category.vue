@@ -37,7 +37,6 @@ export default {
   color: #2b2c30;
   border: 1px;
   margin: 18px;
-  margin-left: 0;
 }
 .lists_title::before {
   position: absolute;
@@ -51,6 +50,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: 4px 8px;
+  margin-left: 38px;
 }
 .lists .category_bar .category_item {
   position: relative;
@@ -60,6 +60,7 @@ export default {
   border-radius: 5px;
   background: #eee;
   margin: 8px;
+  margin-left: 0;
 }
 .lists .category_bar .category_item.tournament::before {
   background: var(--cat-tournament);
