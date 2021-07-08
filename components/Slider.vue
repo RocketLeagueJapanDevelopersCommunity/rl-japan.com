@@ -1,11 +1,31 @@
 <template>
   <div>
     <hooper :settings="hooperSettings">
-      <slide><SliderEvent /></slide>
-      <slide><SliderEvent /></slide>
-      <slide><SliderEvent /></slide>
-      <slide><SliderEvent /></slide>
-      <slide><SliderEvent /></slide>
+      <slide v-for="sliderContent in sliderContents" :key="sliderContent.id">
+        <nuxt-link :to="`/${sliderContent.id}`" class="box">
+          <picture v-if="sliderContent.ogimage" class="image">
+            <source
+              type="image/webp"
+              :data-srcset="sliderContent.ogimage.url + '?w=670&fm=webp'"
+            />
+            <img
+              :data-src="sliderContent.ogimage.url + '?w=670'"
+              class="ogimage lazyload"
+              alt
+            />
+          </picture>
+          <div class="overlay">
+            <div class="title">
+              {{
+                sliderContent.title.length > 40
+                  ? sliderContent.title.slice(0, 40) + '…'
+                  : sliderContent.title
+              }}
+            </div>
+            <div class="ctabtn">詳しく見る</div>
+          </div>
+        </nuxt-link>
+      </slide>
 
       <hooper-navigation slot="hooper-addons"></hooper-navigation>
       <hooper-pagination slot="hooper-addons"></hooper-pagination>
@@ -29,17 +49,44 @@ export default {
     HooperNavigation,
     HooperPagination,
   },
+  props: {
+    sliderContents: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+  },
   data() {
     return {
       hooperSettings: {
         autoPlay: true,
         infiniteScroll: true,
-        mouseDrag: false,
+        mouseDrag: true,
         touchDrag: false,
-        playSpeed: 5000,
-        transition: 500,
+        playSpeed: 5000, // 5000
+        transition: 300,
+        trimWhiteSpace: true,
       },
     };
+  },
+  methods: {
+    bytes(text) {
+      let length = 0;
+      for (let i = 0; i < text.length; i++) {
+        const c = text.charCodeAt(i);
+        if (
+          (c >= 0x0 && c < 0x81) ||
+          c === '0xf8f0' ||
+          (c >= '0xff61' && c < '0xffa0') ||
+          (c >= '0xf8f1' && c < '0xf8f4')
+        ) {
+          length += 1;
+        } else {
+          length += 2;
+        }
+      }
+      return length;
+    },
   },
 };
 </script>
@@ -47,35 +94,118 @@ export default {
 <style>
 .hooper-list {
   border-radius: 5px;
+  padding-bottom: 25px;
 }
 .hooper-indicator {
-  width: 40px;
-  height: 6px;
-  border-radius: 2px;
-  background-color: rgba(20, 20, 20, 0.25);
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 1em;
+  background-color: #eee;
+  margin-bottom: 30px;
 }
 .hooper-indicator:hover,
 .hooper-indicator.is-active {
-  background-color: #f5f5f7;
+  background-color: #e9433b;
   transition: background-color 0.5s;
 }
 .hooper-navigation button {
+  border-radius: 5px;
+  margin: 0 1em;
   padding: 1em;
-  height: 100%;
-  background-color: rgba(230, 230, 230, 0.15);
+  color: #616269;
+  background-color: #f5f5f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
 .hooper-navigation button:hover {
-  background-color: rgba(230, 230, 230, 0.5);
-  color: #f5f5f7;
+  background-color: #e9433b;
   transition: background-color 0.5s;
 }
-.hooper-navigation button:hover svg {
-  fill: #fff;
+.hooper-navigation button svg {
+  fill: #616269;
 }
-</style>
-
-<style scoped>
+.hooper-navigation button:hover svg {
+  fill: #f5f5f7;
+}
 .hooper {
-  height: 250px;
+  height: 100%;
+  border-radius: 5px;
+}
+.box {
+  position: relative;
+}
+.box picture .ogimage {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.box .overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.box .overlay .title {
+  font-size: 18px;
+}
+.box .overlay .ctabtn {
+  min-width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.box .overlay .ctabtn:hover {
+  transition: all 300ms;
+  color: white;
+  background-color: #e9433b;
+}
+@media (min-width: 1160px) {
+  .box .overlay {
+    padding: 10px;
+    margin: 20px;
+  }
+}
+@media (min-width: 820px) and (max-width: 1160px) {
+  .box .overlay {
+    padding: 0.5em;
+    margin: 1em;
+  }
+  .box .overlay .title {
+    font-size: 16px;
+  }
+  .box .overlay .ctabtn {
+    display: block;
+  }
+}
+@media (max-width: 820px) {
+  .hooper-navigation button {
+    margin: -1em;
+    padding: 0.5em;
+  }
+  .box .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -35px;
+    padding: 1rem 0.5em;
+    margin: 1em;
+  }
+  .box .overlay .title {
+    font-size: 14px;
+  }
+  .box .overlay .ctabtn {
+    display: none;
+  }
+  .hooper-indicator {
+    margin-bottom: 0;
+  }
 }
 </style>
