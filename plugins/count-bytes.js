@@ -1,7 +1,13 @@
 // count-bytes.js
-
-export default function (text) {
+/**
+ *
+ * @param {String} text バイト数をカウントしたいテキスト
+ * @param {Number} num カウントしたいターゲットまでの数値
+ * @returns
+ */
+export default function (text, num) {
   let length = 0;
+  let target = 0;
   for (let i = 0; i < text.length; i++) {
     const c = text.charCodeAt(i);
     if (
@@ -14,6 +20,7 @@ export default function (text) {
     } else {
       length += 2;
     }
+    if (length === num) target = i;
   }
-  return length;
+  return { length, target };
 }

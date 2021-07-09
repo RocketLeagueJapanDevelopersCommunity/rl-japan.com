@@ -71,9 +71,9 @@ export default {
   methods: {
     bytes(text) {
       let r;
-      const c = countBytes(text);
-      if (c > 40) {
-        r = text.slice(0, c / 2) + '…';
+      const c = countBytes(text, 40);
+      if (c.target) {
+        r = text.slice(0, c.target) + '…';
       } else r = text;
       return r;
     },
