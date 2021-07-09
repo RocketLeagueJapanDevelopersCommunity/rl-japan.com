@@ -6,10 +6,12 @@
           <picture v-if="sliderContent.ogimage" class="image">
             <source
               type="image/webp"
-              :data-srcset="sliderContent.ogimage.url + '?w=670&fm=webp'"
+              :data-srcset="
+                sliderContent.ogimage.url + '?w=600&h=315&fit=crop&fm=webp'
+              "
             />
             <img
-              :data-src="sliderContent.ogimage.url + '?w=670'"
+              :data-src="sliderContent.ogimage.url + 'w=600&h=315&fit=crop'"
               class="ogimage lazyload"
               alt
             />
