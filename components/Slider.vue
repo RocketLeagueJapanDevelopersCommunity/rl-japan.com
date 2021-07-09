@@ -18,11 +18,7 @@
           </picture>
           <div class="overlay">
             <div class="title">
-              {{
-                sliderContent.title.length > 40
-                  ? sliderContent.title.slice(0, 40) + '…'
-                  : sliderContent.title
-              }}
+              {{ bytes(sliderContent.title) }}
             </div>
             <div class="ctabtn">詳しく見る</div>
           </div>
@@ -43,6 +39,7 @@ import {
   Pagination as HooperPagination,
 } from 'hooper';
 import 'hooper/dist/hooper.css';
+import countBytes from '@/plugins/count-bytes.js';
 
 export default {
   components: {
@@ -73,21 +70,12 @@ export default {
   },
   methods: {
     bytes(text) {
-      let length = 0;
-      for (let i = 0; i < text.length; i++) {
-        const c = text.charCodeAt(i);
-        if (
-          (c >= 0x0 && c < 0x81) ||
-          c === '0xf8f0' ||
-          (c >= '0xff61' && c < '0xffa0') ||
-          (c >= '0xf8f1' && c < '0xf8f4')
-        ) {
-          length += 1;
-        } else {
-          length += 2;
-        }
-      }
-      return length;
+      let r;
+      const c = countBytes(text);
+      if (c > 40) {
+        r = text.slice(0, c / 2) + '…';
+      } else r = text;
+      return r;
     },
   },
 };
