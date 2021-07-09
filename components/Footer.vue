@@ -1,28 +1,43 @@
 <template>
   <footer class="footer">
     <ul class="lists">
-      <li class="list">
-        <a href="https://twitter.com/RL_Japan">Twitter</a>
-      </li>
-      <li class="list">
-        <a href="https://discord.gg/5YwQNN9">Discord</a>
-      </li>
-      <li class="list">
-        <a href="https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw">
-          YouTube</a
-        >
-      </li>
-      <li class="list">
-        <a href="https://www.twitch.tv/rljapan">Twitch</a>
-      </li>
-      <li class="list">
-        <a href="https://rljp.dev">Developed by RLJDC</a>
+      <li v-for="sns_list in sns_lists" :key="sns_list.name" class="list">
+        <a :href="sns_list.url">{{ sns_list.name }}</a>
       </li>
     </ul>
     <p class="cr">© ロケットリーグ 日本コミュニティ</p>
   </footer>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      sns_lists: [
+        {
+          name: 'Twitter',
+          url: 'https://twitter.com/RL_Japan',
+        },
+        {
+          name: 'Discord',
+          url: 'https://discord.gg/5YwQNN9',
+        },
+        {
+          name: 'YouTube',
+          url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw',
+        },
+        {
+          name: 'Twitch',
+          url: 'https://www.twitch.tv/rljapan',
+        },
+        {
+          name: 'Developed by RLJDC',
+          url: 'https://rljp.dev/',
+        },
+      ],
+    };
+  },
+};
+</script>
 <style scoped>
 @media (min-width: 600px) {
   .footer {

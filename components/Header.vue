@@ -20,26 +20,13 @@
             <nuxt-link :to="`/calendar`" class="link">大会カレンダー</nuxt-link>
           </li>
           <ul class="sns_lists">
-            <li class="sns_list">
-              <a href="https://twitter.com/RL_Japan">
-                <img src="@/static/social_icons/twitter.png" />
-              </a>
-            </li>
-            <li class="sns_list">
-              <a href="https://discord.gg/5YwQNN9">
-                <img src="@/static/social_icons/discord.png" />
-              </a>
-            </li>
-            <li class="sns_list">
-              <a
-                href="https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw"
-              >
-                <img src="@/static/social_icons/youtube.png" />
-              </a>
-            </li>
-            <li class="sns_list">
-              <a href="https://www.twitch.tv/rljapan">
-                <img src="@/static/social_icons/twitch.png" />
+            <li
+              v-for="sns_list in sns_lists"
+              :key="sns_list.name"
+              class="sns_list"
+            >
+              <a :href="sns_list.url">
+                <img :src="sns_list.image" />
               </a>
             </li>
           </ul>
@@ -65,6 +52,28 @@ export default {
     return {
       params: this.params || '',
       open: false,
+      sns_lists: [
+        {
+          name: 'Twitter',
+          url: 'https://twitter.com/RL_Japan',
+          image: require('@/static/social_icons/twitter.png'),
+        },
+        {
+          name: 'Discord',
+          url: 'https://discord.gg/5YwQNN9',
+          image: require('@/static/social_icons/discord.png'),
+        },
+        {
+          name: 'YouTube',
+          url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw',
+          image: require('@/static/social_icons/youtube.png'),
+        },
+        {
+          name: 'Twitch',
+          url: 'https://www.twitch.tv/rljapan',
+          image: require('@/static/social_icons/twitch.png'),
+        },
+      ],
     };
   },
   mounted() {

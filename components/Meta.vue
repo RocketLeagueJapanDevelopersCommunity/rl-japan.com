@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="meta">
-      <span v-if="category" :class="`category ${category.id}`">{{
-        category.name
-      }}</span>
+      <span v-if="category" :class="`category ${category.id}`">
+        {{ category.name }}
+      </span>
       <span class="timestamp">
         <img src="/images/icon_clock.svg" alt />
         <time :datetime="$dayjs(createdAt).format('YYYY-MM-DD')">
