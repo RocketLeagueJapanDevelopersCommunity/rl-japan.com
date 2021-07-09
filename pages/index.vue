@@ -4,12 +4,14 @@
     <div class="divider">
       <div class="container">
         <div v-if="selectedCategory">
-          <h1>{{ selectedCategory.name }}</h1>
+          <h1 :class="`selectedCategory ${selectedCategory.id}`">
+            {{ selectedCategory.name }}
+          </h1>
         </div>
-        <div v-if="!selectedCategory">
-          <h1>ピックアップ記事</h1>
+        <div v-else>
+          <h1 class="selectedCategory">ピックアップ記事</h1>
           <Slider :slider-contents="popularArticles" />
-          <h1>新着記事</h1>
+          <h1 class="selectedCategory">新着記事</h1>
         </div>
         <div v-show="contents.length === 0" class="loader">
           記事がありません
@@ -152,7 +154,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h1.selectedCategory {
   position: relative;
   display: block;
   font-weight: bold;
@@ -164,7 +166,7 @@ h1 {
   margin-left: 0;
 }
 
-h1::before {
+h1.selectedCategory::before {
   background-color: #e9433b;
   position: absolute;
   top: 50%;
@@ -175,6 +177,28 @@ h1::before {
   transform: translateY(-50%);
   border-radius: 50%;
   content: '';
+}
+
+h1.selectedCategory.tournament::before {
+  background: var(--cat-tournament);
+}
+h1.selectedCategory.update::before {
+  background: var(--cat-update);
+}
+h1.selectedCategory.interview::before {
+  background: var(--cat-interview);
+}
+h1.selectedCategory.notes::before {
+  background: var(--cat-notes);
+}
+h1.selectedCategory.tips::before {
+  background: var(--cat-tips);
+}
+h1.selectedCategory.offline-event::before {
+  background: var(--cat-offline-event);
+}
+h1.selectedCategory.information::before {
+  background: var(--cat-information);
 }
 
 @media (min-width: 1160px) {

@@ -203,10 +203,9 @@ export default {
   .lists_title::before {
     position: absolute;
     bottom: -10px;
-    width: 60px;
+    width: 20px;
     height: 5px;
     content: '';
-    border-radius: 3px;
     background: #e9433b;
   }
   .sp_footer {
