@@ -66,8 +66,6 @@
         <Banner id="aside-banner" :banner="banner" />
         <Search />
         <Category :categories="categories" />
-        <!-- <PopularArticles :contents="popularArticles" /> -->
-        <!-- <Latest :contents="contents" /> -->
       </aside>
     </div>
     <Footer />
