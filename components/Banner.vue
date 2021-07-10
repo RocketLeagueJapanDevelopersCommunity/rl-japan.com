@@ -53,10 +53,14 @@ export default {
   display: block;
   margin-bottom: 40px;
 }
+.wrapper {
+  margin-top: 84px;
+}
 
 @media (max-width: 1160px) {
   .wrapper {
     text-align: center;
+    margin-top: 0;
   }
 }
 </style>

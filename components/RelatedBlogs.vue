@@ -46,12 +46,22 @@ export default {
 <style scoped>
 @media (min-width: 1160px) {
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin: 60px 0 40px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
+  }
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
   }
 
   .lists {
@@ -87,12 +97,22 @@ export default {
 }
 @media (min-width: 820px) and (max-width: 1160px) {
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin: 60px 0 40px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
+  }
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
   }
 
   .lists {
@@ -128,12 +148,22 @@ export default {
 }
 @media (max-width: 820px) {
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin: 40px 0 20px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
+  }
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
   }
 
   .list {

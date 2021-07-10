@@ -7,23 +7,32 @@
           <img class="logoImg" src="/images/logo.svg" alt="rl-japan" />
         </a>
       </h1>
+
       <button class="menuBtn" @click="toggleOpen()">
         <img src="/images/icon_menu.svg" alt="menu" />
       </button>
       <div v-if="open" class="mask" @click="setOpen(false)"></div>
 
       <div class="menu" :class="{ isOpen: open }">
+        <h1 class="lists_title sp">メニュー</h1>
         <ul class="lists">
           <li class="list">
             <nuxt-link :to="`/calendar`" class="link">大会カレンダー</nuxt-link>
           </li>
-          <!-- <li class="list">
-            <nuxt-link :to="`/events`" class="link">イベント一覧</nuxt-link>
-          </li> -->
-          <!-- <li class="list">
-            <nuxt-link :to="`/contact`" class="link">お問い合わせ</nuxt-link>
-          </li> -->
+          <ul class="sns_lists">
+            <li
+              v-for="sns_list in sns_lists"
+              :key="sns_list.name"
+              class="sns_list"
+            >
+              <a :href="sns_list.url">
+                <img :src="sns_list.image" />
+              </a>
+            </li>
+          </ul>
         </ul>
+        <Category class="sp_category sp" :categories="headerCat" />
+        <Footer class="sp_footer sp" />
       </div>
     </header>
     <div class="empty"></div>
@@ -32,10 +41,39 @@
 
 <script>
 export default {
+  props: {
+    headerCat: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+  },
   data() {
     return {
       params: this.params || '',
       open: false,
+      sns_lists: [
+        {
+          name: 'Twitter',
+          url: 'https://twitter.com/RL_Japan',
+          image: require('@/static/social_icons/twitter.png'),
+        },
+        {
+          name: 'Discord',
+          url: 'https://discord.gg/5YwQNN9',
+          image: require('@/static/social_icons/discord.png'),
+        },
+        {
+          name: 'YouTube',
+          url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw',
+          image: require('@/static/social_icons/youtube.png'),
+        },
+        {
+          name: 'Twitch',
+          url: 'https://www.twitch.tv/rljapan',
+          image: require('@/static/social_icons/twitch.png'),
+        },
+      ],
     };
   },
   mounted() {
@@ -54,6 +92,9 @@ export default {
 
 <style scoped>
 @media (min-width: 800px) {
+  .sp {
+    display: none;
+  }
   .header {
     position: fixed;
     top: 0;
@@ -76,9 +117,7 @@ export default {
   }
 
   .logo {
-    padding: 8px 0;
     margin-right: 30px;
-
     a {
       display: block;
       height: 28px;
@@ -99,7 +138,25 @@ export default {
     width: 88px;
     height: 88px;
   }
-
+  .sns_lists {
+    display: flex;
+    justify-content: flex-start;
+    padding: auto;
+    margin-left: 4px;
+    .sns_list {
+      padding: 0 16px;
+      white-space: nowrap;
+      padding-left: 4px;
+      :hover {
+        background-color: #eee;
+      }
+      a {
+        img {
+          height: 20px;
+        }
+      }
+    }
+  }
   .menuBtn {
     display: none;
   }
@@ -143,6 +200,29 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .lists_title {
+    position: relative;
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+  }
+  .lists_title::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
+  }
+  .sp_footer {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
   .header {
     position: fixed;
     top: 0;
@@ -181,15 +261,18 @@ export default {
     cursor: pointer;
   }
 
+  .sns_lists {
+    display: none;
+  }
   .menu {
     position: absolute;
     left: 0;
     top: 61px;
     display: none;
-    flex-direction: column-reverse;
+    flex-direction: column;
     width: 100%;
-    background-color: #fff;
-    border-bottom: 1px solid var(--color-border);
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #eee;
     z-index: 2001;
     padding-top: 8px;
 
@@ -212,7 +295,7 @@ export default {
 
     a {
       display: block;
-      color: var(--color-text-main);
+      color: var(--color-text-sub);
       padding: 8px 0;
       border-bottom: 1px solid var(--color-border-light);
 
@@ -245,7 +328,7 @@ export default {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #fff;
     z-index: 2000;
   }
 }
