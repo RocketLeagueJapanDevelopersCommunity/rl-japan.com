@@ -2,12 +2,12 @@
 /**
  *
  * @param {String} text バイト数をカウントしたいテキスト
- * @param {Number} num カウントしたいターゲットまでの数値
+ * @param {Number} num カウントしたい文字数をバイト数換算した時のインデックス
  * @returns
  */
 export default function (text, num) {
   let length = 0;
-  let target = 0;
+  let targetIndex = 0;
   for (let i = 0; i < text.length; i++) {
     const c = text.charCodeAt(i);
     if (
@@ -20,7 +20,7 @@ export default function (text, num) {
     } else {
       length += 2;
     }
-    if (length === num) target = i;
+    if (length === num) targetIndex = i;
   }
-  return { length, target };
+  return { length, targetIndex };
 }
