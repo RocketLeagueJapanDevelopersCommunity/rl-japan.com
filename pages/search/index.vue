@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-cat="categories" />
     <div class="divider">
       <div class="container">
         <input
