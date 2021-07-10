@@ -118,7 +118,8 @@ export default {
   fill: #f5f5f7;
 }
 .hooper {
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 5px;
 }
 .box {
