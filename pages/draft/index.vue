@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-cat="categories" />
     <div class="divider">
       <p v-if="!data.id" class="loading">Now Loading...</p>
       <article v-if="data.id" class="article">

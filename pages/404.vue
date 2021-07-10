@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-cat="categories" />
     <div class="container">
       <dl>
         <dt class="status">404</dt>
@@ -12,7 +12,20 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  async asyncData({ payload, $config }) {
+    const categories = await axios.get(
+      `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
+      {
+        headers: { 'X-API-KEY': $config.apiKey },
+      }
+    );
+    return {
+      categories: categories.data.contents,
+    };
+  },
   head() {
     return {
       titleTemplate: null,

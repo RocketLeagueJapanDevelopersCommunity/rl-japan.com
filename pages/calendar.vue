@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-cat="categories" />
     <div class="container">
       <h1>大会カレンダー</h1>
       <div class="grid">
@@ -37,7 +37,16 @@ export default {
       },
     });
 
+    // headerMenu
+    const categories = await axios.get(
+      `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
+      {
+        headers: { 'X-API-KEY': $config.apiKey },
+      }
+    );
+
     return {
+      categories: categories.data.contents,
       events: resEvents.data.events,
       subcalendars: resSubs.data.subcalendars,
     };
