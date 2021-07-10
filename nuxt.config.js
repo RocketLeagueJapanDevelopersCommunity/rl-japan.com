@@ -4,6 +4,7 @@ const {
   API_KEY,
   SERVICE_ID,
   GA_ID,
+  CA_PUB,
   CALENDAR_KEY,
   CALENDAR_API_KEY,
 } = process.env;
@@ -127,6 +128,12 @@ export default {
       '@nuxtjs/google-analytics',
       {
         id: GA_ID,
+      },
+    ],
+    [
+      '@nuxtjs/google-adsense',
+      {
+        id: CA_PUB,
       },
     ],
     ['@nuxtjs/sitemap'],
