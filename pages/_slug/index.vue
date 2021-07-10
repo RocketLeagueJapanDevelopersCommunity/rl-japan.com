@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-cat="categories" />
     <div class="divider">
       <article class="article">
         <div class="ogimageWrap">
@@ -198,6 +198,7 @@ export default {
 @media (min-width: 1160px) {
   .wrapper {
     position: relative;
+    background: white;
   }
 
   .divider {
@@ -292,6 +293,7 @@ export default {
 @media (min-width: 820px) and (max-width: 1160px) {
   .wrapper {
     position: relative;
+    background: white;
   }
 
   .divider {
@@ -410,6 +412,7 @@ export default {
 @media (min-width: 600px) and (max-width: 820px) {
   .wrapper {
     position: relative;
+    background: white;
   }
 
   .divider {
@@ -503,6 +506,7 @@ export default {
 @media (max-width: 600px) {
   .wrapper {
     position: relative;
+    background: white;
   }
 
   .divider {

@@ -1,10 +1,18 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header :header-cat="categories" />
     <div class="divider">
       <div class="container">
-        <!-- <Slider /> -->
-        <Breadcrumb :category="selectedCategory" />
+        <div v-if="selectedCategory">
+          <h1 :class="`selectedCategory ${selectedCategory.id}`">
+            {{ selectedCategory.name }}
+          </h1>
+        </div>
+        <div v-else>
+          <h1 class="selectedCategory">ピックアップ記事</h1>
+          <Slider :slider-contents="popularArticles" />
+          <h1 class="selectedCategory">新着記事</h1>
+        </div>
         <div v-show="contents.length === 0" class="loader">
           記事がありません
         </div>
@@ -55,11 +63,9 @@
         </ul>
       </div>
       <aside class="aside">
-        <Banner id="list" :banner="banner" />
+        <Banner id="aside-banner" :banner="banner" />
         <Search />
-        <Categories :categories="categories" />
-        <PopularArticles :contents="popularArticles" />
-        <Latest :contents="contents" />
+        <Category :categories="categories" />
       </aside>
     </div>
     <Footer />
@@ -68,8 +74,12 @@
 
 <script>
 import axios from 'axios';
+import Slider from '@/components/Slider';
 
 export default {
+  components: {
+    Slider,
+  },
   async asyncData({ params, payload, $config }) {
     const page = params.id || '1';
     const categoryId = params.categoryId;
@@ -142,6 +152,53 @@ export default {
 </script>
 
 <style scoped>
+h1.selectedCategory {
+  position: relative;
+  display: block;
+  font-weight: bold;
+  padding-left: 24px;
+  font-size: 24px;
+  color: #2b2c30;
+  border: 1px;
+  margin: 24px;
+  margin-left: 0;
+}
+
+h1.selectedCategory::before {
+  background-color: #e9433b;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  content: '';
+}
+
+h1.selectedCategory.tournament::before {
+  background: var(--cat-tournament);
+}
+h1.selectedCategory.update::before {
+  background: var(--cat-update);
+}
+h1.selectedCategory.interview::before {
+  background: var(--cat-interview);
+}
+h1.selectedCategory.notes::before {
+  background: var(--cat-notes);
+}
+h1.selectedCategory.tips::before {
+  background: var(--cat-tips);
+}
+h1.selectedCategory.offline-event::before {
+  background: var(--cat-offline-event);
+}
+h1.selectedCategory.information::before {
+  background: var(--cat-information);
+}
+
 @media (min-width: 1160px) {
   .loader {
     color: #ccc;
@@ -161,12 +218,12 @@ export default {
   .page {
     width: 40px;
     height: 40px;
-    background-color: #e5eff9;
+    background-color: var(--color-main-bg-red);
     border-radius: 5px;
     margin: 10px;
 
     &.active {
-      background-color: #3067af;
+      background-color: #e9433b;
 
       a {
         color: #fff;
@@ -178,7 +235,7 @@ export default {
       justify-content: center;
       align-items: center;
       height: 100%;
-      color: #3067af;
+      color: #e9433b;
     }
   }
 
@@ -241,7 +298,15 @@ export default {
   }
 
   .list {
-    padding: 20px 0;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
+  }
+
+  .list:hover {
+    transition: 1s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .link {
@@ -284,12 +349,12 @@ export default {
   .page {
     width: 40px;
     height: 40px;
-    background-color: #e5eff9;
+    background-color: var(--color-main-bg-red);
     border-radius: 5px;
     margin: 10px;
 
     &.active {
-      background-color: #3067af;
+      background-color: #e9433b;
 
       a {
         color: #fff;
@@ -301,7 +366,7 @@ export default {
       justify-content: center;
       align-items: center;
       height: 100%;
-      color: #3067af;
+      color: #e9433b;
     }
   }
 
@@ -362,7 +427,10 @@ export default {
   }
 
   .list {
-    padding: 20px 0;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
   }
 
   .link {
@@ -405,12 +473,12 @@ export default {
   .page {
     width: 32px;
     height: 32px;
-    background-color: #e5eff9;
+    background-color: var(--color-main-bg-red);
     border-radius: 5px;
     margin: 6px;
 
     &.active {
-      background-color: #3067af;
+      background-color: #e9433b;
 
       a {
         color: #fff;
@@ -422,7 +490,7 @@ export default {
       justify-content: center;
       align-items: center;
       height: 100%;
-      color: #3067af;
+      color: #e9433b;
     }
   }
 
@@ -483,8 +551,10 @@ export default {
   }
 
   .list {
-    padding: 32px 0 0;
-    border-bottom: 1px solid #eee;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
 
     &:first-child {
       padding-top: 16px;

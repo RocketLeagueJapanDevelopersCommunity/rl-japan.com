@@ -1,7 +1,7 @@
 <template>
   <ul class="breadcrumb">
     <li class="breadcrumbList">
-      <nuxt-link to="/">記事一覧</nuxt-link>
+      <nuxt-link to="/">TOP</nuxt-link>
     </li>
     <li v-if="hasCategory(category)" class="breadcrumbList">
       <nuxt-link :to="`/category/${category.id}/page/1`">{{

@@ -39,4 +39,11 @@
   --color-bg-success: #e8fbe8;
   --color-bg-error: #ffe9df;
   --color-error: #d9534f;
+
+  --cat-tournament: #f5b700;
+  --cat-update: #ea638c;
+  --cat-interview: #4281a4;
+  --cat-tips: #28afb0;
+  --cat-offline-event: #33673b;
+  --cat-information: #6a7fdb;
 }

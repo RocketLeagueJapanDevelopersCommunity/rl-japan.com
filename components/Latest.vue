@@ -31,12 +31,22 @@ export default {
   }
 
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
+  }
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
   }
 
   .list {
@@ -58,12 +68,22 @@ export default {
   }
 
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
+  }
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
   }
 
   .list {
@@ -85,12 +105,22 @@ export default {
   }
 
   .pageTitle {
-    font-size: 20px;
+    position: relative;
+    display: block;
     font-weight: bold;
-    background-color: #eee;
-    padding: 6px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: #2b2c30;
+    border: 1px;
+    margin: 18px;
+    margin-left: 0;
+  }
+  .pageTitle::before {
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 5px;
+    content: '';
+    background: #e9433b;
   }
 
   .list {
