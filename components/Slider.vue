@@ -17,9 +17,8 @@
             />
           </picture>
           <div class="overlay">
-            <div class="title">
-              {{ bytes(sliderContent.title) }}
-            </div>
+            <span class="title" :data-content="bytes(sliderContent.title)">
+            </span>
             <div class="ctabtn">詳しく見る</div>
           </div>
         </nuxt-link>
@@ -122,6 +121,28 @@ export default {
   height: 100% !important;
   border-radius: 5px;
 }
+
+.hooper-track .hooper-slide.is-active.is-current .title {
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.hooper-track .hooper-slide.is-active.is-current .title::after {
+  content: attr(data-content);
+  position: relative;
+  opacity: 0;
+  animation: active-title 0.8s 0.7s ease-out forwards;
+}
+@keyframes active-title {
+  0% {
+    opacity: 0;
+    left: 50%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
 .box {
   position: relative;
 }
@@ -152,6 +173,7 @@ export default {
   border-radius: 5px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 .box .overlay .ctabtn:hover {
   transition: all 300ms;
