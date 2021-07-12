@@ -134,6 +134,9 @@ export default {
       '@nuxtjs/google-adsense',
       {
         id: CA_PUB,
+        pageLevelAds: true,
+        analyticsUacct: GA_ID,
+        analiticsDomainName: 'rl-japan.com',
       },
     ],
     ['@nuxtjs/sitemap'],
