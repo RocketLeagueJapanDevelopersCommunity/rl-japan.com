@@ -37,7 +37,6 @@ import {
   Navigation as HooperNavigation,
   Pagination as HooperPagination,
 } from 'hooper';
-import 'hooper/dist/hooper.css';
 import countBytes from '@/plugins/count-bytes.js';
 
 export default {
@@ -81,6 +80,8 @@ export default {
 </script>
 
 <style>
+@import url('hooper/dist/hooper.css');
+
 .hooper-list {
   border-radius: 5px;
   padding-bottom: 25px;
