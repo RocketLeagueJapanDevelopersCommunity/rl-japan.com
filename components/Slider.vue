@@ -17,9 +17,8 @@
             />
           </picture>
           <div class="overlay">
-            <div class="title">
-              {{ bytes(sliderContent.title) }}
-            </div>
+            <span class="title" :data-content="bytes(sliderContent.title)">
+            </span>
             <div class="ctabtn">詳しく見る</div>
           </div>
         </nuxt-link>
@@ -38,7 +37,6 @@ import {
   Navigation as HooperNavigation,
   Pagination as HooperPagination,
 } from 'hooper';
-import 'hooper/dist/hooper.css';
 import countBytes from '@/plugins/count-bytes.js';
 
 export default {
@@ -82,16 +80,22 @@ export default {
 </script>
 
 <style>
+@import url('hooper/dist/hooper.css');
+
 .hooper-list {
   border-radius: 5px;
   padding-bottom: 25px;
+}
+.hooper-pagination {
+  padding-top: 0;
+  padding-bottom: 2px;
+  bottom: 30px;
 }
 .hooper-indicator {
   width: 0.5em;
   height: 0.5em;
   border-radius: 1em;
   background-color: #eee;
-  margin-bottom: 30px;
 }
 .hooper-indicator:hover,
 .hooper-indicator.is-active {
@@ -122,6 +126,28 @@ export default {
   height: 100% !important;
   border-radius: 5px;
 }
+
+.hooper-track .hooper-slide.is-active.is-current .title {
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.hooper-track .hooper-slide.is-active.is-current .title::after {
+  content: attr(data-content);
+  position: relative;
+  opacity: 0;
+  animation: active-title 0.8s 0.7s ease-out forwards;
+}
+@keyframes active-title {
+  0% {
+    opacity: 0;
+    left: 50%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
 .box {
   position: relative;
 }
@@ -152,6 +178,7 @@ export default {
   border-radius: 5px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 .box .overlay .ctabtn:hover {
   transition: all 300ms;
@@ -195,8 +222,10 @@ export default {
   .box .overlay .ctabtn {
     display: none;
   }
-  .hooper-indicator {
-    margin-bottom: 0;
+  .hooper-pagination {
+    padding-top: 0;
+    padding-bottom: 2px;
+    bottom: 8px;
   }
 }
 </style>
