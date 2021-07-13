@@ -86,12 +86,16 @@ export default {
   border-radius: 5px;
   padding-bottom: 25px;
 }
+.hooper-pagination {
+  padding-top: 0;
+  padding-bottom: 2px;
+  bottom: 30px;
+}
 .hooper-indicator {
   width: 0.5em;
   height: 0.5em;
   border-radius: 1em;
   background-color: #eee;
-  margin-bottom: 30px;
 }
 .hooper-indicator:hover,
 .hooper-indicator.is-active {
@@ -218,8 +222,10 @@ export default {
   .box .overlay .ctabtn {
     display: none;
   }
-  .hooper-indicator {
-    margin-bottom: 0;
+  .hooper-pagination {
+    padding-top: 0;
+    padding-bottom: 2px;
+    bottom: 8px;
   }
 }
 </style>
