@@ -9,4 +9,8 @@
 html {
   background: #f5f5f7;
 }
+
+.post iframe {
+  width: 100%;
+}
 </style>
