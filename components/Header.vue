@@ -3,8 +3,20 @@
     <header class="header">
       <h1 class="logo">
         <a href="/">
-          <img class="iconImg" src="/images/icon.svg" alt="rl-japan" />
-          <img class="logoImg" src="/images/logo.svg" alt="rl-japan" />
+          <img
+            class="iconImg"
+            src="/images/icon.svg"
+            width="100"
+            height="100"
+            alt="rl-japan icon"
+          />
+          <img
+            class="logoImg"
+            src="/images/logo.svg"
+            width="148"
+            height="28"
+            alt="rl-japan logo"
+          />
         </a>
       </h1>
 

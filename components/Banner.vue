@@ -47,6 +47,8 @@ export default {
 <style scoped>
 .image {
   width: 300px;
+  max-width: 100%;
+  height: auto;
 }
 
 .link {
