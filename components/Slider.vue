@@ -7,16 +7,21 @@
             <source
               type="image/webp"
               :data-srcset="
-                sliderContent.ogimage.url + '?w=600&h=315&fit=crop&fm=webp'
+                sliderContent.ogimage.url + '?w=600&h=315&fit=crop&q=50&fm=webp'
               "
             />
             <img
-              :data-src="sliderContent.ogimage.url + 'w=600&h=315&fit=crop'"
+              src="@/static/images/loading.gif"
+              :data-src="
+                sliderContent.ogimage.url + 'w=600&h=315&fit=crop&q=50'
+              "
               class="ogimage lazyload"
               alt
+              width="630"
+              height="1200"
             />
           </picture>
-          <div class="overlay">
+          <div v-if="sliderContent.title" class="overlay">
             <span class="title" :data-content="bytes(sliderContent.title)">
             </span>
             <div class="ctabtn">詳しく見る</div>
@@ -124,6 +129,7 @@ export default {
 .hooper {
   width: 100% !important;
   height: 100% !important;
+  min-height: 150px;
   border-radius: 5px;
 }
 
@@ -151,11 +157,7 @@ export default {
 .box {
   position: relative;
 }
-.box picture .ogimage {
-  width: 100%;
-  border-radius: 5px;
-  object-fit: cover;
-}
+
 .box .overlay {
   display: flex;
   justify-content: space-between;
@@ -167,7 +169,7 @@ export default {
   bottom: 0;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  min-height: 53px;
 }
 .box .overlay .title {
   font-size: 18px;
@@ -185,10 +187,18 @@ export default {
   color: white;
   background-color: #e9433b;
 }
+
 @media (min-width: 1160px) {
   .box .overlay {
     padding: 10px;
     margin: 20px;
+  }
+
+  .box picture img.ogimage {
+    width: 820px;
+    height: 430px;
+    border-radius: 5px;
+    object-fit: cover;
   }
 }
 @media (min-width: 820px) and (max-width: 1160px) {
@@ -201,6 +211,12 @@ export default {
   }
   .box .overlay .ctabtn {
     display: block;
+  }
+  img.ogimage {
+    width: 740px;
+    height: 388px;
+    border-radius: 5px;
+    object-fit: cover;
   }
 }
 @media (max-width: 820px) {
@@ -226,6 +242,13 @@ export default {
     padding-top: 0;
     padding-bottom: 2px;
     bottom: 8px;
+  }
+  img.ogimage {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
   }
 }
 </style>
