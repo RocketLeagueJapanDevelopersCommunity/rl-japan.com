@@ -25,33 +25,7 @@
           >
             記事がありません
           </div>
-          <ul>
-            <li v-for="content in contents" :key="content.id" class="list">
-              <nuxt-link :to="`/${content.id}`" class="link">
-                <picture>
-                  <source
-                    type="image/webp"
-                    :srcset="content.ogimage.url + '?w=670&fm=webp'"
-                  />
-                  <img
-                    :src="content.ogimage.url + '?w=670'"
-                    class="ogimage"
-                    alt
-                  />
-                </picture>
-                <dl class="content">
-                  <dt class="title">{{ content.title }}</dt>
-                  <dd>
-                    <Meta
-                      :created-at="content.publishedAt || content.createdAt"
-                      :author="content.writer.name"
-                      :category="content.category"
-                    />
-                  </dd>
-                </dl>
-              </nuxt-link>
-            </li>
-          </ul>
+          <PostLists :contents="contents" />
           <ul v-show="contents.length > 0" class="pager">
             <li
               v-for="p in pager"
@@ -300,31 +274,6 @@ export default {
     font-size: 24px;
     font-weight: bold;
   }
-
-  .list {
-    padding: 20px 0;
-  }
-
-  .link {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .ogimage {
-    width: 335px;
-    height: 176px;
-    border-radius: 5px;
-  }
-
-  .content {
-    flex: 1;
-    margin-left: 40px;
-  }
-
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-  }
 }
 @media (min-width: 820px) and (max-width: 1160px) {
   .loader {
@@ -419,31 +368,6 @@ export default {
 
   .pageTitle {
     font-size: 24px;
-    font-weight: bold;
-  }
-
-  .list {
-    padding: 20px 0;
-  }
-
-  .link {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .ogimage {
-    width: 335px;
-    height: 176px;
-    border-radius: 5px;
-  }
-
-  .content {
-    flex: 1;
-    margin-left: 40px;
-  }
-
-  .title {
-    font-size: 20px;
     font-weight: bold;
   }
 }
@@ -541,26 +465,6 @@ export default {
   .pageTitle {
     font-size: 24px;
     font-weight: bold;
-  }
-
-  .list {
-    padding: 32px 0 0;
-    border-bottom: 1px solid #eee;
-
-    &:first-child {
-      padding-top: 16px;
-    }
-  }
-
-  .ogimage {
-    width: 100%;
-    border-radius: 5px;
-  }
-
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
   }
 }
 </style>

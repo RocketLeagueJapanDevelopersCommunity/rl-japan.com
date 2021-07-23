@@ -16,33 +16,7 @@
         <div v-show="contents.length === 0" class="loader">
           記事がありません
         </div>
-        <ul>
-          <li v-for="content in contents" :key="content.id" class="list">
-            <nuxt-link :to="`/${content.id}`" class="link">
-              <picture v-if="content.ogimage">
-                <source
-                  type="image/webp"
-                  :data-srcset="content.ogimage.url + '?w=670&fm=webp'"
-                />
-                <img
-                  :data-src="content.ogimage.url + '?w=670'"
-                  class="ogimage lazyload"
-                  alt
-                />
-              </picture>
-              <dl class="content">
-                <dt class="title">{{ content.title }}</dt>
-                <dd>
-                  <Meta
-                    :created-at="content.publishedAt || content.createdAt"
-                    :author="content.writer !== null ? content.writer.name : ''"
-                    :category="content.category"
-                  />
-                </dd>
-              </dl>
-            </nuxt-link>
-          </li>
-        </ul>
+        <PostLists :contents="contents" />
         <ul v-show="contents.length > 0" class="pager">
           <li
             v-for="p in pager"
@@ -148,7 +122,6 @@ export default {
       contents: this.contents || [],
       totalCount: this.totalCount || 0,
       pager: this.pager || [],
-      loading: true,
     };
   },
   head() {
@@ -207,7 +180,6 @@ h1.selectedCategory.offline-event::before {
 h1.selectedCategory.information::before {
   background: var(--cat-information);
 }
-
 @media (min-width: 1160px) {
   .loader {
     color: #ccc;
@@ -305,40 +277,6 @@ h1.selectedCategory.information::before {
     font-size: 24px;
     font-weight: bold;
   }
-
-  .list {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 5px;
-    background: white;
-  }
-
-  .list:hover {
-    transition: 1s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .link {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .ogimage {
-    width: 335px;
-    height: 176px;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-
-  .content {
-    flex: 1;
-    margin-left: 40px;
-  }
-
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-  }
 }
 @media (min-width: 820px) and (max-width: 1160px) {
   .loader {
@@ -432,35 +370,6 @@ h1.selectedCategory.information::before {
 
   .pageTitle {
     font-size: 24px;
-    font-weight: bold;
-  }
-
-  .list {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 5px;
-    background: white;
-  }
-
-  .link {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .ogimage {
-    width: 335px;
-    height: 176px;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-
-  .content {
-    flex: 1;
-    margin-left: 40px;
-  }
-
-  .title {
-    font-size: 20px;
     font-weight: bold;
   }
 }
@@ -557,29 +466,6 @@ h1.selectedCategory.information::before {
   .pageTitle {
     font-size: 24px;
     font-weight: bold;
-  }
-
-  .list {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 5px;
-    background: white;
-
-    &:first-child {
-      padding-top: 16px;
-    }
-  }
-
-  .ogimage {
-    width: 100%;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
   }
 }
 </style>
