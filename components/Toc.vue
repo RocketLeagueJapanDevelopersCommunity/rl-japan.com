@@ -1,13 +1,18 @@
 <template>
   <div v-if="visible" class="wrapper">
-    <h4 class="title">目次</h4>
-    <ul class="lists">
-      <li v-for="item in toc" :key="item.id" :class="`list ${item.name}`">
-        <n-link v-scroll-to="`#${item.id}`" to>
-          {{ item.text }}
-        </n-link>
-      </li>
-    </ul>
+    <input type="checkbox" id="toggle1" />
+    <div class="toggle-outer">
+      <label for="toggle1" class="title">目次 [クリックして開く]</label>
+    </div>
+    <div class="toggle-inner">
+      <ul class="lists">
+        <li v-for="item in toc" :key="item.id" :class="`list ${item.name}`">
+          <n-link v-scroll-to="`#${item.id}`" to>
+            {{ item.text }}
+          </n-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -29,11 +34,25 @@ export default {
 </script>
 
 <style scoped>
+#toggle1 {
+  cursor: pointer;
+  display: none;
+}
+.toggle-inner {
+  display: none;
+}
+.toggle-outer {
+  cursor: pointer;
+}
+#toggle1:checked ~ .toggle-inner {
+  display: block;
+}
 .wrapper {
-  background-color: #fdeceb;
+  margin: 8px;
+  background-color: white;
   border-radius: 5px;
   padding: 20px;
-  margin-bottom: 40px;
+  border: 2px solid #fbd9d8;
 }
 .title {
   font-size: 16px;
@@ -52,9 +71,9 @@ export default {
   }
 
   &::before {
-    content: '-';
+    content: '・';
     margin-right: 5px;
-    color: #fbd9d8;
+    color: black;
   }
 
   &.h2 {
