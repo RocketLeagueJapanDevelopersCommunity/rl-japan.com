@@ -125,7 +125,7 @@ export default {
   modules: [
     ['@nuxtjs/dayjs'],
     [
-      '@nuxtjs/google-analytics',
+      '@nuxtjs/google-gtag',
       {
         id: GA_ID,
       },
