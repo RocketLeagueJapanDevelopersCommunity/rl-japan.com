@@ -33,11 +33,11 @@ export default {
   },
   methods: {
     bannerClick() {
-      this.$ga.event({
-        eventCategory: 'banner',
-        eventAction: 'click',
-        eventLabel: this.banner.url,
-        eventValue: 1,
+      this.$gtag('event', 'banner_click', {
+        event_category: 'banner',
+        event_action: 'click',
+        event_label: this.banner.url,
+        value: 1,
       });
     },
   },

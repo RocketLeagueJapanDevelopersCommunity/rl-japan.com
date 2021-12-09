@@ -15,6 +15,7 @@
     "@fullcalendar/daygrid": "^5.6.0",
     "@fullcalendar/interaction": "^5.6.0",
     "@fullcalendar/vue": "^5.6.0",
+    "@nuxtjs/google-gtag": "^1.0.4",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.3",
     "dayjs": "^1.10.4",
