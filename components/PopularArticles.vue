@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h1 class="pageTitle">ピックアップ記事</h1>
+    <div class="pageTitle">ピックアップ記事</div>
     <ul>
       <li v-for="content in contents" :key="content.id" class="list">
         <nuxt-link :to="`/${content.id}`" class="link">
