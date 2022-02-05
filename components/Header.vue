@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="header">
-      <h1 class="logo">
+      <div class="logo">
         <a href="/">
           <img
             class="iconImg"
@@ -18,7 +18,7 @@
             alt="rl-japan logo"
           />
         </a>
-      </h1>
+      </div>
 
       <button class="menuBtn" @click="toggleOpen()">
         <img src="/images/icon_menu.svg" alt="menu" />

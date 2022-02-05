@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="lists_title">カテゴリー</h1>
+    <div class="lists_title">カテゴリー</div>
     <ul class="lists">
       <div class="category_bar">
         <nuxt-link

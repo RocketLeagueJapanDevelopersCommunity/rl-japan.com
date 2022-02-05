@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h2 class="pageTitle">関連記事</h2>
+    <div class="pageTitle">関連記事</div>
     <ul class="lists">
       <li v-for="blog in blogs" :key="blog.id" class="list">
         <nuxt-link :to="`/${blog.id}`" class="link">

@@ -22,6 +22,9 @@
             />
           </picture>
           <div v-if="sliderContent.title" class="overlay">
+            <div class="category">
+              <span>{{ sliderContent.category.id.toUpperCase() }}</span>
+            </div>
             <span class="title" :data-content="bytes(sliderContent.title)">
             </span>
             <div class="ctabtn">詳しく見る</div>
@@ -100,12 +103,12 @@ export default {
   width: 0.5em;
   height: 0.5em;
   border-radius: 1em;
-  background-color: #eee;
+  background-color: rgb(165, 165, 165);
 }
 .hooper-indicator:hover,
 .hooper-indicator.is-active {
   background-color: #e9433b;
-  transition: background-color 0.5s;
+  transition: background-color 0.3s ease-out;
 }
 .hooper-navigation button {
   border-radius: 5px;
@@ -143,6 +146,18 @@ export default {
   opacity: 0;
   animation: active-title 0.8s 0.7s ease-out forwards;
 }
+
+.overlay > .category {
+  display: block;
+  margin: 8px;
+  padding: 4px 8px;
+  background: #e9433b;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 @keyframes active-title {
   0% {
     opacity: 0;
@@ -170,6 +185,8 @@ export default {
   border-radius: 5px;
   background-color: white;
   min-height: 53px;
+  box-shadow: 0 0 4px 0 rgba(20, 22, 29, 0.05),
+    0 12px 14px 0 rgba(20, 22, 29, 0.08);
 }
 .box .overlay .title {
   font-size: 18px;
@@ -181,6 +198,7 @@ export default {
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 999;
+  transition: background-color 0.3s ease-out;
 }
 .box .overlay .ctabtn:hover {
   transition: all 300ms;
@@ -225,12 +243,15 @@ export default {
     padding: 0.5em;
   }
   .box .overlay {
-    position: absolute;
+    position: static;
+    padding: 1rem 0.5em;
+    margin: 0.5em;
+    /* position: absolute;
     left: 0;
     right: 0;
     bottom: -35px;
     padding: 1rem 0.5em;
-    margin: 1em;
+    margin: 1em; */
   }
   .box .overlay .title {
     font-size: 14px;
