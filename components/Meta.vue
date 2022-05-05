@@ -83,7 +83,7 @@ export default {
   .category.rlcs::before {
     background: var(--cat-rlcs);
   }
-  .categoryinterview::before {
+  .category.interview::before {
     background: var(--cat-interview);
   }
   .category.world-topics::before {
