@@ -67,27 +67,32 @@ export default {
     border-radius: 50%;
     background: #e9433b;
   }
+  /* categories */
+  .category.tips::before {
+    background: var(--cat-tips);
+  }
   .category.tournament::before {
     background: var(--cat-tournament);
   }
   .category.update::before {
     background: var(--cat-update);
   }
+  .category.information::before {
+    background: var(--cat-information);
+  }
+  .category.rlcs::before {
+    background: var(--cat-rlcs);
+  }
   .category.interview::before {
     background: var(--cat-interview);
   }
-  .category.notes::before {
-    background: var(--cat-notes);
-  }
-  .category.tips::before {
-    background: var(--cat-tips);
+  .category.world-topics::before {
+    background: var(--cat-world-topics);
   }
   .category.offline-event::before {
     background: var(--cat-offline-event);
   }
-  .category.information::before {
-    background: var(--cat-information);
-  }
+  /* categories end */
 
   .timestamp {
     display: inline-flex;
