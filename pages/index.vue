@@ -158,28 +158,35 @@ h1.selectedCategory::before {
   border-radius: 50%;
   content: '';
 }
+/* categories */
 
+h1.selectedCategory.tips::before {
+  background: var(--cat-tips);
+}
 h1.selectedCategory.tournament::before {
   background: var(--cat-tournament);
 }
 h1.selectedCategory.update::before {
   background: var(--cat-update);
 }
+h1.selectedCategory.information::before {
+  background: var(--cat-information);
+}
+h1.selectedCategory.rlcs::before {
+  background: var(--cat-rlcs);
+}
 h1.selectedCategory.interview::before {
   background: var(--cat-interview);
 }
-h1.selectedCategory.notes::before {
-  background: var(--cat-notes);
-}
-h1.selectedCategory.tips::before {
-  background: var(--cat-tips);
+h1.selectedCategory.world-topics::before {
+  background: var(--cat-world-topics);
 }
 h1.selectedCategory.offline-event::before {
   background: var(--cat-offline-event);
 }
-h1.selectedCategory.information::before {
-  background: var(--cat-information);
-}
+
+/* categories end */
+
 @media (min-width: 1160px) {
   .loader {
     color: #ccc;
