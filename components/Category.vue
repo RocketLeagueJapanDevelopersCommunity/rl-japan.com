@@ -62,27 +62,34 @@ export default {
   margin: 8px;
   margin-left: 0;
 }
+
+/* categories */
+.lists .category_bar .category_item.tips::before {
+  background: var(--cat-tips);
+}
 .lists .category_bar .category_item.tournament::before {
   background: var(--cat-tournament);
 }
 .lists .category_bar .category_item.update::before {
   background: var(--cat-update);
 }
+.lists .category_bar .category_item.information::before {
+  background: var(--cat-information);
+}
+.lists .category_bar .category_item.rlcs::before {
+  background: var(--cat-rlcs);
+}
 .lists .category_bar .category_item.interview::before {
   background: var(--cat-interview);
 }
-.lists .category_bar .category_item.notes::before {
-  background: var(--cat-notes);
-}
-.lists .category_bar .category_item.tips::before {
-  background: var(--cat-tips);
+.lists .category_bar .category_item.world-topics::before {
+  background: var(--cat-world-topics);
 }
 .lists .category_bar .category_item.offline-event::before {
   background: var(--cat-offline-event);
 }
-.lists .category_bar .category_item.information::before {
-  background: var(--cat-information);
-}
+/* categories end */
+
 .lists .category_bar .category_item:before {
   position: absolute;
   top: calc(50% - 5px);
