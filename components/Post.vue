@@ -80,10 +80,10 @@ export default {
 
     & >>> ul > li {
       line-height: 2;
+      margin-left: 20px;
 
       &::before {
-        content: '-';
-        margin-right: 10px;
+        content: '・';
       }
     }
 
@@ -194,10 +194,10 @@ export default {
 
     & >>> ul > li {
       line-height: 2;
+      margin-left: 20px;
 
       &::before {
-        content: '-';
-        margin-right: 10px;
+        content: '・';
       }
     }
 
