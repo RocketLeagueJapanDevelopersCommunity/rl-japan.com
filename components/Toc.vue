@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" class="wrapper">
-    <input type="checkbox" id="toggle1" />
+    <input id="toggle1" type="checkbox" />
     <div class="toggle-outer">
       <label for="toggle1" class="title">目次 [クリックして開く]</label>
     </div>
