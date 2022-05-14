@@ -87,24 +87,6 @@ export default {
   }
 }
 
-.button {
-  display: inline-block;
-  border: none;
-  border-radius: 5px;
-  background: linear-gradient(to right bottom, #ecafac, #e9433b);
-  color: #fff;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 8px 24px;
-  cursor: pointer;
-  margin-top: 10px;
-
-  &:hover {
-    background: linear-gradient(to right bottom, #8e6967, #541815);
-  }
-}
-
 @media (min-width: 600px) {
   .wrapper {
     position: relative;
