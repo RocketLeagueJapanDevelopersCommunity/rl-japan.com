@@ -15,7 +15,7 @@
       <dl class="content">
         <dt class="name">
           <span class="company">{{ partner.company }}</span>
-          <span class="label">認定パートナー</span>
+          <span class="label">告知</span>
         </dt>
         <dd v-if="partner.description" class="text">
           {{ partner.description }}
@@ -24,14 +24,6 @@
           <a :href="partner.url" target="_blank" rel="noopener noreferrer">{{
             partner.url
           }}</a>
-        </dd>
-        <dd>
-          <a
-            class="button"
-            :href="`https://rl-japan.com/partners/${partner.id}`"
-            target="partner"
-            >制作を依頼する</a
-          >
         </dd>
       </dl>
     </div>
