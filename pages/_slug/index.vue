@@ -40,7 +40,7 @@
             <h1 class="title">{{ title }}</h1>
             <Meta
               :created-at="publishedAt || createdAt"
-              :author="writer !== null ? writer.name : ''"
+              :author="writer !== null ? writer : ''"
               :category="category"
             />
             <Toc :id="id" :toc="toc" :visible="toc_visible" />
