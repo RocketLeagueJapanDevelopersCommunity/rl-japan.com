@@ -185,20 +185,13 @@ export default {
 </script>
 
 <style scoped>
-.category {
-  display: inline-block;
-  padding: 2px 10px;
-  border-radius: 3px;
-  color: #fff;
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: bold;
+.container {
+  background: #f0f0ee;
 }
 
 @media (min-width: 1160px) {
   .wrapper {
     position: relative;
-    background: white;
   }
 
   .divider {
@@ -274,7 +267,6 @@ export default {
   .container {
     position: relative;
     flex: 1;
-    background-color: #fff;
     margin-left: 80px;
     -webkit-font-smoothing: antialiased;
   }
@@ -293,7 +285,6 @@ export default {
 @media (min-width: 820px) and (max-width: 1160px) {
   .wrapper {
     position: relative;
-    background: white;
   }
 
   .divider {
@@ -369,7 +360,6 @@ export default {
   .container {
     position: relative;
     flex: 1;
-    background-color: #fff;
     margin-left: 80px;
     -webkit-font-smoothing: antialiased;
   }
@@ -412,7 +402,6 @@ export default {
 @media (min-width: 600px) and (max-width: 820px) {
   .wrapper {
     position: relative;
-    background: white;
   }
 
   .divider {
@@ -488,7 +477,6 @@ export default {
   .container {
     position: relative;
     flex: 1;
-    background-color: #fff;
     margin-left: 80px;
     -webkit-font-smoothing: antialiased;
   }
@@ -506,7 +494,6 @@ export default {
 @media (max-width: 600px) {
   .wrapper {
     position: relative;
-    background: white;
   }
 
   .divider {
@@ -606,7 +593,6 @@ export default {
   .container {
     position: relative;
     flex: 1;
-    background-color: #fff;
     -webkit-font-smoothing: antialiased;
   }
 

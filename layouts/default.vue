@@ -7,7 +7,7 @@
 <style>
 @import '@/assets/styles/reset.css';
 html {
-  background: #f5f5f7;
+  background: #f0f0ee;
 }
 
 .post iframe {
