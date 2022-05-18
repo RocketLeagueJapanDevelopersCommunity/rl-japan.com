@@ -90,7 +90,7 @@ Page: ${this.$route.fullPath}
   display: inline-block;
   border: none;
   border-radius: 5px;
-  background: rgb(45, 45, 45);
+  background: #2d2d2d;
   color: #fff;
   text-align: center;
   font-size: 16px;
@@ -100,7 +100,7 @@ Page: ${this.$route.fullPath}
   margin-top: 10px;
 
   &:hover {
-    background: linear-gradient(to right bottom, #8e6967, #541815);
+    background: #525252;
   }
 }
 </style>
