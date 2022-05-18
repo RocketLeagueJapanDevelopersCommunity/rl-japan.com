@@ -7,10 +7,12 @@
           <picture v-if="content.ogimage">
             <source
               type="image/webp"
-              :data-srcset="content.ogimage.url + '?w=560&fm=webp'"
+              :data-srcset="
+                content.ogimage.url + '?w=400&h=210&fm=webp&fit=crop&q=0'
+              "
             />
             <img
-              :data-src="content.ogimage.url + '?w=560&q=100'"
+              :data-src="content.ogimage.url + '?w=400&h=210&fit=crop&q=0'"
               class="image lazyload"
               alt
             />

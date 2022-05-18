@@ -11,8 +11,23 @@
         </time>
       </span>
       <span v-if="author" class="author">
-        <img src="/images/icon_author.svg" alt />
-        {{ author }}
+        <picture v-if="author.image">
+          <source
+            type="image/webp"
+            :data-srcset="
+              author.image.url + '?w=100&h=100&&q=50&fm=webp&fit=crop&q=0'
+            "
+          />
+          <img
+            src="@/static/images/loading.gif"
+            :data-src="author.image.url + '?w=100&h=100&q=50&fit=crop&q=0'"
+            class="ogimage lazyload"
+            alt
+            :width="author.image.width"
+            :height="author.image.height"
+          />
+        </picture>
+        {{ author.name }}
       </span>
     </div>
   </div>
@@ -26,7 +41,7 @@ export default {
       required: true,
     },
     author: {
-      type: String,
+      type: Object,
       required: false,
       default: undefined,
     },
@@ -45,6 +60,7 @@ export default {
     padding: 10px 0 0;
     display: flex;
     align-items: center;
+    align-content: center;
     flex-wrap: wrap;
   }
 
@@ -54,15 +70,14 @@ export default {
     padding: 0.25rem 0.5rem 0.25rem 1.5rem;
     color: #616269;
     border-radius: 5px;
-    background: white;
-    margin-right: 20px;
+    margin-right: 8px;
   }
   .category:before {
     position: absolute;
-    top: calc(50% - 5px);
-    left: 10px;
-    width: 10px;
-    height: 10px;
+    top: calc(50% - 8px);
+    left: 0px;
+    width: 16px;
+    height: 16px;
     content: '';
     border-radius: 50%;
     background: #e9433b;
@@ -111,16 +126,25 @@ export default {
   }
 
   .author {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-items: center;
     color: #616269;
     white-space: nowrap;
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
+
+    picture {
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      white-space: nowrap;
+    }
 
     img {
       margin-right: 6px;
-      height: 16px;
+      height: 32px;
+      width: 32px;
+      object-fit: contain;
+      border-radius: 50%;
     }
   }
 }
@@ -128,6 +152,11 @@ export default {
   .meta {
     padding: 4px 0 0;
     font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
   }
 
   .category {
@@ -136,20 +165,19 @@ export default {
     padding: 0.25rem 0.5rem 0.25rem 1.5rem;
     color: #616269;
     border-radius: 5px;
-    background: white;
-    margin-right: 20px;
+    margin-right: 10px;
   }
   .category:before {
     position: absolute;
-    top: calc(50% - 5px);
-    left: 10px;
-    width: 10px;
-    height: 10px;
+    top: calc(50% - 7px);
+    left: 4px;
+    width: 14px;
+    height: 14px;
     content: '';
     border-radius: 50%;
     background: #e9433b;
   }
-  
+
   /* categories */
   .category.tips::before {
     background: var(--cat-tips);
@@ -188,21 +216,30 @@ export default {
 
     img {
       margin-right: 6px;
-      height: 14px;
+      height: 20px;
     }
   }
 
   .author {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-items: center;
     color: #616269;
     white-space: nowrap;
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
+
+    picture {
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      white-space: nowrap;
+    }
 
     img {
       margin-right: 6px;
-      height: 14px;
+      height: 26px;
+      width: 26px;
+      object-fit: contain;
+      border-radius: 50%;
     }
   }
 }
