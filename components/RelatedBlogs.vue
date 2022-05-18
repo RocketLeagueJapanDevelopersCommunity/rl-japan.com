@@ -46,6 +46,9 @@ export default {
 </script>
 
 <style scoped>
+.list {
+  background: white;
+}
 @media (min-width: 1160px) {
   .pageTitle {
     position: relative;

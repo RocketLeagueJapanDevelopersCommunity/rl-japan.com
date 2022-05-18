@@ -185,8 +185,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  background: #f0f0ee;
+.divider {
+  background: white;
+  padding: 40px;
 }
 
 @media (min-width: 1160px) {

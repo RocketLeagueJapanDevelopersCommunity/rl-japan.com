@@ -70,7 +70,6 @@ export default {
     padding: 0.25rem 0.5rem 0.25rem 1.5rem;
     color: #616269;
     border-radius: 5px;
-    background: white;
     margin-right: 8px;
   }
   .category:before {
@@ -166,7 +165,6 @@ export default {
     padding: 0.25rem 0.5rem 0.25rem 1.5rem;
     color: #616269;
     border-radius: 5px;
-    background: white;
     margin-right: 10px;
   }
   .category:before {
