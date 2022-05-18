@@ -149,7 +149,7 @@ export default {
     border-radius: 50%;
     background: #e9433b;
   }
-  
+
   /* categories */
   .category.tips::before {
     background: var(--cat-tips);
