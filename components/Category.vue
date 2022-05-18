@@ -58,9 +58,10 @@ export default {
   padding: 0.5rem 1rem 0.5rem 2rem;
   color: #2b2c30;
   border-radius: 5px;
-  background: #eee;
+  background: #fff;
   margin: 8px;
   margin-left: 0;
+  box-shadow: 0px 0px 5px 1px rgba(43, 44, 48, 0.2);
 }
 
 /* categories */
