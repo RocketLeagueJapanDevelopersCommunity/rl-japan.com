@@ -7,10 +7,12 @@
           <picture>
             <source
               type="image/webp"
-              :data-srcset="blog.ogimage.url + '?w=820&fm=webp'"
+              :data-srcset="
+                blog.ogimage.url + '?w=400&h=210&fm=webp&fit=crop&q=0'
+              "
             />
             <img
-              :data-src="blog.ogimage.url + '?w=820'"
+              :data-src="blog.ogimage.url + '?w=400&h=210&fit=crop&q=0'"
               class="img lazyload"
               alt
             />
@@ -20,7 +22,7 @@
             <dd>
               <Meta
                 :created-at="blog.createdAt"
-                :author="blog.writer !== null ? blog.writer.name : ''"
+                :author="blog.writer !== null ? blog.writer : ''"
                 :category="blog.category"
               />
             </dd>

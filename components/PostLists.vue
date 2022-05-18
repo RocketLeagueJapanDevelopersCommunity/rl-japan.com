@@ -6,12 +6,12 @@
           <source
             type="image/webp"
             :data-srcset="
-              content.ogimage.url + '?w=600&h=315&fm=webp&fit=crop&q=0'
+              content.ogimage.url + '?w=400&h=210&fm=webp&fit=crop&q=0'
             "
           />
           <img
             src="@/static/images/loading.gif"
-            :data-src="content.ogimage.url + '?w=600&h=315&fit=crop&q=0'"
+            :data-src="content.ogimage.url + '?w=400&h=210&fit=crop&q=0'"
             class="ogimage lazyload"
             alt
             width="630"
