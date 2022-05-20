@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="lists_title">カテゴリー</div>
     <ul class="lists">
       <div class="category_bar">
         <nuxt-link
@@ -48,9 +47,7 @@ export default {
 }
 .lists .category_bar {
   display: flex;
-  flex-wrap: wrap;
-  margin: 4px 8px;
-  margin-left: 38px;
+  flex-direction: column;
 }
 .lists .category_bar .category_item {
   position: relative;
@@ -59,33 +56,45 @@ export default {
   color: #2b2c30;
   border-radius: 5px;
   background: #fff;
-  margin: 8px;
+  margin: 6px;
   margin-left: 0;
   box-shadow: 0px 0px 5px 1px rgba(43, 44, 48, 0.2);
 }
+.lists .category_bar .category_item:hover {
+  transition: all 300ms;
+  color: white;
+}
 
 /* categories */
+.lists .category_bar .category_item.tips:hover,
 .lists .category_bar .category_item.tips::before {
   background: var(--cat-tips);
 }
+.lists .category_bar .category_item.tournament:hover,
 .lists .category_bar .category_item.tournament::before {
   background: var(--cat-tournament);
 }
+.lists .category_bar .category_item.update:hover,
 .lists .category_bar .category_item.update::before {
   background: var(--cat-update);
 }
+.lists .category_bar .category_item.information:hover,
 .lists .category_bar .category_item.information::before {
   background: var(--cat-information);
 }
+.lists .category_bar .category_item.rlcs:hover,
 .lists .category_bar .category_item.rlcs::before {
   background: var(--cat-rlcs);
 }
+.lists .category_bar .category_item.interview:hover,
 .lists .category_bar .category_item.interview::before {
   background: var(--cat-interview);
 }
+.lists .category_bar .category_item.world-topics:hover,
 .lists .category_bar .category_item.world-topics::before {
   background: var(--cat-world-topics);
 }
+.lists .category_bar .category_item.offline-event:hover,
 .lists .category_bar .category_item.offline-event::before {
   background: var(--cat-offline-event);
 }
@@ -94,11 +103,14 @@ export default {
 .lists .category_bar .category_item:before {
   position: absolute;
   top: calc(50% - 5px);
-  left: 10px;
+  left: 14px;
   width: 10px;
   height: 10px;
   content: '';
   border-radius: 50%;
   background: #e9433b;
+}
+.lists .category_bar .category_item:hover::before {
+  background: #fff;
 }
 </style>

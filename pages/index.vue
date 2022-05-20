@@ -9,9 +9,7 @@
           </h1>
         </div>
         <div v-else>
-          <h1 class="selectedCategory">ピックアップ記事</h1>
           <Slider :slider-contents="popularArticles" />
-          <h1 class="selectedCategory">新着記事</h1>
         </div>
         <div v-show="contents.length === 0" class="loader">
           記事がありません
@@ -37,9 +35,11 @@
         </ul>
       </div>
       <aside class="aside">
-        <Banner id="aside-banner" :banner="banner" />
-        <Search />
-        <Category :categories="categories" />
+        <ul>
+          <li><Banner id="aside-banner" :banner="banner" /></li>
+          <li><Search /></li>
+          <li><Category :categories="categories" /></li>
+        </ul>
         <template id="aside-adsbygoogle">
           <adsbygoogle
             :ad-style="{ display: 'block' }"
@@ -247,6 +247,10 @@ h1.selectedCategory.offline-event::before {
 
   .aside {
     width: 300px;
+  }
+
+  .aside ul li {
+    margin-bottom: 20px;
   }
 
   .banner {

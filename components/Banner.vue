@@ -53,10 +53,6 @@ export default {
 
 .link {
   display: block;
-  margin-bottom: 40px;
-}
-.wrapper {
-  margin-top: 84px;
 }
 
 @media (max-width: 1160px) {
