@@ -38,6 +38,7 @@
           <Share :id="id" :title="title" />
           <div class="container">
             <h1 class="title">{{ title }}</h1>
+            <span>読了時間 {{ readingTime }}</span>
             <Meta
               :created-at="publishedAt || createdAt"
               :author="writer !== null ? writer : ''"
@@ -156,6 +157,16 @@ export default {
       publishedAt: '',
       ogimage: null,
     };
+  },
+  computed: {
+    readingTime() {
+      const bodyHtml = document.createElement('div');
+      bodyHtml.innerHTML = this.body;
+      if (!bodyHtml.textContent) return '0文字 約0分';
+
+      const text = bodyHtml.textContent.replace('\n', '');
+      return `${text.length}文字 約${Math.ceil(text.length / 400)}分`;
+    },
   },
   head() {
     return {
