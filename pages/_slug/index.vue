@@ -140,7 +140,6 @@ export default {
       $(elm).attr('data-src', elm.attribs.src);
       $(elm).removeAttr('src');
     });
-
     return {
       ...data,
       popularArticles,
@@ -155,6 +154,35 @@ export default {
     return {
       publishedAt: '',
       ogimage: null,
+    };
+  },
+
+  jsonld() {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: this.title,
+      image: [
+        this.ogimage.url + '?w=500&h=500&fm=webp&fit=fill&fill=blur&q=0',
+        this.ogimage.url + '?w=400&h=300&fm=webp&fit=fill&fill=blur&q=0',
+        this.ogimage.url + '?w=960&h=540&fm=webp&fit=fill&fill=blur&q=0',
+      ],
+      datePublished: this.publishedAt || this.createdAt,
+      dateModified: this.updatedAt,
+      author: [
+        {
+          '@type': 'Person',
+          name: this.writer.name,
+        },
+      ],
+      publisher: {
+        '@type': 'Organization',
+        name: 'ロケットリーグ日本コミュニティ',
+        logo: {
+          '@type': 'ImageObject',
+          url: require('@/static/images/rljp-jsonld-logo.png'),
+        },
+      },
     };
   },
   head() {

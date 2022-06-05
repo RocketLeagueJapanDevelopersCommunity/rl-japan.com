@@ -115,6 +115,7 @@ export default {
    */
   plugins: [
     '~/plugins/vue-scrollto',
+    '~/plugins/jsonld',
     { src: '~/plugins/vue-modal', ssr: false },
   ],
   components: true,
