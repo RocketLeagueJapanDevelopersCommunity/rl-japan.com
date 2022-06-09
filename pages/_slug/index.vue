@@ -38,6 +38,7 @@
           <Share :id="id" :title="title" />
           <div class="container">
             <h1 class="title">{{ title }}</h1>
+            <div class="reading-time">読了目安 {{ readingTime }}</div>
             <Meta
               :created-at="publishedAt || createdAt"
               :author="writer !== null ? writer : ''"
@@ -140,6 +141,9 @@ export default {
       $(elm).attr('data-src', elm.attribs.src);
       $(elm).removeAttr('src');
     });
+    const bodyTextLength = $.text().replace('\n', '').length;
+    const calcReadingTime = Math.ceil(bodyTextLength / 400);
+    const readingTime = `約${calcReadingTime}分 / ${bodyTextLength}文字`;
     return {
       ...data,
       popularArticles,
@@ -148,6 +152,7 @@ export default {
       toc,
       categories: categories.data.contents,
       contents,
+      readingTime,
     };
   },
   data() {
@@ -156,58 +161,63 @@ export default {
       ogimage: null,
     };
   },
-
-  jsonld() {
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'NewsArticle',
-      headline: this.title,
-      image: [
-        this.ogimage.url + '?w=500&h=500&fm=webp&fit=fill&fill=blur&q=0',
-        this.ogimage.url + '?w=400&h=300&fm=webp&fit=fill&fill=blur&q=0',
-        this.ogimage.url + '?w=960&h=540&fm=webp&fit=fill&fill=blur&q=0',
-      ],
-      datePublished: this.publishedAt || this.createdAt,
-      dateModified: this.updatedAt,
-      author: [
-        {
-          '@type': 'Person',
-          name: this.writer.name,
+  computed: {
+    jsonld() {
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        headline: this.title,
+        image: [
+          this.ogimage.url + '?w=500&h=500&fm=webp&fit=fill&fill=blur&q=0',
+          this.ogimage.url + '?w=400&h=300&fm=webp&fit=fill&fill=blur&q=0',
+          this.ogimage.url + '?w=960&h=540&fm=webp&fit=fill&fill=blur&q=0',
+        ],
+        datePublished: this.publishedAt || this.createdAt,
+        dateModified: this.updatedAt,
+        author: [
+          {
+            '@type': 'Person',
+            name: this.writer.name,
+          },
+        ],
+        publisher: {
+          '@type': 'Organization',
+          name: 'ロケットリーグ日本コミュニティ',
+          logo: {
+            '@type': 'ImageObject',
+            url: require('@/static/images/rljp-jsonld-logo.png'),
+          },
         },
-      ],
-      publisher: {
-        '@type': 'Organization',
-        name: 'ロケットリーグ日本コミュニティ',
-        logo: {
-          '@type': 'ImageObject',
-          url: require('@/static/images/rljp-jsonld-logo.png'),
-        },
-      },
-    };
-  },
-  head() {
-    return {
-      title: this.title,
-      meta: [
-        { hid: 'description', name: 'description', content: this.description },
-        { hid: 'og:title', property: 'og:title', content: this.title },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.description,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: `https://rl-japan.com/${this.id}/`,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: this.ogimage && this.ogimage.url,
-        },
-      ],
-    };
+      };
+    },
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.description,
+          },
+          { hid: 'og:title', property: 'og:title', content: this.title },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.description,
+          },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: `https://rl-japan.com/${this.id}/`,
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.ogimage && this.ogimage.url,
+          },
+        ],
+      };
+    },
   },
 };
 </script>
@@ -216,6 +226,13 @@ export default {
 .divider {
   background: white;
   padding: 40px;
+}
+
+.reading-time {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  text-align: left;
 }
 
 @media (min-width: 1160px) {
