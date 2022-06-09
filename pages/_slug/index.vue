@@ -38,6 +38,7 @@
           <Share :id="id" :title="title" />
           <div class="container">
             <h1 class="title">{{ title }}</h1>
+            <div class="reading-time">読了目安 {{ readingTime }}</div>
             <Meta
               :created-at="publishedAt || createdAt"
               :author="writer !== null ? writer : ''"
@@ -156,7 +157,15 @@ export default {
       ogimage: null,
     };
   },
+  computed: {
+    readingTime() {
+      const bodyHtml = document.createElement('div');
+      bodyHtml.innerHTML = this.body;
+      if (!bodyHtml.textContent) return '0文字 約0分';
 
+      const text = bodyHtml.textContent.replace('\n', '');
+      return `約${Math.ceil(text.length / 400)}分 / ${text.length}文字`;
+    },
   jsonld() {
     return {
       '@context': 'https://schema.org',
@@ -216,6 +225,13 @@ export default {
 .divider {
   background: white;
   padding: 40px;
+}
+
+.reading-time {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  text-align: left;
 }
 
 @media (min-width: 1160px) {
