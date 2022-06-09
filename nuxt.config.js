@@ -115,6 +115,7 @@ export default {
    */
   plugins: [
     '~/plugins/vue-scrollto',
+    '~/plugins/jsonld',
     { src: '~/plugins/vue-modal', ssr: false },
   ],
   components: true,
@@ -363,73 +364,209 @@ export default {
       cacheTime: 1000 * 60 * 15,
       type: 'rss2',
     },
-    // {
-    //   path: '/feed_update.xml',
-    //   async create(feed) {
-    //     feed.options = {
-    //       title: '更新情報｜ロケットリーグ 日本コミュニティ',
-    //       link: 'https://rl-japan.com/feed.xml',
-    //       description:
-    //         '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
-    //     };
+    {
+      path: '/feed_update.xml',
+      async create(feed) {
+        feed.options = {
+          title: '更新情報｜ロケットリーグ 日本コミュニティ',
+          link: 'https://rl-japan.com/feed.xml',
+          description:
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+        };
 
-    //     const posts = await axios
-    //       .get(
-    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]update`,
-    //         {
-    //           headers: { 'X-API-KEY': API_KEY },
-    //         }
-    //       )
-    //       .then((res) => res.data.contents);
+        const posts = await axios
+          .get(
+            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]update`,
+            {
+              headers: { 'X-API-KEY': API_KEY },
+            }
+          )
+          .then((res) => res.data.contents);
 
-    //     posts.forEach((post) => {
-    //       feed.addItem({
-    //         title: post.title,
-    //         id: post.id,
-    //         link: `https://rl-japan.com/${post.id}/`,
-    //         description: post.description,
-    //         content: post.description,
-    //         date: new Date(post.publishedAt || post.createdAt),
-    //         image: post.ogimage && post.ogimage.url,
-    //       });
-    //     });
-    //   },
-    //   cacheTime: 1000 * 60 * 15,
-    //   type: 'rss2',
-    // },
-    // {
-    //   path: '/feed_usecase.xml',
-    //   async create(feed) {
-    //     feed.options = {
-    //       title: '導入事例｜ロケットリーグ 日本コミュニティ',
-    //       link: 'https://rl-japan.com/feed.xml',
-    //       description:
-    //         '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
-    //     };
+        posts.forEach((post) => {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `https://rl-japan.com/${post.id}/`,
+            description: post.description,
+            content: post.description,
+            date: new Date(post.publishedAt || post.createdAt),
+            image: post.ogimage && post.ogimage.url,
+          });
+        });
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+    },
+    {
+      path: '/feed_tournament.xml',
+      async create(feed) {
+        feed.options = {
+          title: '大会情報｜ロケットリーグ 日本コミュニティ',
+          link: 'https://rl-japan.com/feed.xml',
+          description:
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+        };
 
-    //     const posts = await axios
-    //       .get(
-    //         `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]usecase`,
-    //         {
-    //           headers: { 'X-API-KEY': API_KEY },
-    //         }
-    //       )
-    //       .then((res) => res.data.contents);
+        const posts = await axios
+          .get(
+            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]tournament`,
+            {
+              headers: { 'X-API-KEY': API_KEY },
+            }
+          )
+          .then((res) => res.data.contents);
 
-    //     posts.forEach((post) => {
-    //       feed.addItem({
-    //         title: post.title,
-    //         id: post.id,
-    //         link: `https://rl-japan.com/${post.id}/`,
-    //         description: post.description,
-    //         content: post.description,
-    //         date: new Date(post.publishedAt || post.createdAt),
-    //         image: post.ogimage && post.ogimage.url,
-    //       });
-    //     });
-    //   },
-    //   cacheTime: 1000 * 60 * 15,
-    //   type: 'rss2',
-    // },
+        posts.forEach((post) => {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `https://rl-japan.com/${post.id}/`,
+            description: post.description,
+            content: post.description,
+            date: new Date(post.publishedAt || post.createdAt),
+            image: post.ogimage && post.ogimage.url,
+          });
+        });
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+    },
+    {
+      path: '/feed_tips.xml',
+      async create(feed) {
+        feed.options = {
+          title: '攻略情報｜ロケットリーグ 日本コミュニティ',
+          link: 'https://rl-japan.com/feed.xml',
+          description:
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+        };
+
+        const posts = await axios
+          .get(
+            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]tips`,
+            {
+              headers: { 'X-API-KEY': API_KEY },
+            }
+          )
+          .then((res) => res.data.contents);
+
+        posts.forEach((post) => {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `https://rl-japan.com/${post.id}/`,
+            description: post.description,
+            content: post.description,
+            date: new Date(post.publishedAt || post.createdAt),
+            image: post.ogimage && post.ogimage.url,
+          });
+        });
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+    },
+    {
+      path: '/feed_rlcs.xml',
+      async create(feed) {
+        feed.options = {
+          title: 'RLCS｜ロケットリーグ 日本コミュニティ',
+          link: 'https://rl-japan.com/feed.xml',
+          description:
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+        };
+
+        const posts = await axios
+          .get(
+            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]rlcs`,
+            {
+              headers: { 'X-API-KEY': API_KEY },
+            }
+          )
+          .then((res) => res.data.contents);
+
+        posts.forEach((post) => {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `https://rl-japan.com/${post.id}/`,
+            description: post.description,
+            content: post.description,
+            date: new Date(post.publishedAt || post.createdAt),
+            image: post.ogimage && post.ogimage.url,
+          });
+        });
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+    },
+    {
+      path: '/feed_interview.xml',
+      async create(feed) {
+        feed.options = {
+          title: 'インタビュー｜ロケットリーグ 日本コミュニティ',
+          link: 'https://rl-japan.com/feed.xml',
+          description:
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+        };
+
+        const posts = await axios
+          .get(
+            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]interview`,
+            {
+              headers: { 'X-API-KEY': API_KEY },
+            }
+          )
+          .then((res) => res.data.contents);
+
+        posts.forEach((post) => {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `https://rl-japan.com/${post.id}/`,
+            description: post.description,
+            content: post.description,
+            date: new Date(post.publishedAt || post.createdAt),
+            image: post.ogimage && post.ogimage.url,
+          });
+        });
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+    },
+    {
+      path: '/feed_worldtopics.xml',
+      async create(feed) {
+        feed.options = {
+          title: '海外の話題｜ロケットリーグ 日本コミュニティ',
+          link: 'https://rl-japan.com/feed.xml',
+          description:
+            '大会情報、オフラインイベントなどや、アップデート、初心者向けTipsなどなどロケットリーグについての様々な情報を発信していくコミュニティWebサイトです。',
+        };
+
+        const posts = await axios
+          .get(
+            `https://${SERVICE_ID}.microcms.io/api/v1/blog?filters=category[equals]world-topics`,
+            {
+              headers: { 'X-API-KEY': API_KEY },
+            }
+          )
+          .then((res) => res.data.contents);
+
+        posts.forEach((post) => {
+          feed.addItem({
+            title: post.title,
+            id: post.id,
+            link: `https://rl-japan.com/${post.id}/`,
+            description: post.description,
+            content: post.description,
+            date: new Date(post.publishedAt || post.createdAt),
+            image: post.ogimage && post.ogimage.url,
+          });
+        });
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+    },
   ],
 };

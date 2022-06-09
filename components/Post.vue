@@ -21,7 +21,7 @@ export default {
       font-size: 30px;
       font-weight: bold;
       margin: 40px 0 20px;
-      background-color: white;
+      background-color: var(--color-bg-purple-light);
       padding: 10px 20px;
       border-radius: 5px;
     }
@@ -30,7 +30,7 @@ export default {
       font-size: 30px;
       font-weight: bold;
       margin: 40px 0 16px;
-      border-bottom: 5px solid #ecafac;
+      border-bottom: 5px solid #616269;
     }
 
     & >>> h3 {
@@ -101,7 +101,7 @@ export default {
     }
 
     & >>> strong {
-      background: linear-gradient(transparent 75%, #ecafac 75%);
+      /* background: linear-gradient(transparent 75%, #ecafac 75%); */
       font-weight: bold;
     }
 
@@ -135,7 +135,7 @@ export default {
       font-size: 24px;
       font-weight: bold;
       margin: 40px 0 20px;
-      background-color: white;
+      background-color: var(--color-bg-purple-light);
       padding: 10px 20px;
       border-radius: 5px;
     }
@@ -144,7 +144,7 @@ export default {
       font-size: 24px;
       font-weight: bold;
       margin: 36px 0 16px;
-      border-bottom: 5px solid #ecafac;
+      border-bottom: 5px solid #616269;
     }
 
     & >>> h3 {
@@ -215,7 +215,7 @@ export default {
     }
 
     & >>> strong {
-      background: linear-gradient(transparent 75%, #ecafac 75%);
+      /* background: linear-gradient(transparent 75%, #ecafac 75%); */
       font-weight: bold;
     }
 

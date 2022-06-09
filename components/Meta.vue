@@ -7,7 +7,7 @@
       <span class="timestamp">
         <img src="/images/icon_clock.svg" alt />
         <time :datetime="$dayjs(createdAt).format('YYYY-MM-DD')">
-          {{ $dayjs(createdAt).format('YYYY/MM/DD') }}
+          {{ $dayjs(createdAt).format('YYYY年MM月DD日') }}
         </time>
       </span>
       <span v-if="author" class="author">
