@@ -38,7 +38,7 @@
           <Share :id="id" :title="title" />
           <div class="container">
             <h1 class="title">{{ title }}</h1>
-            <span>読了時間 {{ readingTime }}</span>
+            <div class="reading-time">読了目安 {{ readingTime }}</div>
             <Meta
               :created-at="publishedAt || createdAt"
               :author="writer !== null ? writer : ''"
@@ -165,7 +165,7 @@ export default {
       if (!bodyHtml.textContent) return '0文字 約0分';
 
       const text = bodyHtml.textContent.replace('\n', '');
-      return `${text.length}文字 約${Math.ceil(text.length / 400)}分`;
+      return `約${Math.ceil(text.length / 400)}分 / ${text.length}文字`;
     },
   },
   head() {
@@ -199,6 +199,13 @@ export default {
 .divider {
   background: white;
   padding: 40px;
+}
+
+.reading-time {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  text-align: left;
 }
 
 @media (min-width: 1160px) {
