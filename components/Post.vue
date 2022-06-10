@@ -83,7 +83,19 @@ export default {
       margin-left: 20px;
 
       &::before {
-        content: '・';
+        content: '▸';
+      }
+
+      & > ul > li {
+        &::before {
+          content: '◦';
+        }
+
+        & > ul > li {
+          &::before {
+            content: '▪';
+          }
+        }
       }
     }
 
@@ -197,7 +209,19 @@ export default {
       margin-left: 20px;
 
       &::before {
-        content: '・';
+        content: '▸';
+      }
+
+      & > ul > li {
+        &::before {
+          content: '◦';
+        }
+
+        & > ul > li {
+          &::before {
+            content: '▪';
+          }
+        }
       }
     }
 
