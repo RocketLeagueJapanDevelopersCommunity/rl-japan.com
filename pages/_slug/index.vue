@@ -59,7 +59,7 @@
       <aside class="aside">
         <Banner :id="`blog-${id}`" :banner="banner" />
         <Search />
-        <Categories :categories="categories" />
+        <!-- <Category :categories="categories" /> -->
         <PopularArticles :contents="popularArticles" />
         <Latest :contents="contents" />
       </aside>
@@ -141,6 +141,9 @@ export default {
       $(elm).attr('data-src', elm.attribs.src);
       $(elm).removeAttr('src');
     });
+    const bodyTextLength = $.text().replace('\n', '').length;
+    const calcReadingTime = Math.ceil(bodyTextLength / 400);
+    const readingTime = `約${calcReadingTime}分 / ${bodyTextLength}文字`;
     return {
       ...data,
       popularArticles,
@@ -149,6 +152,7 @@ export default {
       toc,
       categories: categories.data.contents,
       contents,
+      readingTime,
     };
   },
   data() {
