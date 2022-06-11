@@ -84,6 +84,7 @@ export default {
 
       &::before {
         content: '▸';
+        padding-right: 8px;
       }
 
       & > ul > li {
@@ -210,6 +211,7 @@ export default {
 
       &::before {
         content: '▸';
+        padding-right: 8px;
       }
 
       & > ul > li {
