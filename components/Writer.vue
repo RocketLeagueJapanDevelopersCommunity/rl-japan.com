@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h2 class="title">ABOUT ME</h2>
+    <h2 class="title">ライター</h2>
     <div class="container">
       <picture v-if="writer.image">
         <source
@@ -72,14 +72,14 @@ export default {
 @media (min-width: 600px) {
   .wrapper {
     position: relative;
-    border-top: 1px solid #666;
+    border-top: 2px solid #000;
     margin-top: 80px;
-    padding: 30px 20px 20px;
+    padding: 30px 20px 0px 20px;
   }
   .title {
     position: absolute;
     top: 0;
-    right: 20px;
+    left: 20px;
     background-color: #2b2c30;
     color: #fff;
     font-size: 14px;
@@ -97,9 +97,9 @@ export default {
 @media (max-width: 600px) {
   .wrapper {
     position: relative;
-    border-top: 1px solid #666;
+    border-top: 2px solid #000;
     margin-top: 80px;
-    padding: 30px 0px 20px;
+    padding: 30px 20px 0px 20px;
   }
   .title {
     position: absolute;
