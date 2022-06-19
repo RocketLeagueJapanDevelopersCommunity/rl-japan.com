@@ -18,35 +18,46 @@ export default {
 @media (min-width: 600px) {
   .post {
     & >>> h1 {
-      font-size: 30px;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      font-size: 2em;
       font-weight: bold;
       margin: 40px 0 20px;
       background-color: var(--color-bg-purple-light);
       padding: 10px 20px;
       border-radius: 5px;
+      padding-left: 30px;
     }
 
     & >>> h2 {
-      font-size: 30px;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      font-size: 1.5em;
       font-weight: bold;
       margin: 40px 0 16px;
-      border-bottom: 5px solid #616269;
+      border-bottom: 2px solid var(--color-bg-purple-light);
     }
 
     & >>> h3 {
-      font-size: 24px;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      font-size: 1.17em;
       font-weight: bold;
       margin: 30px 0 12px;
     }
 
     & >>> h4 {
-      font-size: 20px;
+      margin-block-start: 1.33em;
+      margin-block-end: 1.33em;
+      font-size: 1em;
       font-weight: bold;
       margin: 24px 0 10px;
     }
 
     & >>> h5 {
-      font-size: 16px;
+      margin-block-start: 1.67em;
+      margin-block-end: 1.67em;
+      font-size: 0.83em;
       font-weight: bold;
       margin: 20px 0 6px;
     }
@@ -83,7 +94,20 @@ export default {
       margin-left: 20px;
 
       &::before {
-        content: '・';
+        content: '▸';
+        padding-right: 8px;
+      }
+
+      & > ul > li {
+        &::before {
+          content: '◦';
+        }
+
+        & > ul > li {
+          &::before {
+            content: '▪';
+          }
+        }
       }
     }
 
@@ -132,7 +156,9 @@ export default {
     font-size: 14px;
 
     & >>> h1 {
-      font-size: 24px;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      font-size: 2em;
       font-weight: bold;
       margin: 40px 0 20px;
       background-color: var(--color-bg-purple-light);
@@ -141,26 +167,35 @@ export default {
     }
 
     & >>> h2 {
-      font-size: 24px;
+      position: relative;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      font-size: 1.5em;
       font-weight: bold;
       margin: 36px 0 16px;
-      border-bottom: 5px solid #616269;
+      border-bottom: 2px solid var(--color-bg-purple-light);
     }
 
     & >>> h3 {
-      font-size: 20px;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      font-size: 1.17em;
       font-weight: bold;
       margin: 30px 0 12px;
     }
 
     & >>> h4 {
-      font-size: 16px;
+      margin-block-start: 1.33em;
+      margin-block-end: 1.33em;
+      font-size: 1em;
       font-weight: bold;
       margin: 24px 0 10px;
     }
 
     & >>> h5 {
-      font-size: 14px;
+      margin-block-start: 1.67em;
+      margin-block-end: 1.67em;
+      font-size: 0.83em;
       font-weight: bold;
       margin: 20px 0 6px;
     }
@@ -197,7 +232,20 @@ export default {
       margin-left: 20px;
 
       &::before {
-        content: '・';
+        content: '▸';
+        padding-right: 8px;
+      }
+
+      & > ul > li {
+        &::before {
+          content: '◦';
+        }
+
+        & > ul > li {
+          &::before {
+            content: '▪';
+          }
+        }
       }
     }
 

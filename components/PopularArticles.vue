@@ -48,17 +48,8 @@ export default {
     font-weight: bold;
     font-size: 18px;
     color: #2b2c30;
-    border: 1px;
     margin: 18px;
     margin-left: 0;
-  }
-  .pageTitle::before {
-    position: absolute;
-    bottom: -10px;
-    width: 20px;
-    height: 5px;
-    content: '';
-    background: #e9433b;
   }
   .list {
     margin-bottom: 10px;
@@ -97,17 +88,8 @@ export default {
     font-weight: bold;
     font-size: 18px;
     color: #2b2c30;
-    border: 1px;
     margin: 18px;
     margin-left: 0;
-  }
-  .pageTitle::before {
-    position: absolute;
-    bottom: -10px;
-    width: 20px;
-    height: 5px;
-    content: '';
-    background: #e9433b;
   }
   .list {
     margin-bottom: 10px;
@@ -142,17 +124,8 @@ export default {
     font-weight: bold;
     font-size: 18px;
     color: #2b2c30;
-    border: 1px;
     margin: 18px;
     margin-left: 0;
-  }
-  .pageTitle::before {
-    position: absolute;
-    bottom: -10px;
-    width: 20px;
-    height: 5px;
-    content: '';
-    background: #e9433b;
   }
   .list {
     margin-bottom: 10px;

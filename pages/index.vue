@@ -8,10 +8,15 @@
             {{ selectedCategory.name }}
           </h1>
         </div>
-        <div v-else>
+        <div v-else-if="page - 1 == 0">
           <h1 class="selectedCategory">ピックアップ記事</h1>
           <Slider :slider-contents="popularArticles" />
           <h1 class="selectedCategory">新着記事</h1>
+        </div>
+        <div v-else>
+          {{ page }}ページ目｜{{ (page - 1) * 10 + 1 }}〜{{
+            (page - 1) * 10 + 10
+          }}件を表示中
         </div>
         <div v-show="contents.length === 0" class="loader">
           記事がありません

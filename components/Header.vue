@@ -26,7 +26,7 @@
       <div v-if="open" class="mask" @click="setOpen(false)"></div>
 
       <div class="menu" :class="{ isOpen: open }">
-        <h1 class="lists_title sp">メニュー</h1>
+        <p class="lists_title sp">メニュー</p>
         <ul class="lists">
           <li class="list">
             <nuxt-link :to="`/calendar`" class="link">大会カレンダー</nuxt-link>
@@ -181,14 +181,6 @@ export default {
   .lists {
     display: flex;
     align-items: center;
-
-    /* &:first-child::after {
-      content: '';
-      width: 1px;
-      height: 30px;
-      background-color: var(--color-text-off);
-      margin-right: 40px;
-    } */
   }
 
   .list {
@@ -220,14 +212,8 @@ export default {
     color: #2b2c30;
     border: 1px;
     margin: 18px;
-  }
-  .lists_title::before {
-    position: absolute;
-    bottom: -10px;
-    width: 20px;
-    height: 5px;
-    content: '';
-    background: #e9433b;
+    padding-left: 16px;
+    border-left: 2px solid var(--color-main-red);
   }
   .sp_footer {
     position: fixed !important;
@@ -307,26 +293,9 @@ export default {
 
     a {
       display: block;
-      color: var(--color-text-sub);
+      color: var(--color-text-main);
       padding: 8px 0;
-      border-bottom: 1px solid var(--color-border-light);
-
-      &.signup {
-        border-radius: 5px;
-        background: linear-gradient(to right bottom, #ecafac, #e9433b);
-        color: #fff;
-        text-align: center;
-        font-weight: bold;
-      }
-
-      &.signin {
-        display: block;
-        border-radius: 5px;
-        background-color: var(--color-bg-purple);
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 12px;
-      }
+      border-bottom: 2px solid var(--color-border-light);
     }
 
     &:last-child a {
