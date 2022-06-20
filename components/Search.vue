@@ -42,7 +42,6 @@ export default {
   border: 1px solid var(--color-border);
   width: 100%;
   box-sizing: border-box;
-  margin-top: 5px;
   border-radius: 5px;
   height: 40px;
   font-size: 16px;

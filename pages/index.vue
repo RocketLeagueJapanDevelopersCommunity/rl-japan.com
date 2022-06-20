@@ -4,14 +4,14 @@
     <div class="divider">
       <div class="container">
         <div v-if="selectedCategory">
-          <h1 :class="`selectedCategory ${selectedCategory.id}`">
+          <h2 :class="`selectedCategory ${selectedCategory.id}`">
             {{ selectedCategory.name }}
-          </h1>
+          </h2>
         </div>
         <div v-else-if="page - 1 == 0">
-          <h1 class="selectedCategory">ピックアップ記事</h1>
+          <h2 class="selectedCategory top">ピックアップ記事</h2>
           <Slider :slider-contents="popularArticles" />
-          <h1 class="selectedCategory">新着記事</h1>
+          <h2 class="selectedCategory">新着記事</h2>
         </div>
         <div v-else>
           {{ page }}ページ目｜{{ (page - 1) * 10 + 1 }}〜{{
@@ -42,8 +42,8 @@
         </ul>
       </div>
       <aside class="aside">
-        <Banner id="aside-banner" :banner="banner" />
         <Search />
+        <Banner id="aside-banner" :banner="banner" />
         <Category :categories="categories" />
         <template id="aside-adsbygoogle">
           <adsbygoogle
@@ -139,7 +139,7 @@ export default {
 </script>
 
 <style scoped>
-h1.selectedCategory {
+h2.selectedCategory {
   position: relative;
   display: block;
   font-weight: bold;
@@ -148,10 +148,11 @@ h1.selectedCategory {
   color: #2b2c30;
   border: 1px;
   margin: 24px;
+  margin-top: 0;
   margin-left: 0;
 }
 
-h1.selectedCategory::before {
+h2.selectedCategory::before {
   background-color: #e9433b;
   position: absolute;
   top: 50%;
@@ -165,28 +166,28 @@ h1.selectedCategory::before {
 }
 /* categories */
 
-h1.selectedCategory.tips::before {
+h2.selectedCategory.tips::before {
   background: var(--cat-tips);
 }
-h1.selectedCategory.tournament::before {
+h2.selectedCategory.tournament::before {
   background: var(--cat-tournament);
 }
-h1.selectedCategory.update::before {
+h2.selectedCategory.update::before {
   background: var(--cat-update);
 }
-h1.selectedCategory.information::before {
+h2.selectedCategory.information::before {
   background: var(--cat-information);
 }
-h1.selectedCategory.rlcs::before {
+h2.selectedCategory.rlcs::before {
   background: var(--cat-rlcs);
 }
-h1.selectedCategory.interview::before {
+h2.selectedCategory.interview::before {
   background: var(--cat-interview);
 }
-h1.selectedCategory.world-topics::before {
+h2.selectedCategory.world-topics::before {
   background: var(--cat-world-topics);
 }
-h1.selectedCategory.offline-event::before {
+h2.selectedCategory.offline-event::before {
   background: var(--cat-offline-event);
 }
 
