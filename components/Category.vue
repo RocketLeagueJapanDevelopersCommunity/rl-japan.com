@@ -30,7 +30,8 @@ export default {
 .wrapper {
   background: white;
   border-radius: 5px;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 18px;
 }
 .lists_title {
