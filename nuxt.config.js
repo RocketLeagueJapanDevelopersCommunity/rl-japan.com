@@ -13,9 +13,8 @@ export default {
   publicRuntimeConfig: {
     apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
     serviceId: process.env.NODE_ENV !== 'production' ? SERVICE_ID : undefined,
-    gcalApiKey:
-      process.env.NODE_ENV !== 'production' ? GCAL_API_KEY : undefined,
-    gcalId: process.env.NODE_ENV !== 'production' ? GCAL_ID : undefined,
+    gcalApiKey: GCAL_API_KEY,
+    gcalId: GCAL_ID,
   },
   privateRuntimeConfig: {
     apiKey: API_KEY,
