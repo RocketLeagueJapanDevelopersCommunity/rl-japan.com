@@ -110,8 +110,8 @@ type: オブジェクト形式
 - API_KEY（microCMS の API キー）
 - SERVICE_ID（microCMS のサービス ID）
 - GA_ID（Google Analytics の ID）
-- CALENDAR_KEY（teamuup の KEY）
-- CALENDAR_API_KEY（teamup の API KEY）
+- GCAL_API_KEY（Google Calendar の API KEY）
+- GCAL_ID（Google Calendar の CALENDAR ID）
 
 例:
 
@@ -120,8 +120,8 @@ API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 GA_ID=UA-xxxxxxxxx-x
 
-CALENDAR_KEY=ks2o548nji9f28b3th
-CALENDAR_API_KEY=abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234
+GCAL_API_KEY=xxxxxxxxxxxxxxxxxxxxxxx
+GCAL_ID=xxxxxxxxxxxxxxxxxxxxx@group.calendar.google.com
 ```
 
 
