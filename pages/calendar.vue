@@ -36,6 +36,7 @@ export default {
   data() {
     return {
       calendarOptions: {
+        locale: 'ja',
         plugins: [dayGridPlugin, interactionPlugin, googleCalendarPlugin],
         initialView: 'dayGridMonth',
         eventSources: [
@@ -44,10 +45,10 @@ export default {
             googleCalendarId: this.$config.gcalId,
           },
         ],
+        displayEventTime: false,
       },
     };
   },
-  computed: {},
   head() {
     return {
       title: 'カレンダー',
