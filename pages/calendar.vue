@@ -4,7 +4,6 @@
     <div class="container">
       <h1>大会カレンダー</h1>
       <div class="grid">
-        <!-- <Calendar :events="events" :subcalendars="subcalendars" /> -->
         <FullCalendar :options="calendarOptions" />
       </div>
     </div>
