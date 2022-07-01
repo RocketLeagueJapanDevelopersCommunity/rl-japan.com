@@ -5,24 +5,22 @@ const {
   SERVICE_ID,
   GA_ID,
   CA_PUB,
-  CALENDAR_KEY,
-  CALENDAR_API_KEY,
+  GCAL_API_KEY,
+  GCAL_ID,
 } = process.env;
 
 export default {
   publicRuntimeConfig: {
     apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
     serviceId: process.env.NODE_ENV !== 'production' ? SERVICE_ID : undefined,
-    calendarKey:
-      process.env.NODE_ENV !== 'production' ? CALENDAR_KEY : undefined,
-    calendarApiKey:
-      process.env.NODE_ENV !== 'production' ? CALENDAR_API_KEY : undefined,
+    gcalApiKey: GCAL_API_KEY,
+    gcalId: GCAL_ID,
   },
   privateRuntimeConfig: {
     apiKey: API_KEY,
     serviceId: SERVICE_ID,
-    calendarKey: CALENDAR_KEY,
-    calendarApiKey: CALENDAR_API_KEY,
+    gcalApiKey: GCAL_API_KEY,
+    gcalId: GCAL_ID,
   },
   target: 'static',
   /*

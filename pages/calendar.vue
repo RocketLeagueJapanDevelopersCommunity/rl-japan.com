@@ -4,7 +4,7 @@
     <div class="container">
       <h1>大会カレンダー</h1>
       <div class="grid">
-        <Calendar :events="events" :subcalendars="subcalendars" />
+        <FullCalendar :options="calendarOptions" />
       </div>
     </div>
     <Footer />
@@ -13,50 +13,41 @@
 
 <script>
 import axios from 'axios';
-import dayjs from 'dayjs';
+import FullCalendar from '@fullcalendar/vue';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
 
 export default {
+  components: {
+    FullCalendar,
+  },
   async asyncData({ params, payload, $config }) {
-    const url = `https://api.teamup.com/${$config.calendarKey}`;
-
-    // Events
-    const resEvents = await axios.get(`${url}/events`, {
-      headers: {
-        'Teamup-Token': $config.calendarApiKey,
-      },
-      params: {
-        startDate: '2015-01-01',
-        endDate: '2100-01-01',
-      },
-    });
-
-    // Sub-Calendars
-    const resSubs = await axios.get(`${url}/subcalendars`, {
-      headers: {
-        'Teamup-Token': $config.calendarApiKey,
-      },
-    });
-
-    // headerMenu
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
         headers: { 'X-API-KEY': $config.apiKey },
       }
     );
-
     return {
       categories: categories.data.contents,
-      events: resEvents.data.events,
-      subcalendars: resSubs.data.subcalendars,
     };
   },
-  computed: {
-    formatDate() {
-      return function (date) {
-        return dayjs(date).format('YYYY/MM/DD HH:mm');
-      };
-    },
+  data() {
+    return {
+      calendarOptions: {
+        locale: 'ja',
+        plugins: [dayGridPlugin, interactionPlugin, googleCalendarPlugin],
+        initialView: 'dayGridMonth',
+        eventSources: [
+          {
+            googleCalendarApiKey: this.$config.gcalApiKey,
+            googleCalendarId: this.$config.gcalId,
+          },
+        ],
+        displayEventTime: false,
+      },
+    };
   },
   head() {
     return {

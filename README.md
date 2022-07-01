@@ -110,6 +110,8 @@ type: オブジェクト形式
 - API_KEY（microCMS の API キー）
 - SERVICE_ID（microCMS のサービス ID）
 - GA_ID（Google Analytics の ID）
+- GCAL_API_KEY（Google Calendar の API KEY）
+- GCAL_ID（Google Calendar の CALENDAR ID）
 
 例:
 
@@ -118,28 +120,32 @@ API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
 GA_ID=UA-xxxxxxxxx-x
 
-CALENDAR_KEY=ks2o548nji9f28b3th
-CALENDAR_API_KEY=abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234
+GCAL_API_KEY=xxxxxxxxxxxxxxxxxxxxxxx
+GCAL_ID=xxxxxxxxxxxxxxxxxxxxx@group.calendar.google.com
 ```
+
 
 ## 開発方法
 
 ```bash
 # パッケージをインストール
-$ npm install
+$ yarn install
 
 # 開発サーバーを起動（localhost:3000）
-$ npm run dev
+$ yarn dev
 
 # Netlify Functionsをローカルで起動（localhost:9000）
-$ npm run functions:serve
+$ yarn functions:serve
 
 # アプリケーションを静的生成
-$ npm run generate
+$ yarn generate
 
 # 静的生成したアプリケーションを起動
-$ npm start
+$ yarn start
 ```
+> このプロジェクトでは、`Yarn`でパッケージマネージャーを統一して運用しています。
+> これは、予期しない非互換性を防ぐためです。
+> `yarn`以外のパッケージマネージャーを使用しようとするとエラーが発生します。
 
 ## ライセンス
 
