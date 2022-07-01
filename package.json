@@ -2,6 +2,9 @@
   "name": "rl-japan",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "npm": "⚠️【お願い】npmではなくyarnを使ってください🙇yarn.lockを大事にしてください(切実)"
+  },
   "scripts": {
     "dev": "nuxt",
     "generate": "nuxt generate --fail-on-error",
