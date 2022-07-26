@@ -20,7 +20,7 @@ export default function (text, num) {
     } else {
       length += 2;
     }
-    if (length === num) targetIndex = i;
+    if (length > num) targetIndex = i;
   }
   return { length, targetIndex };
 }

@@ -76,10 +76,11 @@ export default {
   },
   methods: {
     bytes(text) {
+      const TRIMCOUNT = 40;
       let r;
-      const c = countBytes(text, 40);
-      if (c.target) {
-        r = text.slice(0, c.target) + '…';
+      const c = countBytes(text, TRIMCOUNT);
+      if (c.targetIndex > TRIMCOUNT) {
+        r = text.slice(0, TRIMCOUNT) + '…';
       } else r = text;
       return r;
     },
