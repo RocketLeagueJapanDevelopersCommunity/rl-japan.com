@@ -557,11 +557,10 @@ export default {
   }
 
   .breadcrumbList {
-    color: #616269;
     font-size: 14px;
 
     a {
-      color: #331cbf;
+      color: #616269;
     }
 
     &::after {

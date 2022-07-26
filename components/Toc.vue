@@ -67,7 +67,7 @@ export default {
   border-bottom: 1px solid #fbd9d8;
 
   a:hover {
-    color: #e9433b;
+    color: var(--color-main-red);
   }
 
   &::before {

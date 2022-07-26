@@ -80,7 +80,7 @@ export default {
     height: 16px;
     content: '';
     border-radius: 50%;
-    background: #e9433b;
+    background: var(--color-main-red);
   }
   /* categories */
   .category.tips::before {
@@ -175,7 +175,7 @@ export default {
     height: 14px;
     content: '';
     border-radius: 50%;
-    background: #e9433b;
+    background: var(--color-main-red);
   }
 
   /* categories */

@@ -94,6 +94,6 @@ export default {
   height: 15px;
   content: '';
   border-radius: 50%;
-  background: #e9433b;
+  background: var(--color-main-red);
 }
 </style>
