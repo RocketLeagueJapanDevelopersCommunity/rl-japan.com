@@ -15,18 +15,18 @@
     "functions:serve": "netlify-lambda serve functions"
   },
   "dependencies": {
-    "@fullcalendar/daygrid": "5.11.0",
-    "@fullcalendar/google-calendar": "5.11.0",
-    "@fullcalendar/interaction": "5.11.0",
-    "@fullcalendar/vue": "5.11.0",
+    "@fullcalendar/daygrid": "5.11.2",
+    "@fullcalendar/google-calendar": "5.11.2",
+    "@fullcalendar/interaction": "5.11.2",
+    "@fullcalendar/vue": "5.11.2",
     "@nuxtjs/google-gtag": "1.0.4",
     "axios": "0.21.4",
     "cheerio": "1.0.0-rc.9",
     "highlight.js": "10.7.3",
     "hooper": "0.3.4",
-    "nuxt": "2.15.4",
+    "nuxt": "2.15.8",
     "nuxt-jsonld": "1.5.3",
-    "vue-js-modal": "2.0.0-rc.6"
+    "vue-js-modal": "2.0.1"
   },
   "devDependencies": {
     "@nuxtjs/dayjs": "1.4.1",
