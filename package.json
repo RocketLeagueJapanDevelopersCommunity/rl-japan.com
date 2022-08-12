@@ -21,7 +21,7 @@
     "@fullcalendar/vue": "5.11.0",
     "@nuxtjs/google-gtag": "1.0.4",
     "axios": "0.21.4",
-    "cheerio": "1.0.0-rc.9",
+    "cheerio": "1.0.0-rc.12",
     "highlight.js": "10.7.2",
     "hooper": "0.3.4",
     "nuxt": "2.15.4",
