@@ -7,5 +7,12 @@
     "labels": ["security"]
   },
   "assignees": ["@karuhi"],
-  "reviewers": ["@karuhi"]
+  "reviewers": ["@karuhi"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["lint", "prettier"],
+      "automerge": true
+    }
+  ]
 }
