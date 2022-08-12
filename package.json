@@ -15,10 +15,10 @@
     "functions:serve": "netlify-lambda serve functions"
   },
   "dependencies": {
-    "@fullcalendar/daygrid": "5.11.0",
-    "@fullcalendar/google-calendar": "5.11.0",
-    "@fullcalendar/interaction": "5.11.0",
-    "@fullcalendar/vue": "5.11.0",
+    "@fullcalendar/daygrid": "5.11.2",
+    "@fullcalendar/google-calendar": "5.11.2",
+    "@fullcalendar/interaction": "5.11.2",
+    "@fullcalendar/vue": "5.11.2",
     "@nuxtjs/google-gtag": "1.0.4",
     "axios": "0.21.4",
     "cheerio": "1.0.0-rc.9",
