@@ -24,7 +24,7 @@
     "cheerio": "1.0.0-rc.9",
     "highlight.js": "10.7.3",
     "hooper": "0.3.4",
-    "nuxt": "2.15.4",
+    "nuxt": "2.15.8",
     "nuxt-jsonld": "1.5.3",
     "vue-js-modal": "2.0.0-rc.6"
   },
