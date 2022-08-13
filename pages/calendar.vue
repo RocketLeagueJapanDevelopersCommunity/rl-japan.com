@@ -33,6 +33,7 @@ import axios from 'axios';
 import FullCalendar from '@fullcalendar/vue';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import localeJa from '@fullcalendar/core/locales/ja';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 
 export default {
@@ -54,7 +55,7 @@ export default {
     return {
       cal_isloading: true,
       calendarOptions: {
-        locale: 'ja',
+        locale: localeJa,
         plugins: [dayGridPlugin, interactionPlugin, googleCalendarPlugin],
         initialView: 'dayGridMonth',
         loading: (isLoading) => this.loadingAnim(isLoading),
@@ -64,13 +65,13 @@ export default {
             googleCalendarId: this.$config.gcalId,
           },
         ],
+        contentHeight: 'auto',
         displayEventTime: false,
       },
     };
   },
   methods: {
     loadingAnim(isLoading) {
-      console.log(isLoading);
       this.cal_isloading = isLoading;
     },
   },

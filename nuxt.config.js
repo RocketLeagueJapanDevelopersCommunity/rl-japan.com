@@ -111,11 +111,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/vue-scrollto',
-    '~/plugins/jsonld',
-    { src: '~/plugins/vue-modal', ssr: false },
-  ],
+  plugins: ['~/plugins/vue-scrollto', '~/plugins/jsonld'],
   components: true,
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa'],
   /*
