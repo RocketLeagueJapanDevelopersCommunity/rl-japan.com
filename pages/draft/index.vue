@@ -54,7 +54,6 @@
 <script>
 import axios from 'axios';
 import cheerio from 'cheerio';
-import hljs from 'highlight.js';
 
 export default {
   async asyncData({ $config }) {
@@ -151,11 +150,6 @@ export default {
       };
     });
     this.toc = toc;
-    $('pre code').each((_, elm) => {
-      const res = hljs.highlightAuto($(elm).text());
-      $(elm).html(res.value);
-      $(elm).addClass('hljs');
-    });
     this.data.body = $.html();
   },
   head() {
@@ -186,18 +180,6 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: this.data && this.data.ogimage && this.data.ogimage.url,
-        },
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href: `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css`,
-        },
-      ],
-      script: [
-        {
-          src: `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js`,
-          async: true,
         },
       ],
     };
