@@ -11,19 +11,7 @@
   --color-border-dark: #ccc;
   --color-border: #ddd;
   --color-border-light: #eee;
-  --color-gradient-purple: linear-gradient(to right bottom, #5630af, #3067af);
-  --color-gradient-purple-light: linear-gradient(
-    to right bottom,
-    #7650cf,
-    #5087cf
-  );
 
-  --color-gradient-red: linear-gradient(to right bottom, #ecafac, #e9433b);
-  --color-gradient-red-dark: linear-gradient(to right bottom, #8e6967, #541815);
-  --color-gradient-blue: linear-gradient(to right bottom, #adaf30, #30af7f);
-  --color-purple: #331cbf;
-  --color-green: #2cc63e;
-  --color-bluegreen: #30af7f;
   --color-gray: #ddd;
   --color-gray-light: #eee;
   --color-accent: #ff8d27;
@@ -35,10 +23,6 @@
   --color-bg-purple: #e7e7f3;
   --color-bg-purple-dark: #cacae7;
   --color-bg-blue: #e5eff9;
-
-  --color-bg-success: #e8fbe8;
-  --color-bg-error: #ffe9df;
-  --color-error: #d9534f;
 
   --cat-tournament: #f5b700;
   --cat-update: #ea638c;

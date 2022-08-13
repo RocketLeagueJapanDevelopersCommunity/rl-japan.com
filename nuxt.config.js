@@ -1,13 +1,7 @@
 import axios from 'axios';
 require('dotenv').config();
-const {
-  API_KEY,
-  SERVICE_ID,
-  GA_ID,
-  CA_PUB,
-  GCAL_API_KEY,
-  GCAL_ID,
-} = process.env;
+const { API_KEY, SERVICE_ID, GA_ID, CA_PUB, GCAL_API_KEY, GCAL_ID } =
+  process.env;
 
 export default {
   publicRuntimeConfig: {
@@ -87,8 +81,7 @@ export default {
     ],
     script: [
       {
-        src:
-          'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js',
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js',
         async: true,
       },
     ],
@@ -100,22 +93,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '@/assets/styles/reset.css',
-    '@/assets/styles/colors.css',
-    {
-      src: '~/node_modules/highlight.js/styles/hybrid.css',
-      lang: 'css',
-    },
-  ],
+  css: ['@/assets/styles/reset.css', '@/assets/styles/colors.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/vue-scrollto',
-    '~/plugins/jsonld',
-    { src: '~/plugins/vue-modal', ssr: false },
-  ],
+  plugins: ['~/plugins/vue-scrollto', '~/plugins/jsonld'],
   components: true,
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa'],
   /*

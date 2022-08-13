@@ -76,10 +76,11 @@ export default {
   },
   methods: {
     bytes(text) {
+      const TRIMCOUNT = 40;
       let r;
-      const c = countBytes(text, 40);
-      if (c.target) {
-        r = text.slice(0, c.target) + '…';
+      const c = countBytes(text, TRIMCOUNT);
+      if (c.targetIndex > TRIMCOUNT) {
+        r = text.slice(0, TRIMCOUNT) + '…';
       } else r = text;
       return r;
     },
@@ -107,7 +108,7 @@ export default {
 }
 .hooper-indicator:hover,
 .hooper-indicator.is-active {
-  background-color: #e9433b;
+  background-color: var(--color-main-red);
   transition: background-color 0.3s ease-out;
 }
 .hooper-navigation button {
@@ -120,7 +121,7 @@ export default {
 }
 
 .hooper-navigation button:hover {
-  background-color: #e9433b;
+  background-color: var(--color-main-red);
   transition: background-color 0.5s;
 }
 .hooper-navigation button svg {
@@ -151,7 +152,7 @@ export default {
   display: block;
   margin: 8px;
   padding: 4px 8px;
-  background: #e9433b;
+  background: var(--color-main-red);
   color: white;
   border-radius: 5px;
   font-size: 12px;
@@ -203,7 +204,7 @@ export default {
 .box .overlay .ctabtn:hover {
   transition: all 300ms;
   color: white;
-  background-color: #e9433b;
+  background-color: var(--color-main-red);
 }
 
 @media (min-width: 1160px) {

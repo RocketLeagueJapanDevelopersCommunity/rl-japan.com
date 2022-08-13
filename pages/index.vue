@@ -153,7 +153,7 @@ h2.selectedCategory {
 }
 
 h2.selectedCategory::before {
-  background-color: #e9433b;
+  background-color: var(--color-main-red);
   position: absolute;
   top: 50%;
   left: 0;

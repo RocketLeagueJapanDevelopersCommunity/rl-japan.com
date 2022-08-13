@@ -76,7 +76,7 @@ export default {
       height: 32px;
       border-radius: 16px;
       background-color: #fbd9d8;
-      color: #e9433b;
+      color: var(--color-main-red);
       font-weight: bold;
       margin-right: 10px;
     }
@@ -112,7 +112,7 @@ export default {
   .button {
     border: none;
     border-radius: 5px;
-    background: linear-gradient(to right bottom, #ecafac, #e9433b);
+    background: var(--color-main-red);
     color: #fff;
     text-align: center;
     font-size: 24px;
@@ -121,7 +121,7 @@ export default {
     cursor: pointer;
 
     &:hover {
-      background: linear-gradient(to right bottom, #8e6967, #541815);
+      background: var(--color-main-bg-red);
     }
   }
 }
@@ -154,7 +154,7 @@ export default {
       height: 32px;
       border-radius: 16px;
       background-color: #fbd9d8;
-      color: #e9433b;
+      color: var(--color-main-red);
       font-weight: bold;
       margin-right: 10px;
     }
@@ -191,7 +191,7 @@ export default {
   .button {
     border: none;
     border-radius: 5px;
-    background: var(--color-gradient-red);
+    background: var(--color-main-red);
     color: #fff;
     text-align: center;
     font-size: 20px;
@@ -202,7 +202,8 @@ export default {
     cursor: pointer;
 
     &:hover {
-      background: linear-gradient(to right bottom, #8e6967, #541815);
+      transition: all 0.5s;
+      background: var(--color-text-main);
     }
   }
 }

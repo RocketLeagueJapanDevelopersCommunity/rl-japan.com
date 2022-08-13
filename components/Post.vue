@@ -256,7 +256,7 @@ export default {
     }
 
     & >>> a {
-      color: #e9433b;
+      color: var(--color-main-red);
       text-decoration: underline;
       word-wrap: break-word;
       word-break: break-all;

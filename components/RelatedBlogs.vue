@@ -18,7 +18,7 @@
             />
           </picture>
           <dl class="content">
-            <dt class="title">{{ blog.title }}</dt>
+            <dt class="title">{{ bytes(blog.title) }}</dt>
             <dd>
               <Meta
                 :created-at="blog.createdAt"
@@ -34,12 +34,24 @@
 </template>
 
 <script>
+import countBytes from '@/plugins/count-bytes.js';
 export default {
   props: {
     blogs: {
       type: Array,
       required: false,
       default: () => [],
+    },
+  },
+  methods: {
+    bytes(text) {
+      const TRIMCOUNT = 30;
+      let r;
+      const c = countBytes(text, TRIMCOUNT);
+      if (c.targetIndex > TRIMCOUNT) {
+        r = text.slice(0, TRIMCOUNT) + '…';
+      } else r = text;
+      return r;
     },
   },
 };

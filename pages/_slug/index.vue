@@ -71,7 +71,6 @@
 <script>
 import axios from 'axios';
 import cheerio from 'cheerio';
-import hljs from 'highlight.js';
 
 export default {
   async asyncData({ params, payload, $config }) {
@@ -130,11 +129,6 @@ export default {
         id: d.attribs.id,
         name: d.name,
       };
-    });
-    $('pre code').each((_, elm) => {
-      const res = hljs.highlightAuto($(elm).text());
-      $(elm).html(res.value);
-      $(elm).addClass('hljs');
     });
     $('img').each((_, elm) => {
       $(elm).attr('class', 'lazyload');
@@ -557,11 +551,10 @@ export default {
   }
 
   .breadcrumbList {
-    color: #616269;
     font-size: 14px;
 
     a {
-      color: #331cbf;
+      color: #616269;
     }
 
     &::after {
