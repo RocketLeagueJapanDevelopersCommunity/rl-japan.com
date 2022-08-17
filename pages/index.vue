@@ -45,15 +45,6 @@
         <Search />
         <Banner id="aside-banner" :banner="banner" />
         <Category :categories="categories" />
-        <template id="aside-adsbygoogle">
-          <adsbygoogle
-            :ad-style="{ display: 'block' }"
-            :ad-client="`ca-pub-1687602031519351`"
-            :ad-slot="`8949075408`"
-            :ad-format="'auto'"
-            :full-width-responsive="true"
-          />
-        </template>
       </aside>
     </div>
     <Footer />
