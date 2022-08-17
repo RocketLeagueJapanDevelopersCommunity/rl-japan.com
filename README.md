@@ -118,7 +118,7 @@ type: オブジェクト形式
 ```
 API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 SERVICE_ID=your-service-id
-GA_ID=UA-xxxxxxxxx-x
+GA_ID=G-XXXXXXXXXX
 
 GCAL_API_KEY=xxxxxxxxxxxxxxxxxxxxxxx
 GCAL_ID=xxxxxxxxxxxxxxxxxxxxx@group.calendar.google.com

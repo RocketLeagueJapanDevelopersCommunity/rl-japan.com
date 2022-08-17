@@ -118,6 +118,7 @@ export default {
         pageLevelAds: true,
         analyticsUacct: GA_ID,
         analiticsDomainName: 'rl-japan.com',
+        onPageLoad: true,
       },
     ],
     ['@nuxtjs/sitemap'],
