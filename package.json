@@ -36,6 +36,7 @@
     "@nuxtjs/proxy": "2.1.0",
     "@nuxtjs/pwa": "3.3.5",
     "@nuxtjs/sitemap": "2.4.0",
+    "eslint": "^8.22.0",
     "netlify-lambda": "2.0.15",
     "postcss-css-variables": "0.18.0",
     "postcss-import": "12.0.1",
