@@ -118,6 +118,7 @@ export default {
         pageLevelAds: true,
         analyticsUacct: GA_ID,
         analiticsDomainName: 'rl-japan.com',
+        onPageLoad: true,
       },
     ],
     ['@nuxtjs/sitemap'],
@@ -167,17 +168,6 @@ export default {
         },
         'postcss-nested': {},
       },
-    },
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
-      }
     },
   },
   router: {
