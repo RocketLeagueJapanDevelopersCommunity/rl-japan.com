@@ -15,9 +15,9 @@
     "functions:serve": "netlify-lambda serve functions"
   },
   "dependencies": {
-    "@fullcalendar/daygrid": "5.11.2",
-    "@fullcalendar/google-calendar": "5.11.2",
-    "@fullcalendar/interaction": "5.11.2",
+    "@fullcalendar/daygrid": "5.11.3",
+    "@fullcalendar/google-calendar": "5.11.3",
+    "@fullcalendar/interaction": "5.11.3",
     "@fullcalendar/vue": "5.11.2",
     "axios": "0.27.2",
     "cheerio": "1.0.0-rc.9",

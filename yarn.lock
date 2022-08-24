@@ -973,6 +973,13 @@
   dependencies:
     tslib "^2.1.0"
 
+"@fullcalendar/common@~5.11.3":
+  version "5.11.3"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.11.3.tgz#6d555a06925b8a6d1556570c9f039960539908d5"
+  integrity sha512-welVwyfQOXQQGfDwBMSfYEPbiO1cPfUD+C7jd3ZoweJR+dSO11ddFugxIQ7dGfABAGZ63oq/+LW9FsmAJezVNg==
+  dependencies:
+    tslib "^2.1.0"
+
 "@fullcalendar/core@~5.11.2":
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-5.11.2.tgz#9663c583513d98438cea0e4d25c74fea5d6bdbce"
@@ -982,28 +989,28 @@
     preact "^10.0.5"
     tslib "^2.1.0"
 
-"@fullcalendar/daygrid@5.11.2":
-  version "5.11.2"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-5.11.2.tgz#9e110d22e20a70c8dd8f32b11f2383d52da3d8a0"
-  integrity sha512-WmR8EAOR8Y9wyxlCK2gBW6lG/dPSN37eM8L7vgc7YgrQE1knL7ISgaUnDfFUNBFztmLakO/ZpeQQFpz3pnJwXg==
+"@fullcalendar/daygrid@5.11.3":
+  version "5.11.3"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-5.11.3.tgz#6bc1f956c95f84438428aa6e7a106c863a791a70"
+  integrity sha512-PCK0y80DRNCzWuC5lGpIWqCgKDvql1ah7rXql5lu+Gn2EeFj15ZQ8diMFjtNIQucEmFaNOXnR05Pgcry1n6Shg==
   dependencies:
-    "@fullcalendar/common" "~5.11.2"
+    "@fullcalendar/common" "~5.11.3"
     tslib "^2.1.0"
 
-"@fullcalendar/google-calendar@5.11.2":
-  version "5.11.2"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-5.11.2.tgz#829a473043b01bb5980e64efb38615c0b1395dbd"
-  integrity sha512-quLZG5SEQuyo5hAc+TdB/wwAK0axjVM4Tjt2weOBtNIwA+raSEKDKdNzaeYUyLxMZGuNbk6/kBIj3BYiBS03yQ==
+"@fullcalendar/google-calendar@5.11.3":
+  version "5.11.3"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/google-calendar/-/google-calendar-5.11.3.tgz#87e74a402e7b60d24649e1945b92d8faed5c4304"
+  integrity sha512-WJ3/D+TY0ZHrT1xiZl9Pdx3JvhfvMU3ygOr69FPIpOAcEMIirLg4aO/xerik6D5v2Hnyprav5wP2XI8o/0oW5Q==
   dependencies:
-    "@fullcalendar/common" "~5.11.2"
+    "@fullcalendar/common" "~5.11.3"
     tslib "^2.1.0"
 
-"@fullcalendar/interaction@5.11.2":
-  version "5.11.2"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-5.11.2.tgz#b2845a3eef79f4a98ff6e759486c9b06703459a6"
-  integrity sha512-PlUXP9pW62tLgp2DttLC2f8IX5yeRLRboY/knnRKQRlWoX9tUvmIDK2vZPyAHbXikfYcKtL/B91oCaFWF/HrRA==
+"@fullcalendar/interaction@5.11.3":
+  version "5.11.3"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-5.11.3.tgz#c6712c1305ecb8e975953c7ff462222b49204187"
+  integrity sha512-L955wkDjza62K96ndstvYs2Fd4V0kayTDpqW8W7huFG3Ox8MutpLqKAa2SCaTvcNIlWS4oexGQRiQAaJG7u47A==
   dependencies:
-    "@fullcalendar/common" "~5.11.2"
+    "@fullcalendar/common" "~5.11.3"
     tslib "^2.1.0"
 
 "@fullcalendar/vue@5.11.2":
