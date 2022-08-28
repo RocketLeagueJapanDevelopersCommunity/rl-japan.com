@@ -3,42 +3,27 @@
     <header class="header">
       <div class="logo">
         <a href="/">
-          <img
-            class="iconImg"
-            src="/images/icon.svg"
-            width="100"
-            height="100"
-            alt="rl-japan icon"
-          />
-          <img
-            class="logoImg"
-            src="/images/logo.svg"
-            width="148"
-            height="28"
-            alt="rl-japan logo"
-          />
+          <img class="iconImg" src="/images/icon.svg" width="100" height="100" alt="rl-japan icon" />
+          <img class="logoImg" src="/images/logo.svg" width="148" height="28" alt="rl-japan logo" />
         </a>
       </div>
 
-      <button class="menuBtn" @click="toggleOpen()">
+      <button class="menuBtn" @click="toggleOpen">
+        {{ state.open }}
         <img src="/images/icon_menu.svg" alt="menu" />
       </button>
-      <div v-if="open" class="mask" @click="setOpen(false)"></div>
+      <div v-if="state.open" class="mask" @click="setOpen(false)"></div>
 
-      <div class="menu" :class="{ isOpen: open }">
+      <div class="menu" :class="{ isOpen: state.open }">
         <p class="lists_title sp">メニュー</p>
         <ul class="lists">
           <li class="list">
             <nuxt-link :to="`/calendar`" class="link">大会カレンダー</nuxt-link>
           </li>
           <ul class="sns_lists">
-            <li
-              v-for="sns_list in sns_lists"
-              :key="sns_list.name"
-              class="sns_list"
-            >
-              <a :href="sns_list.url">
-                <img :src="sns_list.image" />
+            <li v-for="list in snsLists" :key="list.name" class="sns_list">
+              <a :href="list.url">
+                <img :src="list.image" />
               </a>
             </li>
           </ul>
@@ -50,9 +35,9 @@
     <div class="empty"></div>
   </div>
 </template>
-
-<script>
-export default {
+<script setup>
+export default defineComponent({
+  name: 'ComponentHeader',
   props: {
     headerCat: {
       type: Array,
@@ -60,46 +45,50 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      params: this.params || '',
+  setup() {
+    const snsLists = [
+      {
+        name: 'Twitter',
+        url: 'https://twitter.com/RL_Japan',
+        image: require('@/static/social_icons/twitter.png'),
+      },
+      {
+        name: 'Discord',
+        url: 'https://discord.gg/5YwQNN9',
+        image: require('@/static/social_icons/discord.png'),
+      },
+      {
+        name: 'YouTube',
+        url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw',
+        image: require('@/static/social_icons/youtube.png'),
+      },
+      {
+        name: 'Twitch',
+        url: 'https://www.twitch.tv/rljapan',
+        image: require('@/static/social_icons/twitch.png'),
+      },
+    ];
+    const state = reactive({
+      params: '',
       open: false,
-      sns_lists: [
-        {
-          name: 'Twitter',
-          url: 'https://twitter.com/RL_Japan',
-          image: require('@/static/social_icons/twitter.png'),
-        },
-        {
-          name: 'Discord',
-          url: 'https://discord.gg/5YwQNN9',
-          image: require('@/static/social_icons/discord.png'),
-        },
-        {
-          name: 'YouTube',
-          url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw',
-          image: require('@/static/social_icons/youtube.png'),
-        },
-        {
-          name: 'Twitch',
-          url: 'https://www.twitch.tv/rljapan',
-          image: require('@/static/social_icons/twitch.png'),
-        },
-      ],
+    });
+
+    onMounted(() => {
+      state.params = location.search;
+      state.open = true;
+    });
+
+    const setOpen = (value) => {
+      state.open = value;
     };
+
+    const toggleOpen = () => {
+      state.open = !state.open;
+    };
+
+    return { snsLists, state, setOpen, toggleOpen };
   },
-  mounted() {
-    this.params = location.search || '';
-  },
-  methods: {
-    setOpen(value) {
-      this.open = value;
-    },
-    toggleOpen() {
-      this.open = !this.open;
-    },
-  },
-};
+});
 </script>
 
 <style scoped>

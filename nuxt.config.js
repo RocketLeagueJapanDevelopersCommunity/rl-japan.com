@@ -1,9 +1,10 @@
+import { defineNuxtConfig } from '@nuxt/bridge';
 import axios from 'axios';
 require('dotenv').config();
 const { API_KEY, SERVICE_ID, GA_ID, CA_PUB, GCAL_API_KEY, GCAL_ID } =
   process.env;
 
-export default {
+export default defineNuxtConfig({
   publicRuntimeConfig: {
     apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
     serviceId: process.env.NODE_ENV !== 'production' ? SERVICE_ID : undefined,
@@ -99,7 +100,7 @@ export default {
    */
   plugins: ['~/plugins/vue-scrollto', '~/plugins/jsonld'],
   components: true,
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa'],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/pwa', '@nuxt/image'],
   /*
    ** Nuxt.js modules
    */
@@ -157,9 +158,6 @@ export default {
    ** Build configuration
    */
   build: {
-    babel: {
-      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
-    },
     postcss: {
       plugins: {
         'postcss-custom-properties': {
@@ -539,4 +537,4 @@ export default {
       type: 'rss2',
     },
   ],
-};
+});

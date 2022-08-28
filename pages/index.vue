@@ -10,7 +10,7 @@
         </div>
         <div v-else-if="page - 1 == 0">
           <h2 class="selectedCategory top">ピックアップ記事</h2>
-          <Slider :slider-contents="popularArticles" />
+          <Slider2 :slider-contents="popularArticles" />
           <h2 class="selectedCategory">新着記事</h2>
         </div>
         <div v-else>
@@ -53,12 +53,8 @@
 
 <script>
 import axios from 'axios';
-import Slider from '@/components/Slider';
 
 export default {
-  components: {
-    Slider,
-  },
   async asyncData({ params, payload, $config }) {
     const page = params.id || '1';
     const categoryId = params.categoryId;
