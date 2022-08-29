@@ -28,7 +28,7 @@
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/feed": "2.0.0",
     "@nuxtjs/google-adsense": "2.0.0",
-    "@nuxtjs/google-gtag": "^1.0.4",
+    "@nuxtjs/google-gtag": "1.0.4",
     "@nuxtjs/sitemap": "2.4.0",
     "@nuxtjs/pwa": "3.3.5",
     "@nuxtjs/proxy": "2.1.0",
@@ -37,10 +37,10 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "10.0.0",
     "@nuxtjs/eslint-module": "3.1.0",
-    "eslint": "^8.22.0",
+    "eslint": "8.22.0",
     "netlify-lambda": "2.0.15",
     "postcss-css-variables": "0.18.0",
-    "postcss-import": "12.0.1",
+    "postcss-import": "14.1.0",
     "postcss-nested": "4.2.3",
     "prettier": "2.7.1"
   }
