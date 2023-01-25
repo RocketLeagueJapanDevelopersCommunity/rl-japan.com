@@ -27,7 +27,7 @@
             />
             <img
               ref="ogimage"
-              :src="ogimage.url + '?w=820&q=100'"
+              :src="ogimage.url + '?w=820&q=85'"
               class="ogimage"
               alt
             />

@@ -8,7 +8,7 @@
           :data-srcset="writer.image.url + '?fit=crop&w=100&h=100&fm=webp'"
         />
         <img
-          :data-src="writer.image.url + '?fit=crop&w=100&h=100&q=100'"
+          :data-src="writer.image.url + '?fit=crop&w=100&h=100&q=85'"
           class="image lazyload"
           alt
         />

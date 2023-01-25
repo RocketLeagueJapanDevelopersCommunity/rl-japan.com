@@ -7,7 +7,7 @@
           :data-srcset="partner.logo.url + '?fit=crop&w=100&h=100&fm=webp'"
         />
         <img
-          :data-src="partner.logo.url + '?fit=crop&w=100&h=100&q=100'"
+          :data-src="partner.logo.url + '?fit=crop&w=100&h=100&q=85'"
           class="image lazyload"
           alt
         />
