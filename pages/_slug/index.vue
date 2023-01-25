@@ -132,7 +132,7 @@ export default {
     });
     $('img').each((_, elm) => {
       $(elm).attr('class', 'lazyload');
-      $(elm).attr('data-src', elm.attribs.src);
+      $(elm).attr('data-src', elm.attribs.src + '?q=75&w=800');
       $(elm).removeAttr('src');
     });
     const bodyTextLength = $.text().replace('\n', '').length;
