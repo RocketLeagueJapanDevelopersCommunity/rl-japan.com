@@ -10,13 +10,13 @@
           placeholder="キーワードを入力"
           @keyup.enter="(e) => search(e.target.value)"
           @keypress="setSearchable"
-        />
+        >
         <div v-if="loading === true" class="loader">
           <img
             class="loadingIcon"
             src="/images/icon_loading.svg"
             alt="検索中..."
-          />
+          >
         </div>
         <div v-else>
           <div
@@ -57,10 +57,10 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
-  async asyncData({ payload, $config }) {
+  async asyncData ({ payload, $config }) {
     const popularArticles =
       payload !== undefined && payload.popularArticles !== undefined
         ? payload.popularArticles
@@ -68,10 +68,10 @@ export default {
             await axios.get(
               `https://${$config.serviceId}.microcms.io/api/v1/popular-articles`,
               {
-                headers: { 'X-API-KEY': $config.apiKey },
+                headers: { 'X-API-KEY': $config.apiKey }
               }
             )
-          ).data.articles;
+          ).data.articles
     const banner =
       payload !== undefined
         ? payload.banner
@@ -79,23 +79,23 @@ export default {
             await axios.get(
               `https://${$config.serviceId}.microcms.io/api/v1/banner`,
               {
-                headers: { 'X-API-KEY': $config.apiKey },
+                headers: { 'X-API-KEY': $config.apiKey }
               }
             )
-          ).data;
+          ).data
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     return {
       popularArticles,
       banner,
-      categories: categories.data.contents,
-    };
+      categories: categories.data.contents
+    }
   },
-  data() {
+  data () {
     return {
       searchable: true,
       contents: this.contents || [],
@@ -103,47 +103,47 @@ export default {
       categories: this.categories || [],
       pager: this.pager || [],
       loading: true,
-      q: this.$route.query.q,
-    };
+      q: this.$route.query.q
+    }
   },
-  created() {
-    const query = this.$route.query;
-    this.search(query.q);
-  },
-  methods: {
-    setSearchable() {
-      this.searchable = true;
-    },
-    async search(q = '') {
-      if (!q.trim() || !this.searchable) {
-        return;
-      }
-      this.loadingStart();
-      const { data, error } = await axios
-        .get(`/.netlify/functions/search?q=${q}`)
-        .catch((error) => ({ error }));
-      this.loadingFinish();
-      if (error) {
-        return;
-      }
-      this.contents = data.contents;
-      this.totalCount = data.totalCount;
-      this.searchable = false;
-    },
-    loadingStart() {
-      this.loading = true;
-    },
-    loadingFinish() {
-      this.loading = false;
-    },
-  },
-  head() {
+  head () {
     return {
       titleTemplate: null,
-      title: 'ロケットリーグ 日本コミュニティ',
-    };
+      title: 'ロケットリーグ 日本コミュニティ'
+    }
   },
-};
+  created () {
+    const query = this.$route.query
+    this.search(query.q)
+  },
+  methods: {
+    setSearchable () {
+      this.searchable = true
+    },
+    async search (q = '') {
+      if (!q.trim() || !this.searchable) {
+        return
+      }
+      this.loadingStart()
+      const { data, error } = await axios
+        .get(`/.netlify/functions/search?q=${q}`)
+        .catch(error => ({ error }))
+      this.loadingFinish()
+      if (error) {
+        return
+      }
+      this.contents = data.contents
+      this.totalCount = data.totalCount
+      this.searchable = false
+    },
+    loadingStart () {
+      this.loading = true
+    },
+    loadingFinish () {
+      this.loading = false
+    }
+  }
+}
 </script>
 
 <style scoped>

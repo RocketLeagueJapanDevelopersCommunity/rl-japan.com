@@ -9,7 +9,7 @@
               :data-srcset="
                 sliderContent.ogimage.url + '?w=600&h=315&fit=crop&q=50&fm=webp'
               "
-            />
+            >
             <img
               src="@/static/images/loading.gif"
               :data-src="
@@ -19,21 +19,22 @@
               alt
               width="630"
               height="1200"
-            />
+            >
           </picture>
           <div v-if="sliderContent.title" class="overlay">
             <div class="category">
               <span>{{ sliderContent.category.id.toUpperCase() }}</span>
             </div>
-            <span class="title" :data-content="bytes(sliderContent.title)">
-            </span>
-            <div class="ctabtn">詳しく見る</div>
+            <span class="title" :data-content="bytes(sliderContent.title)" />
+            <div class="ctabtn">
+              詳しく見る
+            </div>
           </div>
         </nuxt-link>
       </slide>
 
-      <hooper-navigation slot="hooper-addons"></hooper-navigation>
-      <hooper-pagination slot="hooper-addons"></hooper-pagination>
+      <hooper-navigation slot="hooper-addons" />
+      <hooper-pagination slot="hooper-addons" />
     </hooper>
   </div>
 </template>
@@ -43,25 +44,25 @@ import {
   Hooper,
   Slide,
   Navigation as HooperNavigation,
-  Pagination as HooperPagination,
-} from 'hooper';
-import countBytes from '@/plugins/count-bytes.js';
+  Pagination as HooperPagination
+} from 'hooper'
+import countBytes from '@/plugins/count-bytes.js'
 
 export default {
   components: {
     Hooper,
     Slide,
     HooperNavigation,
-    HooperPagination,
+    HooperPagination
   },
   props: {
     sliderContents: {
       type: Array,
       required: false,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
-  data() {
+  data () {
     return {
       hooperSettings: {
         autoPlay: true,
@@ -70,22 +71,22 @@ export default {
         touchDrag: false,
         playSpeed: 5000, // 5000
         transition: 300,
-        trimWhiteSpace: true,
-      },
-    };
+        trimWhiteSpace: true
+      }
+    }
   },
   methods: {
-    bytes(text) {
-      const TRIMCOUNT = 40;
-      let r;
-      const c = countBytes(text, TRIMCOUNT);
+    bytes (text) {
+      const TRIMCOUNT = 40
+      let r
+      const c = countBytes(text, TRIMCOUNT)
       if (c.targetIndex > TRIMCOUNT) {
-        r = text.slice(0, TRIMCOUNT) + '…';
-      } else r = text;
-      return r;
-    },
-  },
-};
+        r = text.slice(0, TRIMCOUNT) + '…'
+      } else { r = text }
+      return r
+    }
+  }
+}
 </script>
 
 <style>

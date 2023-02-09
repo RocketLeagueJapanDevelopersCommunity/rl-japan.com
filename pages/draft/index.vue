@@ -2,7 +2,9 @@
   <div class="wrapper">
     <Header :header-cat="categories" />
     <div class="divider">
-      <p v-if="!data.id" class="loading">Now Loading...</p>
+      <p v-if="!data.id" class="loading">
+        Now Loading...
+      </p>
       <article v-if="data.id" class="article">
         <div v-if="data.ogimage" class="ogimageWrap">
           <img
@@ -10,20 +12,22 @@
             :src="data.ogimage.url + '?w=820&q=100'"
             :srcset="
               data.ogimage.url +
-              '?w=375&q=100 375w,' +
-              data.ogimage.url +
-              '?w=750&q=100 750w,' +
-              data.ogimage.url +
-              '?w=820&q=100 820w'
+                '?w=375&q=100 375w,' +
+                data.ogimage.url +
+                '?w=750&q=100 750w,' +
+                data.ogimage.url +
+                '?w=820&q=100 820w'
             "
             class="ogimage"
-          />
+          >
         </div>
         <Breadcrumb :category="data.category" />
         <div class="main">
           <Share :id="data.id" :title="data.title" />
           <div class="container">
-            <h1 class="title">{{ data.title }}</h1>
+            <h1 class="title">
+              {{ data.title }}
+            </h1>
             <Meta
               :created-at="data.publishedAt || data.createdAt"
               :author="data.writer !== null ? data.writer : ''"
@@ -52,45 +56,45 @@
 </template>
 
 <script>
-import axios from 'axios';
-import cheerio from 'cheerio';
+import axios from 'axios'
+import cheerio from 'cheerio'
 
 export default {
-  async asyncData({ $config }) {
+  async asyncData ({ $config }) {
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     const banner = (
       await axios.get(
         `https://${$config.serviceId}.microcms.io/api/v1/banner`,
         {
-          headers: { 'X-API-KEY': $config.apiKey },
+          headers: { 'X-API-KEY': $config.apiKey }
         }
       )
-    ).data;
+    ).data
     const {
-      data: { contents },
+      data: { contents }
     } = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/blog`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     return {
       categories: categories.data.contents,
       banner,
-      contents,
-    };
+      contents
+    }
   },
-  data() {
+  data () {
     return {
       data: {
         id: '',
         ogimage: {
-          url: '',
+          url: ''
         },
         body: '',
         title: '',
@@ -101,9 +105,9 @@ export default {
           id: '',
           name: '',
           image: {
-            url: '',
+            url: ''
           },
-          text: '',
+          text: ''
         },
         partner: {
           id: '',
@@ -111,80 +115,80 @@ export default {
           url: '',
           description: '',
           logo: {
-            url: '',
-          },
+            url: ''
+          }
         },
         category: {
           name: '',
-          color: '',
+          color: ''
         },
-        related_blogs: [],
+        related_blogs: []
       },
       toc: [],
       contents: [],
-      categories: [],
-    };
-  },
-  async created() {
-    const query = this.$route.query;
-    if (query.id === undefined || query.draftKey === undefined) {
-      return;
+      categories: []
     }
-    const { data, error } = await axios
-      .get(
-        `/.netlify/functions/draft?id=${query.id}&draftKey=${query.draftKey}`
-      )
-      .catch((error) => ({ error }));
-    if (error) {
-      return;
-    }
-    this.data = data;
-
-    const $ = cheerio.load(data.body);
-    const headings = $('h1, h2, h3').toArray();
-    const toc = headings.map((d) => {
-      return {
-        text: d.children[0].data,
-        id: d.attribs.id,
-        name: d.name,
-      };
-    });
-    this.toc = toc;
-    this.data.body = $.html();
   },
-  head() {
+  head () {
     return {
       title: this.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.data && this.data.description,
+          content: this.data && this.data.description
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.data && this.data.title,
+          content: this.data && this.data.title
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.data && this.data.description,
+          content: this.data && this.data.description
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://rl-japan.com/${this.data && this.data.id}`,
+          content: `https://rl-japan.com/${this.data && this.data.id}`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.data && this.data.ogimage && this.data.ogimage.url,
-        },
-      ],
-    };
+          content: this.data && this.data.ogimage && this.data.ogimage.url
+        }
+      ]
+    }
   },
-};
+  async created () {
+    const query = this.$route.query
+    if (query.id === undefined || query.draftKey === undefined) {
+      return
+    }
+    const { data, error } = await axios
+      .get(
+        `/.netlify/functions/draft?id=${query.id}&draftKey=${query.draftKey}`
+      )
+      .catch(error => ({ error }))
+    if (error) {
+      return
+    }
+    this.data = data
+
+    const $ = cheerio.load(data.body)
+    const headings = $('h1, h2, h3').toArray()
+    const toc = headings.map((d) => {
+      return {
+        text: d.children[0].data,
+        id: d.attribs.id,
+        name: d.name
+      }
+    })
+    this.toc = toc
+    this.data.body = $.html()
+  }
+}
 </script>
 
 <style scoped>

@@ -9,36 +9,40 @@
               media="(min-width: 1160px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=820&fm=webp, ${ogimage.url}?w=1640&fm=webp 2x`"
-            />
+            >
             <source
               media="(min-width: 820px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=740&fm=webp, ${ogimage.url}?w=1480&fm=webp 2x`"
-            />
+            >
             <source
               media="(min-width: 768px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=728&fm=webp, ${ogimage.url}?w=1456&fm=webp 2x`"
-            />
+            >
             <source
               media="(max-width: 768px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=375&fm=webp, ${ogimage.url}?w=750&fm=webp 2x`"
-            />
+            >
             <img
               ref="ogimage"
               :src="ogimage.url + '?w=820&q=85'"
               class="ogimage"
               alt
-            />
+            >
           </picture>
         </div>
         <Breadcrumb :category="category" />
         <div class="main">
           <Share :id="id" :title="title" />
           <div class="container">
-            <h1 class="title">{{ title }}</h1>
-            <div class="reading-time">読了目安 {{ readingTime }}</div>
+            <h1 class="title">
+              {{ title }}
+            </h1>
+            <div class="reading-time">
+              読了目安 {{ readingTime }}
+            </div>
             <Meta
               :created-at="publishedAt || createdAt"
               :author="writer !== null ? writer : ''"
@@ -69,11 +73,11 @@
 </template>
 
 <script>
-import axios from 'axios';
-import cheerio from 'cheerio';
+import axios from 'axios'
+import cheerio from 'cheerio'
 
 export default {
-  async asyncData({ params, payload, $config }) {
+  async asyncData ({ params, payload, $config }) {
     const data =
       payload !== undefined
         ? payload.content
@@ -81,10 +85,10 @@ export default {
             await axios.get(
               `https://${$config.serviceId}.microcms.io/api/v1/blog/${params.slug}?depth=2`,
               {
-                headers: { 'X-API-KEY': $config.apiKey },
+                headers: { 'X-API-KEY': $config.apiKey }
               }
             )
-          ).data;
+          ).data
     const popularArticles =
       payload !== undefined
         ? payload.popularArticles
@@ -92,10 +96,10 @@ export default {
             await axios.get(
               `https://${$config.serviceId}.microcms.io/api/v1/popular-articles`,
               {
-                headers: { 'X-API-KEY': $config.apiKey },
+                headers: { 'X-API-KEY': $config.apiKey }
               }
             )
-          ).data.articles;
+          ).data.articles
     const banner =
       payload !== undefined
         ? payload.banner
@@ -103,41 +107,41 @@ export default {
             await axios.get(
               `https://${$config.serviceId}.microcms.io/api/v1/banner`,
               {
-                headers: { 'X-API-KEY': $config.apiKey },
+                headers: { 'X-API-KEY': $config.apiKey }
               }
             )
-          ).data;
+          ).data
     const {
-      data: { contents },
+      data: { contents }
     } = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/blog`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
-    const $ = cheerio.load(data.body);
-    const headings = $('h1, h2, h3').toArray();
+    )
+    const $ = cheerio.load(data.body)
+    const headings = $('h1, h2, h3').toArray()
     const toc = headings.map((d) => {
       return {
         text: d.children[0].data,
         id: d.attribs.id,
-        name: d.name,
-      };
-    });
+        name: d.name
+      }
+    })
     $('img').each((_, elm) => {
-      $(elm).attr('class', 'lazyload');
-      $(elm).attr('data-src', elm.attribs.src + '?q=75&w=800');
-      $(elm).removeAttr('src');
-    });
-    const bodyTextLength = $.text().replace('\n', '').length;
-    const calcReadingTime = Math.ceil(bodyTextLength / 400);
-    const readingTime = `約${calcReadingTime}分 / ${bodyTextLength}文字`;
+      $(elm).attr('class', 'lazyload')
+      $(elm).attr('data-src', elm.attribs.src + '?q=75&w=800')
+      $(elm).removeAttr('src')
+    })
+    const bodyTextLength = $.text().replace('\n', '').length
+    const calcReadingTime = Math.ceil(bodyTextLength / 400)
+    const readingTime = `約${calcReadingTime}分 / ${bodyTextLength}文字`
     return {
       ...data,
       popularArticles,
@@ -146,16 +150,16 @@ export default {
       toc,
       categories: categories.data.contents,
       contents,
-      readingTime,
-    };
+      readingTime
+    }
   },
-  data() {
+  data () {
     return {
       publishedAt: '',
-      ogimage: null,
-    };
+      ogimage: null
+    }
   },
-  jsonld() {
+  jsonld () {
     return {
       '@context': 'https://schema.org',
       '@type': 'NewsArticle',
@@ -163,27 +167,27 @@ export default {
       image: [
         this.ogimage.url + '?w=500&h=500&fm=webp&fit=fill&fill=blur&q=0',
         this.ogimage.url + '?w=400&h=300&fm=webp&fit=fill&fill=blur&q=0',
-        this.ogimage.url + '?w=960&h=540&fm=webp&fit=fill&fill=blur&q=0',
+        this.ogimage.url + '?w=960&h=540&fm=webp&fit=fill&fill=blur&q=0'
       ],
       datePublished: this.publishedAt || this.createdAt,
       dateModified: this.updatedAt,
       author: [
         {
           '@type': 'Person',
-          name: this.writer.name,
-        },
+          name: this.writer.name
+        }
       ],
       publisher: {
         '@type': 'Organization',
         name: 'ロケットリーグ日本コミュニティ',
         logo: {
           '@type': 'ImageObject',
-          url: require('@/static/images/rljp-jsonld-logo.png'),
-        },
-      },
-    };
+          url: require('@/static/images/rljp-jsonld-logo.png')
+        }
+      }
+    }
   },
-  head() {
+  head () {
     return {
       title: this.title,
       meta: [
@@ -192,22 +196,22 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.description,
+          content: this.description
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://rl-japan.com/${this.id}/`,
+          content: `https://rl-japan.com/${this.id}/`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.ogimage && this.ogimage.url,
-        },
-      ],
-    };
-  },
-};
+          content: this.ogimage && this.ogimage.url
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>

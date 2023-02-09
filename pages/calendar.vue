@@ -8,7 +8,7 @@
           class="loadingIcon"
           src="/images/icon_loading.svg"
           alt="検索中..."
-        />
+        >
       </div>
       <div class="grid" :class="{ item_show: cal_isloading }">
         <FullCalendar :options="calendarOptions" />
@@ -21,7 +21,7 @@
             src="@/static/images/calendar.png"
             width="100%"
             alt="大会カレンダー掲載募集"
-        /></a>
+          ></a>
       </div>
     </div>
     <Footer />
@@ -29,58 +29,58 @@
 </template>
 
 <script>
-import axios from 'axios';
-import FullCalendar from '@fullcalendar/vue';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import localeJa from '@fullcalendar/core/locales/ja';
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
+import axios from 'axios'
+import FullCalendar from '@fullcalendar/vue'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from '@fullcalendar/interaction'
+import localeJa from '@fullcalendar/core/locales/ja'
+import googleCalendarPlugin from '@fullcalendar/google-calendar'
 
 export default {
   components: {
-    FullCalendar,
+    FullCalendar
   },
-  async asyncData({ params, payload, $config }) {
+  async asyncData ({ params, payload, $config }) {
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     return {
-      categories: categories.data.contents,
-    };
+      categories: categories.data.contents
+    }
   },
-  data() {
+  data () {
     return {
       cal_isloading: true,
       calendarOptions: {
         locale: localeJa,
         plugins: [dayGridPlugin, interactionPlugin, googleCalendarPlugin],
         initialView: 'dayGridMonth',
-        loading: (isLoading) => this.loadingAnim(isLoading),
+        loading: isLoading => this.loadingAnim(isLoading),
         eventSources: [
           {
             googleCalendarApiKey: this.$config.gcalApiKey,
-            googleCalendarId: this.$config.gcalId,
-          },
+            googleCalendarId: this.$config.gcalId
+          }
         ],
         contentHeight: 'auto',
-        displayEventTime: false,
-      },
-    };
+        displayEventTime: false
+      }
+    }
+  },
+  head () {
+    return {
+      title: 'カレンダー'
+    }
   },
   methods: {
-    loadingAnim(isLoading) {
-      this.cal_isloading = isLoading;
-    },
-  },
-  head() {
-    return {
-      title: 'カレンダー',
-    };
-  },
-};
+    loadingAnim (isLoading) {
+      this.cal_isloading = isLoading
+    }
+  }
+}
 </script>
 
 <style scoped>

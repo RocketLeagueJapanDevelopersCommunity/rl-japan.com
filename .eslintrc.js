@@ -2,11 +2,11 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true,
+    node: true
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
-    requireConfigFile: false,
+    requireConfigFile: false
   },
   extends: ['@nuxtjs'],
   plugins: ['prettier'],
@@ -14,6 +14,6 @@ module.exports = {
   rules: {
     semi: 'error',
     'prefer-const': 'error',
-    'vue/no-v-html': 'off',
-  },
-};
+    'vue/no-v-html': 'off'
+  }
+}

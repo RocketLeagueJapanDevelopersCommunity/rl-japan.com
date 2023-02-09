@@ -5,38 +5,40 @@
         <a :href="sns_list.url">{{ sns_list.name }}</a>
       </li>
     </ul>
-    <p class="cr">© ロケットリーグ 日本コミュニティ</p>
+    <p class="cr">
+      © ロケットリーグ 日本コミュニティ
+    </p>
   </footer>
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       sns_lists: [
         {
           name: 'Twitter',
-          url: 'https://twitter.com/RL_Japan',
+          url: 'https://twitter.com/RL_Japan'
         },
         {
           name: 'Discord',
-          url: 'https://discord.gg/5YwQNN9',
+          url: 'https://discord.gg/5YwQNN9'
         },
         {
           name: 'YouTube',
-          url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw',
+          url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw'
         },
         {
           name: 'Twitch',
-          url: 'https://www.twitch.tv/rljapan',
+          url: 'https://www.twitch.tv/rljapan'
         },
         {
           name: 'Developed by RLJDC',
-          url: 'https://rljp.dev/',
-        },
-      ],
-    };
-  },
-};
+          url: 'https://rljp.dev/'
+        }
+      ]
+    }
+  }
+}
 </script>
 <style scoped>
 @media (min-width: 600px) {

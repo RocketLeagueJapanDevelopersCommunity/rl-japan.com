@@ -5,7 +5,7 @@
         {{ category.name }}
       </span>
       <span class="timestamp">
-        <img src="/images/icon_clock.svg" alt />
+        <img src="/images/icon_clock.svg" alt>
         <time :datetime="$dayjs(createdAt).format('YYYY-MM-DD')">
           {{ $dayjs(createdAt).format('YYYY年MM月DD日') }}
         </time>
@@ -17,7 +17,7 @@
             :data-srcset="
               author.image.url + '?w=100&h=100&&q=50&fm=webp&fit=crop&q=0'
             "
-          />
+          >
           <img
             src="@/static/images/loading.gif"
             :data-src="author.image.url + '?w=100&h=100&q=50&fit=crop&q=0'"
@@ -25,7 +25,7 @@
             alt
             :width="author.image.width"
             :height="author.image.height"
-          />
+          >
         </picture>
         {{ author.name }}
       </span>
@@ -38,20 +38,20 @@ export default {
   props: {
     createdAt: {
       type: String,
-      required: true,
+      required: true
     },
     author: {
       type: Object,
       required: false,
-      default: undefined,
+      default: undefined
     },
     category: {
       type: Object,
       required: false,
-      default: undefined,
-    },
-  },
-};
+      default: undefined
+    }
+  }
+}
 </script>
 
 <style scoped>
