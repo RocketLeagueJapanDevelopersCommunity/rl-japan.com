@@ -14,6 +14,33 @@ module.exports = {
   rules: {
     semi: 'error',
     'prefer-const': 'error',
-    'vue/no-v-html': 'off'
+    'vue/no-v-html': 'off',
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: [
+          'index',
+          '404',
+          'default',
+          'Banner',
+          'Breadcrumb',
+          'Category',
+          'Conversion',
+          'Footer',
+          'Header',
+          'Latest',
+          'Logo',
+          'Meta',
+          'Partner',
+          'Post',
+          'Search',
+          'Share',
+          'Slider',
+          'Toc',
+          'Writer',
+          'calendar'
+        ]
+      }
+    ]
   }
 }
