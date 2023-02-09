@@ -38,7 +38,7 @@ export default {
   computed: {
     generateMessageLink() {
       const template = encodeURI(`【404記事についてのお問い合わせ】
-Page: ${this.$route.fullPath}
+Page: ${this.$route.redirectedFrom}
 ※このメッセージは編集せずそのまま送信してください。`);
       return `https://twitter.com/messages/compose?recipient_id=1219270339466690560&text=${template}`;
     },
