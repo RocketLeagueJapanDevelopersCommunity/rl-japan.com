@@ -49,6 +49,6 @@
     "prettier": "2.8.4"
   },
   "resolutions": {
-    "vue-template-compiler": "~2.6.14"
+    "vue-template-compiler": "~2.7.14"
   }
 }
