@@ -6,29 +6,29 @@
       placeholder="キーワードを入力"
       @keypress="setSearchable"
       @keypress.enter="search"
-    />
+    >
   </label>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      searchable: false,
-    };
+      searchable: false
+    }
   },
   methods: {
-    setSearchable() {
-      this.searchable = true;
+    setSearchable () {
+      this.searchable = true
     },
-    search(e) {
+    search (e) {
       if (!e.target.value.trim() || !this.searchable) {
-        return;
+        return
       }
-      this.$router.push({ path: '/search', query: { q: e.target.value } });
-    },
-  },
-};
+      this.$router.push({ path: '/search', query: { q: e.target.value } })
+    }
+  }
+}
 </script>
 
 <style scoped>

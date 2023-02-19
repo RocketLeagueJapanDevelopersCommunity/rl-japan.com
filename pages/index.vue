@@ -9,9 +9,13 @@
           </h2>
         </div>
         <div v-else-if="page - 1 == 0">
-          <h2 class="selectedCategory top">ピックアップ記事</h2>
+          <h2 class="selectedCategory top">
+            ピックアップ記事
+          </h2>
           <Slider :slider-contents="popularArticles" />
-          <h2 class="selectedCategory">新着記事</h2>
+          <h2 class="selectedCategory">
+            新着記事
+          </h2>
         </div>
         <div v-else>
           {{ page }}ページ目｜{{ (page - 1) * 10 + 1 }}〜{{
@@ -52,17 +56,17 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Slider from '@/components/Slider';
+import axios from 'axios'
+import Slider from '@/components/Slider'
 
 export default {
   components: {
-    Slider,
+    Slider
   },
-  async asyncData({ params, payload, $config }) {
-    const page = params.id || '1';
-    const categoryId = params.categoryId;
-    const limit = 10;
+  async asyncData ({ params, payload, $config }) {
+    const page = params.id || '1'
+    const categoryId = params.categoryId
+    const limit = 10
     const popularArticles =
       payload !== undefined && payload.popularArticles !== undefined
         ? payload.popularArticles
@@ -70,10 +74,10 @@ export default {
             await axios.get(
               `https://${$config.serviceId}.microcms.io/api/v1/popular-articles`,
               {
-                headers: { 'X-API-KEY': $config.apiKey },
+                headers: { 'X-API-KEY': $config.apiKey }
               }
             )
-          ).data.articles;
+          ).data.articles
     const banner =
       payload !== undefined
         ? payload.banner
@@ -81,28 +85,28 @@ export default {
             await axios.get(
               `https://${$config.serviceId}.microcms.io/api/v1/banner`,
               {
-                headers: { 'X-API-KEY': $config.apiKey },
+                headers: { 'X-API-KEY': $config.apiKey }
               }
             )
-          ).data;
+          ).data
     const { data } = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/blog?limit=${limit}${
         categoryId === undefined ? '' : `&filters=category[equals]${categoryId}`
       }&offset=${(page - 1) * limit}`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     const selectedCategory =
       categoryId !== undefined
-        ? categories.data.contents.find((content) => content.id === categoryId)
-        : undefined;
+        ? categories.data.contents.find(content => content.id === categoryId)
+        : undefined
     return {
       ...data,
       categories: categories.data.contents,
@@ -110,23 +114,23 @@ export default {
       popularArticles,
       banner,
       page,
-      pager: [...Array(Math.ceil(data.totalCount / limit)).keys()],
-    };
+      pager: [...Array(Math.ceil(data.totalCount / limit)).keys()]
+    }
   },
-  data() {
+  data () {
     return {
       contents: this.contents || [],
       totalCount: this.totalCount || 0,
-      pager: this.pager || [],
-    };
+      pager: this.pager || []
+    }
   },
-  head() {
+  head () {
     return {
       titleTemplate: null,
-      title: 'ロケットリーグ 日本コミュニティ',
-    };
-  },
-};
+      title: 'ロケットリーグ 日本コミュニティ'
+    }
+  }
+}
 </script>
 
 <style scoped>

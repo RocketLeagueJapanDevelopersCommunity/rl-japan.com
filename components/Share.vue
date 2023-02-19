@@ -3,17 +3,17 @@
     <ul class="shareLists">
       <li class="shareList">
         <a :href="twitterLink" target="_blank" rel="noopener noreferrer">
-          <img src="/images/icon_twitter.svg" alt="Twitter" />
+          <img src="/images/icon_twitter.svg" alt="Twitter">
         </a>
       </li>
       <li class="shareList">
         <a :href="facebookLink" target="_blank" rel="noopener noreferrer">
-          <img src="/images/icon_facebook.svg" alt="Facebook" />
+          <img src="/images/icon_facebook.svg" alt="Facebook">
         </a>
       </li>
       <li class="shareList">
         <a :href="hatenaLink" target="_blank" rel="noopener noreferrer">
-          <img src="/images/icon_hatena.svg" alt="はてなブックマーク" />
+          <img src="/images/icon_hatena.svg" alt="はてなブックマーク">
         </a>
       </li>
       <li class="shareList">
@@ -22,7 +22,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/images/icon_feed.svg" alt="フィード" />
+          <img src="/images/icon_feed.svg" alt="フィード">
         </a>
       </li>
     </ul>
@@ -34,27 +34,27 @@ export default {
   props: {
     id: {
       type: String,
-      required: true,
+      required: true
     },
     title: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
-    twitterLink() {
+    twitterLink () {
       return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         this.title
-      )}&url=https://rl-japan.com/${this.id}/&hashtags=ロケットリーグ,RL_Japan`;
+      )}&url=https://rl-japan.com/${this.id}/&hashtags=ロケットリーグ,RL_Japan`
     },
-    facebookLink() {
-      return `https://www.facebook.com/sharer.php?u=https://rl-japan.com/${this.id}/`;
+    facebookLink () {
+      return `https://www.facebook.com/sharer.php?u=https://rl-japan.com/${this.id}/`
     },
-    hatenaLink() {
-      return `https://b.hatena.ne.jp/entry/https://rl-japan.com/${this.id}/`;
-    },
-  },
-};
+    hatenaLink () {
+      return `https://b.hatena.ne.jp/entry/https://rl-japan.com/${this.id}/`
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="post" v-html="body"></div>
+  <div class="post" v-html="body" />
 </template>
 
 <script>
@@ -8,10 +8,10 @@ export default {
     body: {
       type: String,
       required: true,
-      default: '',
-    },
-  },
-};
+      default: ''
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -5,12 +5,12 @@
         <source
           type="image/webp"
           :data-srcset="partner.logo.url + '?fit=crop&w=100&h=100&fm=webp'"
-        />
+        >
         <img
           :data-src="partner.logo.url + '?fit=crop&w=100&h=100&q=85'"
           class="image lazyload"
           alt
-        />
+        >
       </picture>
       <dl class="content">
         <dt class="name">
@@ -36,10 +36,10 @@ export default {
     partner: {
       type: Object,
       required: false,
-      default: undefined,
-    },
-  },
-};
+      default: undefined
+    }
+  }
+}
 </script>
 
 <style scoped>

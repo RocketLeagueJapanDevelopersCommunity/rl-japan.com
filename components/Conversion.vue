@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <h2 class="pageTitle">ロケットリーグ Japan Communityのご紹介</h2>
+    <h2 class="pageTitle">
+      ロケットリーグ Japan Communityのご紹介
+    </h2>
     <ol class="lists">
       <li class="list">
         <p><strong>初心者に優しい！</strong></p>
@@ -19,10 +21,10 @@
         class="link"
         target="site"
         :href="`/redirect?to=https%3A%2F%2Fdiscord.gg%2F5YwQNN9&utm_source=CTA&utm_medium=content-text&utm_campaign=blog-${id}-01`"
-        >⇒ロケットリーグ 日本コミュニティでロケットリーグにもっとハマる。<img
-          src="/images/icon_link.svg"
-          alt=""
-      /></a>
+      >⇒ロケットリーグ 日本コミュニティでロケットリーグにもっとハマる。<img
+        src="/images/icon_link.svg"
+        alt=""
+      ></a>
 
       <a
         target="site"
@@ -40,10 +42,10 @@ export default {
     id: {
       type: String,
       required: true,
-      default: '',
-    },
-  },
-};
+      default: ''
+    }
+  }
+}
 </script>
 
 <style scoped>

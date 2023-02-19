@@ -3,16 +3,19 @@
     <Header :header-cat="categories" />
     <div class="container">
       <dl>
-        <dt class="status">404</dt>
-        <dd class="message">ページが見つかりません</dd>
+        <dt class="status">
+          404
+        </dt>
+        <dd class="message">
+          ページが見つかりません
+        </dd>
         <a class="button" href="https://rl-japan.com/">トップページへ戻る</a>
         <dd class="message-small">
           もしくは、<a
             class="report-link"
             target="_blank"
             :href="generateMessageLink"
-            >運営に報告する</a
-          >
+          >運営に報告する</a>
         </dd>
       </dl>
     </div>
@@ -21,35 +24,35 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
-  async asyncData({ payload, $config }) {
+  async asyncData ({ payload, $config }) {
     const categories = await axios.get(
       `https://${$config.serviceId}.microcms.io/api/v1/categories?limit=100`,
       {
-        headers: { 'X-API-KEY': $config.apiKey },
+        headers: { 'X-API-KEY': $config.apiKey }
       }
-    );
+    )
     return {
-      categories: categories.data.contents,
-    };
+      categories: categories.data.contents
+    }
   },
-  computed: {
-    generateMessageLink() {
-      const template = encodeURI(`【404記事についてのお問い合わせ】
-Page: ${this.$route.fullPath}
-※このメッセージは編集せずそのまま送信してください。`);
-      return `https://twitter.com/messages/compose?recipient_id=1219270339466690560&text=${template}`;
-    },
-  },
-  head() {
+  head () {
     return {
       titleTemplate: null,
-      title: 'ページが見つかりません | ロケットリーグ 日本コミュニティ',
-    };
+      title: 'ページが見つかりません | ロケットリーグ 日本コミュニティ'
+    }
   },
-};
+  computed: {
+    generateMessageLink () {
+      const template = encodeURI(`【404記事についてのお問い合わせ】
+Page: ${this.$route.redirectedFrom}
+※このメッセージは編集せずそのまま送信してください。`)
+      return `https://twitter.com/messages/compose?recipient_id=1219270339466690560&text=${template}`
+    }
+  }
+}
 </script>
 
 <style scoped>
