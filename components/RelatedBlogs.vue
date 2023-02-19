@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="related-blogs-wrapper">
     <div class="pageTitle">関連記事</div>
     <div class="container">
       <div v-for="article in blogs" :key="article.id" class="card">
@@ -25,9 +25,9 @@
           </div>
           <div class="card__body">
             <h4>
-              {{ bytes(article.title, 30) }}
+              {{ bytes(article.title, 35) }}
             </h4>
-            <p>{{ bytes(article.description, 60) }}</p>
+            <p>{{ bytes(article.description, 45) }}</p>
           </div>
           <div class="card__footer">
             <Meta
@@ -80,12 +80,11 @@ export default {
 }
 .container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  max-width: 1200px;
   margin-block: 2rem;
-  gap: 2rem;
+  gap: 18px;
 }
-
 img {
   max-width: 100%;
   display: block;
@@ -95,7 +94,7 @@ img {
 .card {
   display: flex;
   flex-direction: column;
-  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  width: clamp(18rem, calc(18rem + 2vw), 20rem);
   overflow: hidden;
   box-shadow: none;
   border-radius: 1em;
