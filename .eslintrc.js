@@ -14,7 +14,9 @@ module.exports = {
   rules: {
     semi: 'error',
     'prefer-const': 'error',
+    'space-before-function-paren': 'off',
     'vue/no-v-html': 'off',
+    'vue/html-self-closing': 'off',
     'vue/multi-word-component-names': [
       'error',
       {
