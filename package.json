@@ -41,12 +41,12 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "12.0.0",
     "@nuxtjs/eslint-module": "3.1.0",
-    "eslint": "8.33.0",
+    "eslint": "8.34.0",
     "netlify-lambda": "2.0.15",
     "postcss-css-variables": "0.18.0",
     "postcss-import": "15.0.1",
     "postcss-nested": "4.2.3",
-    "prettier": "2.8.3"
+    "prettier": "2.8.4"
   },
   "resolutions": {
     "vue-template-compiler": "~2.6.14"
