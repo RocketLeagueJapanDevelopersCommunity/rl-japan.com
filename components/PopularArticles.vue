@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="pageTitle">ピックアップ記事</div>
+    <div class="pageTitle">
+      ピックアップ記事
+    </div>
     <ul>
       <li v-for="content in contents" :key="content.id" class="list">
         <nuxt-link :to="`/${content.id}`" class="link">
@@ -10,14 +12,16 @@
               :data-srcset="
                 content.ogimage.url + '?w=400&h=210&fm=webp&fit=crop&q=0'
               "
-            />
+            >
             <img
               :data-src="content.ogimage.url + '?w=400&h=210&fit=crop&q=0'"
               class="image lazyload"
               alt
-            />
+            >
           </picture>
-          <p class="title">{{ content.title }}</p>
+          <p class="title">
+            {{ content.title }}
+          </p>
         </nuxt-link>
       </li>
     </ul>
@@ -30,10 +34,10 @@ export default {
     contents: {
       type: Array,
       required: false,
-      default: () => [],
-    },
-  },
-};
+      default: () => []
+    }
+  }
+}
 </script>
 
 <style scoped>

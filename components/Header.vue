@@ -9,27 +9,31 @@
             width="100"
             height="100"
             alt="rl-japan icon"
-          />
+          >
           <img
             class="logoImg"
             src="/images/logo.svg"
             width="148"
             height="28"
             alt="rl-japan logo"
-          />
+          >
         </a>
       </div>
 
       <button class="menuBtn" @click="toggleOpen()">
-        <img src="/images/icon_menu.svg" alt="menu" />
+        <img src="/images/icon_menu.svg" alt="menu">
       </button>
-      <div v-if="open" class="mask" @click="setOpen(false)"></div>
+      <div v-if="open" class="mask" @click="setOpen(false)" />
 
       <div class="menu" :class="{ isOpen: open }">
-        <p class="lists_title sp">メニュー</p>
+        <p class="lists_title sp">
+          メニュー
+        </p>
         <ul class="lists">
           <li class="list">
-            <nuxt-link :to="`/calendar`" class="link">大会カレンダー</nuxt-link>
+            <nuxt-link :to="`/calendar`" class="link">
+              大会カレンダー
+            </nuxt-link>
           </li>
           <ul class="sns_lists">
             <li
@@ -38,7 +42,7 @@
               class="sns_list"
             >
               <a :href="sns_list.url">
-                <img :src="sns_list.image" />
+                <img :src="sns_list.image">
               </a>
             </li>
           </ul>
@@ -47,7 +51,7 @@
         <Footer class="sp_footer sp" />
       </div>
     </header>
-    <div class="empty"></div>
+    <div class="empty" />
   </div>
 </template>
 
@@ -57,10 +61,10 @@ export default {
     headerCat: {
       type: Array,
       required: false,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
-  data() {
+  data () {
     return {
       params: this.params || '',
       open: false,
@@ -68,38 +72,38 @@ export default {
         {
           name: 'Twitter',
           url: 'https://twitter.com/RL_Japan',
-          image: require('@/static/social_icons/twitter.png'),
+          image: require('@/static/social_icons/twitter.png')
         },
         {
           name: 'Discord',
           url: 'https://discord.gg/5YwQNN9',
-          image: require('@/static/social_icons/discord.png'),
+          image: require('@/static/social_icons/discord.png')
         },
         {
           name: 'YouTube',
           url: 'https://www.youtube.com/channel/UCsgfWCiq0fKODDH-psqNsGw',
-          image: require('@/static/social_icons/youtube.png'),
+          image: require('@/static/social_icons/youtube.png')
         },
         {
           name: 'Twitch',
           url: 'https://www.twitch.tv/rljapan',
-          image: require('@/static/social_icons/twitch.png'),
-        },
-      ],
-    };
+          image: require('@/static/social_icons/twitch.png')
+        }
+      ]
+    }
   },
-  mounted() {
-    this.params = location.search || '';
+  mounted () {
+    this.params = location.search || ''
   },
   methods: {
-    setOpen(value) {
-      this.open = value;
+    setOpen (value) {
+      this.open = value
     },
-    toggleOpen() {
-      this.open = !this.open;
-    },
-  },
-};
+    toggleOpen () {
+      this.open = !this.open
+    }
+  }
+}
 </script>
 
 <style scoped>

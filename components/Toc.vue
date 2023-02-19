@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" class="wrapper">
-    <input id="toggle1" type="checkbox" />
+    <input id="toggle1" type="checkbox">
     <div class="toggle-outer">
       <label for="toggle1" class="title">目次 [クリックして開く]</label>
     </div>
@@ -22,15 +22,15 @@ export default {
     toc: {
       type: Array,
       required: true,
-      default: () => [],
+      default: () => []
     },
     visible: {
       type: Boolean,
       required: false,
-      default: false,
-    },
-  },
-};
+      default: false
+    }
+  }
+}
 </script>
 
 <style scoped>

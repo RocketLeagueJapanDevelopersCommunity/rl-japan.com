@@ -1,12 +1,16 @@
 <template>
   <ul class="breadcrumb">
     <li class="breadcrumbList">
-      <nuxt-link to="/">TOP</nuxt-link>
+      <nuxt-link to="/">
+        TOP
+      </nuxt-link>
     </li>
     <li v-if="hasCategory(category)" class="breadcrumbList">
-      <nuxt-link :to="`/category/${category.id}/page/1`">{{
-        category.name
-      }}</nuxt-link>
+      <nuxt-link :to="`/category/${category.id}/page/1`">
+        {{
+          category.name
+        }}
+      </nuxt-link>
     </li>
   </ul>
 </template>
@@ -17,15 +21,15 @@ export default {
     category: {
       type: Object,
       required: false,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   methods: {
-    hasCategory(category) {
-      return Object.keys(category).length > 0;
-    },
-  },
-};
+    hasCategory (category) {
+      return Object.keys(category).length > 0
+    }
+  }
+}
 </script>
 
 <style scoped>

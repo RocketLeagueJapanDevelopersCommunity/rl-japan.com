@@ -8,7 +8,7 @@
             :data-srcset="
               content.ogimage.url + '?w=400&h=210&fm=webp&fit=crop&q=0'
             "
-          />
+          >
           <img
             src="@/static/images/loading.gif"
             :data-src="content.ogimage.url + '?w=400&h=210&fit=crop&q=0'"
@@ -16,10 +16,12 @@
             alt
             width="630"
             height="1200"
-          />
+          >
         </picture>
         <dl class="content">
-          <dt class="title">{{ content.title }}</dt>
+          <dt class="title">
+            {{ content.title }}
+          </dt>
           <dd>
             <Meta
               :created-at="content.publishedAt || content.createdAt"
@@ -39,10 +41,10 @@ export default {
     contents: {
       type: Array,
       required: false,
-      default: () => [],
-    },
-  },
-};
+      default: () => []
+    }
+  }
+}
 </script>
 
 <style scoped>

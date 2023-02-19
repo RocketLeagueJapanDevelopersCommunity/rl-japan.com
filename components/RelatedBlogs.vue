@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="pageTitle">関連記事</div>
+    <div class="pageTitle">
+      関連記事
+    </div>
     <ul class="lists">
       <li v-for="blog in blogs" :key="blog.id" class="list">
         <nuxt-link :to="`/${blog.id}`" class="link">
@@ -10,15 +12,17 @@
               :data-srcset="
                 blog.ogimage.url + '?w=400&h=210&fm=webp&fit=crop&q=0'
               "
-            />
+            >
             <img
               :data-src="blog.ogimage.url + '?w=400&h=210&fit=crop&q=0'"
               class="img lazyload"
               alt
-            />
+            >
           </picture>
           <dl class="content">
-            <dt class="title">{{ bytes(blog.title) }}</dt>
+            <dt class="title">
+              {{ bytes(blog.title) }}
+            </dt>
             <dd>
               <Meta
                 :created-at="blog.createdAt"
@@ -34,27 +38,27 @@
 </template>
 
 <script>
-import countBytes from '@/plugins/count-bytes.js';
+import countBytes from '@/plugins/count-bytes.js'
 export default {
   props: {
     blogs: {
       type: Array,
       required: false,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   methods: {
-    bytes(text) {
-      const TRIMCOUNT = 30;
-      let r;
-      const c = countBytes(text, TRIMCOUNT);
+    bytes (text) {
+      const TRIMCOUNT = 30
+      let r
+      const c = countBytes(text, TRIMCOUNT)
       if (c.targetIndex > TRIMCOUNT) {
-        r = text.slice(0, TRIMCOUNT) + '…';
-      } else r = text;
-      return r;
-    },
-  },
-};
+        r = text.slice(0, TRIMCOUNT) + '…'
+      } else { r = text }
+      return r
+    }
+  }
+}
 </script>
 
 <style scoped>

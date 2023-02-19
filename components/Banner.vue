@@ -11,8 +11,8 @@
         <source
           type="image/webp"
           :srcset="`${banner.image.url}?w=300&fm=webp, ${banner.image.url}?w=600&fm=webp 2x`"
-        />
-        <img :src="banner.image.url" class="image lazyload" :alt="banner.alt" />
+        >
+        <img :src="banner.image.url" class="image lazyload" :alt="banner.alt">
       </picture>
     </a>
   </div>
@@ -24,24 +24,24 @@ export default {
     banner: {
       type: Object,
       required: false,
-      default: undefined,
+      default: undefined
     },
     id: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   methods: {
-    bannerClick() {
+    bannerClick () {
       this.$gtag('event', 'banner_click', {
         event_category: 'banner',
         event_action: 'click',
         event_label: this.banner.url,
-        value: 1,
-      });
-    },
-  },
-};
+        value: 1
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>

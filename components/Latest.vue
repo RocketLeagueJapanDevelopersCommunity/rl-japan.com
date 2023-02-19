@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="pageTitle">最新の記事</div>
+    <div class="pageTitle">
+      最新の記事
+    </div>
     <ul>
       <li v-for="content in contents" :key="content.id" class="list">
         <nuxt-link :to="`/${content.id}`" class="link">
@@ -17,10 +19,10 @@ export default {
     contents: {
       type: Array,
       required: false,
-      default: () => [],
-    },
-  },
-};
+      default: () => []
+    }
+  }
+}
 </script>
 
 <style scoped>

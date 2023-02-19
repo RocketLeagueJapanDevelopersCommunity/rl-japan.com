@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="lists_title">カテゴリー</div>
+    <div class="lists_title">
+      カテゴリー
+    </div>
     <ul class="lists">
       <nuxt-link
         v-for="category in categories"
@@ -20,10 +22,10 @@ export default {
     categories: {
       type: Array,
       required: false,
-      default: () => [],
-    },
-  },
-};
+      default: () => []
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -46,10 +46,10 @@ export const colors = [
   { id: 45, value: '#000000' },
   { id: 46, value: '#383838' },
   { id: 47, value: '#757575' },
-  { id: 48, value: '#a3a3a3' },
-];
+  { id: 48, value: '#a3a3a3' }
+]
 
 export const getColor = (id) => {
-  const _color = colors.find((c) => c.id === id);
-  return _color ? _color.value : null;
-};
+  const _color = colors.find(c => c.id === id)
+  return _color ? _color.value : null
+}
