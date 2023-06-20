@@ -9,28 +9,28 @@
               media="(min-width: 1160px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=820&fm=webp, ${ogimage.url}?w=1640&fm=webp 2x`"
-            />
+            >
             <source
               media="(min-width: 820px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=740&fm=webp, ${ogimage.url}?w=1480&fm=webp 2x`"
-            />
+            >
             <source
               media="(min-width: 768px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=728&fm=webp, ${ogimage.url}?w=1456&fm=webp 2x`"
-            />
+            >
             <source
               media="(max-width: 768px)"
               type="image/webp"
               :srcset="`${ogimage.url}?w=375&fm=webp, ${ogimage.url}?w=750&fm=webp 2x`"
-            />
+            >
             <img
               ref="ogimage"
               :src="ogimage.url + '?w=820&q=85'"
               class="ogimage"
               alt
-            />
+            >
           </picture>
         </div>
         <Breadcrumb :category="category" />
@@ -40,7 +40,9 @@
             <h1 class="title">
               {{ title }}
             </h1>
-            <div class="reading-time">読了目安 {{ readingTime }}</div>
+            <div class="reading-time">
+              読了目安 {{ readingTime }}
+            </div>
             <Meta
               :created-at="publishedAt || createdAt"
               :author="writer !== null ? writer : ''"
@@ -55,14 +57,6 @@
               v-if="related_blogs.length > 0"
               :blogs="related_blogs"
             />
-            <a
-              v-if="slug === 'rljapan-site-open'"
-              class="comment"
-              target="_blank"
-              :href="`https://comment-stack.pages.dev/${slug}/comments`"
-            >
-              この記事のコメント欄を開く
-            </a>
           </div>
         </div>
       </article>
@@ -83,7 +77,7 @@ import axios from 'axios'
 import cheerio from 'cheerio'
 
 export default {
-  async asyncData({ params, payload, $config }) {
+  async asyncData ({ params, payload, $config }) {
     const data =
       payload !== undefined
         ? payload.content
@@ -156,17 +150,16 @@ export default {
       toc,
       categories: categories.data.contents,
       contents,
-      readingTime,
-      slug: params.slug
+      readingTime
     }
   },
-  data() {
+  data () {
     return {
       publishedAt: '',
       ogimage: null
     }
   },
-  jsonld() {
+  jsonld () {
     return {
       '@context': 'https://schema.org',
       '@type': 'NewsArticle',
@@ -194,7 +187,7 @@ export default {
       }
     }
   },
-  head() {
+  head () {
     return {
       title: this.title,
       meta: [
@@ -225,23 +218,6 @@ export default {
 .divider {
   background: white;
   padding: 40px;
-}
-
-a.comment {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin: auto;
-  padding: 1rem 4rem;
-  font-weight: bold;
-  border: 2px solid #27acd9;
-  color: #27acd9;
-  border-radius: 100vh;
-  transition: 0.5s;
-}
-a.comment:hover {
-  color: #fff;
-  background: #27acd9;
 }
 
 .reading-time {
