@@ -4,15 +4,16 @@
       <li v-for="sns_list in sns_lists" :key="sns_list.name" class="list">
         <a :href="sns_list.url">{{ sns_list.name }}</a>
       </li>
+      <li class="list">
+        <nuxt-link :to="`/privacy-policy`"> プライバシーポリシー </nuxt-link>
+      </li>
     </ul>
-    <p class="cr">
-      © ロケットリーグ 日本コミュニティ
-    </p>
+    <p class="cr">© ロケットリーグ 日本コミュニティ</p>
   </footer>
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       sns_lists: [
         {
