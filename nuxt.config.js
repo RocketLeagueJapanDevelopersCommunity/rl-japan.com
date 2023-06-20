@@ -157,9 +157,6 @@ export default {
    ** Build configuration
    */
   build: {
-    babel: {
-      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]]
-    },
     postcss: {
       plugins: {
         'postcss-custom-properties': {
@@ -171,7 +168,7 @@ export default {
     }
   },
   router: {
-    extendRoutes (routes, resolve) {
+    extendRoutes(routes, resolve) {
       routes.push({
         path: '/page/:id',
         component: resolve(__dirname, 'pages/index.vue'),
@@ -191,7 +188,7 @@ export default {
   },
   generate: {
     interval: 100,
-    async routes () {
+    async routes() {
       const range = (start, end) =>
         [...Array(end - start + 1)].map((_, i) => start + i)
       const limit = 50
@@ -225,7 +222,7 @@ export default {
               articles = await getArticles(offset + limit)
             }
             return [
-              ...res.data.contents.map(content => ({
+              ...res.data.contents.map((content) => ({
                 route: `/${content.id}`,
                 payload: { content, popularArticles, banner }
               })),
@@ -249,8 +246,8 @@ export default {
             headers: { 'X-API-KEY': API_KEY }
           }
         )
-        .then(res =>
-          range(1, Math.ceil(res.data.totalCount / 10)).map(p => ({
+        .then((res) =>
+          range(1, Math.ceil(res.data.totalCount / 10)).map((p) => ({
             route: `/page/${p}`,
             payload: { popularArticles, banner }
           }))
@@ -267,12 +264,12 @@ export default {
           headers: { 'X-API-KEY': API_KEY }
         })
         .then(({ data }) => {
-          return data.contents.map(content => content.id)
+          return data.contents.map((content) => content.id)
         })
 
       // カテゴリーページ
       const categoryPages = await Promise.all(
-        categories.map(category =>
+        categories.map((category) =>
           axios
             .get(
               `https://${SERVICE_ID}.microcms.io/api/v1/blog?limit=1&fields=id&filters=category[equals]${category}`,
@@ -283,7 +280,7 @@ export default {
               }
             )
             .then((res) => {
-              return range(1, Math.ceil(res.data.totalCount / 10)).map(p => ({
+              return range(1, Math.ceil(res.data.totalCount / 10)).map((p) => ({
                 route: `/category/${category}/page/${p}`,
                 payload: { popularArticles, banner }
               }))
@@ -305,7 +302,7 @@ export default {
   feed: [
     {
       path: '/feed.xml',
-      async create (feed) {
+      async create(feed) {
         feed.options = {
           title: 'ロケットリーグ 日本コミュニティ',
           link: 'https://rl-japan.com/feed.xml',
@@ -317,7 +314,7 @@ export default {
           .get(`https://${SERVICE_ID}.microcms.io/api/v1/blog`, {
             headers: { 'X-API-KEY': API_KEY }
           })
-          .then(res => res.data.contents)
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -336,7 +333,7 @@ export default {
     },
     {
       path: '/feed_update.xml',
-      async create (feed) {
+      async create(feed) {
         feed.options = {
           title: '更新情報｜ロケットリーグ 日本コミュニティ',
           link: 'https://rl-japan.com/feed.xml',
@@ -351,7 +348,7 @@ export default {
               headers: { 'X-API-KEY': API_KEY }
             }
           )
-          .then(res => res.data.contents)
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -370,7 +367,7 @@ export default {
     },
     {
       path: '/feed_tournament.xml',
-      async create (feed) {
+      async create(feed) {
         feed.options = {
           title: '大会情報｜ロケットリーグ 日本コミュニティ',
           link: 'https://rl-japan.com/feed.xml',
@@ -385,7 +382,7 @@ export default {
               headers: { 'X-API-KEY': API_KEY }
             }
           )
-          .then(res => res.data.contents)
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -404,7 +401,7 @@ export default {
     },
     {
       path: '/feed_tips.xml',
-      async create (feed) {
+      async create(feed) {
         feed.options = {
           title: '攻略情報｜ロケットリーグ 日本コミュニティ',
           link: 'https://rl-japan.com/feed.xml',
@@ -419,7 +416,7 @@ export default {
               headers: { 'X-API-KEY': API_KEY }
             }
           )
-          .then(res => res.data.contents)
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -438,7 +435,7 @@ export default {
     },
     {
       path: '/feed_rlcs.xml',
-      async create (feed) {
+      async create(feed) {
         feed.options = {
           title: 'RLCS｜ロケットリーグ 日本コミュニティ',
           link: 'https://rl-japan.com/feed.xml',
@@ -453,7 +450,7 @@ export default {
               headers: { 'X-API-KEY': API_KEY }
             }
           )
-          .then(res => res.data.contents)
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -472,7 +469,7 @@ export default {
     },
     {
       path: '/feed_interview.xml',
-      async create (feed) {
+      async create(feed) {
         feed.options = {
           title: 'インタビュー｜ロケットリーグ 日本コミュニティ',
           link: 'https://rl-japan.com/feed.xml',
@@ -487,7 +484,7 @@ export default {
               headers: { 'X-API-KEY': API_KEY }
             }
           )
-          .then(res => res.data.contents)
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({
@@ -506,7 +503,7 @@ export default {
     },
     {
       path: '/feed_worldtopics.xml',
-      async create (feed) {
+      async create(feed) {
         feed.options = {
           title: '海外の話題｜ロケットリーグ 日本コミュニティ',
           link: 'https://rl-japan.com/feed.xml',
@@ -521,7 +518,7 @@ export default {
               headers: { 'X-API-KEY': API_KEY }
             }
           )
-          .then(res => res.data.contents)
+          .then((res) => res.data.contents)
 
         posts.forEach((post) => {
           feed.addItem({

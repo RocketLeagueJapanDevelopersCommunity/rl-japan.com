@@ -4,46 +4,43 @@
     <div class="divider">
       <div class="container">
         <input
-          v-model="q"
+          v-model="searchQuery"
           class="search"
           type="text"
           placeholder="キーワードを入力"
-          @keyup.enter="(e) => search(e.target.value)"
+          @keyup.enter="(e) => onEnterSearch(e.target.value)"
           @keypress="setSearchable"
-        >
-        <div v-if="loading === true" class="loader">
+        />
+        <div v-if="loading" class="loader">
           <img
             class="loadingIcon"
             src="/images/icon_loading.svg"
             alt="検索中..."
-          >
+          />
         </div>
         <div v-else>
-          <div
-            v-show="loading === false && contents.length === 0"
-            class="loader"
-          >
+          <div v-show="contents.length === 0" class="loader">
             記事がありません
           </div>
+          <div v-if="contents.length > 0" style="text-align: right">
+            {{ totalCount }}件見つかりました。
+          </div>
           <PostLists :contents="contents" />
-          <ul v-show="contents.length > 0" class="pager">
-            <li
-              v-for="p in pager"
-              :key="p"
-              class="page"
-              :class="{ active: page === `${p + 1}` }"
-            >
-              <nuxt-link
-                :to="`/${
-                  selectedCategory !== undefined
-                    ? `category/${selectedCategory.id}/`
-                    : ''
-                }page/${p + 1}`"
-              >
-                {{ p + 1 }}
-              </nuxt-link>
-            </li>
-          </ul>
+          <button
+            @click="loadMoreArticle"
+            v-show="contents.length > 0 && currentOffset < totalCount"
+          >
+            <span v-if="!loadingMore">もっと見る</span>
+            <img
+              v-else
+              height="25px"
+              src="/images/icon_loading.svg"
+              alt="検索中..."
+            />
+          </button>
+          <div v-if="currentOffset > totalCount" style="text-align: center">
+            全{{ totalCount }}件
+          </div>
         </div>
       </div>
       <aside class="aside">
@@ -60,7 +57,7 @@
 import axios from 'axios'
 
 export default {
-  async asyncData ({ payload, $config }) {
+  async asyncData({ payload, $config }) {
     const popularArticles =
       payload !== undefined && payload.popularArticles !== undefined
         ? payload.popularArticles
@@ -95,58 +92,96 @@ export default {
       categories: categories.data.contents
     }
   },
-  data () {
+  data() {
     return {
       searchable: true,
       contents: this.contents || [],
       totalCount: this.totalCount || 0,
       categories: this.categories || [],
-      pager: this.pager || [],
       loading: true,
-      q: this.$route.query.q
+      searchQuery: this.$route.query.q || '',
+      loadingMore: false,
+      currentOffset: 0
     }
   },
-  head () {
+  head() {
     return {
       titleTemplate: null,
       title: 'ロケットリーグ 日本コミュニティ'
     }
   },
-  created () {
-    const query = this.$route.query
-    this.search(query.q)
+  mounted() {
+    this.onEnterSearch(this.searchQuery)
   },
   methods: {
-    setSearchable () {
+    setSearchable() {
       this.searchable = true
     },
-    async search (q = '') {
+    async onEnterSearch(q = '') {
+      this.contents = []
+      this.totalCount = 0
       if (!q.trim() || !this.searchable) {
         return
       }
-      this.loadingStart()
-      const { data, error } = await axios
-        .get(`/.netlify/functions/search?q=${q}`)
-        .catch(error => ({ error }))
-      this.loadingFinish()
-      if (error) {
-        return
-      }
-      this.contents = data.contents
-      this.totalCount = data.totalCount
-      this.searchable = false
-    },
-    loadingStart () {
+
       this.loading = true
+      await axios.get(`https://search.rl-japan.com/?q=${q}`).then((data) => {
+        const responseContents = data.data
+        this.contents.push(...responseContents.contents)
+        this.totalCount = responseContents.totalCount
+        this.searchable = false
+
+        this.loading = false
+      })
+
+      this.searchQuery = q
+      this.$router.push({
+        path: this.$route.path,
+        query: { ...this.$route.query, q }
+      })
     },
-    loadingFinish () {
-      this.loading = false
+    async loadMoreArticle() {
+      if (this.totalCount > this.currentOffset) {
+        this.loadingMore = true
+        const offset = this.currentOffset + 10
+
+        await axios
+          .get(
+            `https://search.rl-japan.com/?q=${this.searchQuery}&offset=${offset}`
+          )
+          .then((data) => {
+            const responseContents = data.data
+            this.contents.push(...responseContents.contents)
+            this.totalCount = responseContents.totalCount
+            this.searchable = false
+            this.currentOffset = offset
+          })
+
+        this.loadingMore = false
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+button {
+  border: none;
+  border-radius: 5px;
+  background: var(--color-text-sub);
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-text-main);
+  }
+}
 .search {
   border: 1px solid var(--color-border);
   width: 100%;
