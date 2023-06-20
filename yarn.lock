@@ -10821,7 +10821,6 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.20.12"
     "@babel/eslint-parser": "npm:^7.19.1"
-    "@babel/plugin-proposal-private-methods": "npm:^7.18.6"
     "@fullcalendar/daygrid": "npm:5.11.2"
     "@fullcalendar/google-calendar": "npm:5.11.2"
     "@fullcalendar/interaction": "npm:5.11.2"
