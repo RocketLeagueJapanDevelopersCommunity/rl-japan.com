@@ -46,7 +46,7 @@
     "postcss-css-variables": "0.18.0",
     "postcss-import": "15.0.1",
     "postcss-nested": "4.2.3",
-    "prettier": "2.8.4"
+    "prettier": "2.8.8"
   },
   "resolutions": {
     "vue-template-compiler": "~2.7.14"
