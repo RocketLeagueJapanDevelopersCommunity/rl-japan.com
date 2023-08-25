@@ -34,7 +34,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "hooper": "0.3.4",
     "nuxt": "2.15.8",
-    "nuxt-jsonld": "1.5.3",
+    "nuxt-jsonld": "1.5.8",
     "vue-scrollto": "2.20.0"
   },
   "devDependencies": {
